@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	margin:0px;
+	padding:0px;
+	}
+.txtResultado{
+font-size:28px;
+}
+
+#divResultado
+{display:none;}
+
+.centrado{
+	width:100%;
+	padding-left:45%;
+}
+
+.h{
+	width:100%;
+	background-color:#404040;
+	height:20px;
+	margin:0px 0px 20px 0px;
+	color:#FFF;
+	padding:10px;
+}
+
+img{
+	padding-left:35%;
+	}
+	
+input[text]{
+	width:200px;
+	}
