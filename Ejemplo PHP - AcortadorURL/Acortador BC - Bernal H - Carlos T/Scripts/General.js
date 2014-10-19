@@ -1,6 +1,5 @@
 // JavaScript Document
 $(document).ready(function(e) {
-	
 YUI().use('node-base', 'node-event-delegate', function (Y) {
     // This just makes sure that the href="#" attached to the <a> elements
     // don't scroll you back up the page.
@@ -22,6 +21,7 @@ $("#inpTiempo").change(function(){
 
 $("#btnAcortar").click(function()
 	{
+		
 		if($("#inpURL").val() != ""){	
 		
 		var parametros={

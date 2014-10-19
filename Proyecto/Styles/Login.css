@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0px;
+	color:#404040;
+}
+
+#divPrincipal {
+	 
+  width: 100%;
+  height:100%;
+  font: 14px Arial, Helvetica, sans-serif;
+}
+
+#divContenido{
+	width: 100%;
+  height:100%;
+	
+	/* flexbox setup */
+  display: -webkit-flex;
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  -webkit-justify-content: center;
+  justify-content: center;
+	
+  /* Vertical */	
+	-webkit-align-items: center;
+    align-items: center;
+
+	/* Wrap */
+	-webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+#divLogin{
+	background-color:#E5E5E5;
+	width:300px;
+	height:400px;
+	margin:10px;
+	
+	/* flexbox setup */
+  display: -webkit-flex;
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  -webkit-justify-content: center;
+  justify-content: center;
+	
+  /* Vertical */	
+	-webkit-align-items: center;
+    align-items: center;
+	
+}
+
+#divLogin > form{
+	width:100%;
+	margin: 10px;
+}
+
+#divLogin > form >input{
+	width:100%;
+	margin-bottom:5px;
+	margin-top:5px;
+	
+	padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+header{
+	width:100%;
+	text-align:center;
+}
+
