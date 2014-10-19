@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="C:/xampp/htdocs/" local="130581428757413090" remote="130581428750000000" Dst="0" />
-<file name="MisCursos.php" server="C:/xampp/htdocs/" local="130581666131827634" remote="130581666130000000" Dst="0" />
+<file name="login.php" server="C:/xampp/htdocs/" local="130581670424430542" remote="130581670420000000" Dst="0" />
+<file name="perfilAlumno.php" server="C:/xampp/htdocs/" local="130581670423990248" remote="130581670420000000" Dst="0" />
+<file name="registroUsuario.php" server="C:/xampp/htdocs/" local="130581670424390511" remote="130581670420000000" Dst="0" />
+<file name="misCursosAlumno.php" server="C:/xampp/htdocs/" local="130581773848497259" remote="130581773840000000" Dst="0" />
 </dwsync>
