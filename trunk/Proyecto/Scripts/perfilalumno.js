@@ -27,11 +27,9 @@ $(document).ready(function(e)
 			type: "POST",
 
 			success: function(response){
-				
-				alert("Alumno Ingresado con Exito");
+				alert(response);
 			},
 			error: function(response){
-							
 				alert(response);
 				}
 		});

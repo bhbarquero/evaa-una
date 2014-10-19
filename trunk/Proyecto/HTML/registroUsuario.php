@@ -12,15 +12,19 @@
 </head>
 
 <body>
+<header class="encabezado">
+<h1>EVAA</h1>
+</header>
+<div>
 <form id="form1">
   <table align="center">
     <tr valign="baseline">
       <td nowrap align="right">Correo electrónico:</td>
-      <td><input type="text" id="CorreoUsuario" value="" size="32"></td>
+      <td><input type="text" id="CorreoUsuario" value="" size="32" required></td>
     </tr>
     <tr valign="baseline">
-      <td nowrap align="right">Contrasena:</td>
-      <td><input type="text" id="Contrasena" value="" size="32"></td>
+      <td nowrap align="right">Contraseña:</td>
+      <td><input type="text" id="Contrasena" value="" size="32" required></td>
     </tr>
     <tr valign="baseline">
       <td nowrap align="right">Tipo de Usuario:</td>
@@ -31,10 +35,10 @@
     </tr>
     <tr valign="baseline">
       <td nowrap align="right">&nbsp;</td>
-      <td><a id="btnRegistrar">Insertar registro</a></td>
+      <td><a id="btnRegistrar2">Insertar registro </a></td>
     </tr>
   </table>
 </form>
-<p>&nbsp;</p>
+</div>
 </body>
 </html>

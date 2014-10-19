@@ -5,6 +5,9 @@
 <title>EVAA</title>
 <link  type="text/css" rel="stylesheet" href="../Styles/General.css">
 <link  type="text/css" rel="stylesheet" href="../Styles/Login.css">
+
+<script src="../Scripts/jquery-2.1.1.min.js"></script>
+<script src="../Scripts/login.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -17,9 +20,9 @@
         <div id="divContenido">
             <div id="divLogin">
                 <form>
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Contraseña"> 
-                    <a>Entrar </a>             
+                    <input id="correo" type="text" placeholder="Email">
+                    <input id="pass" type="password" placeholder="Contraseña"> 
+                    <a id="btnEntrar">Entrar </a>
                 </form>
             </div>
         </div>
