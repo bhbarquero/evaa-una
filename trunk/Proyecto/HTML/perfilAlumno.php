@@ -5,6 +5,8 @@
 <meta charset="utf-8">
 <title>Documento sin título</title>
 
+<link type="text/css" rel="stylesheet" href="../Styles/General.css">
+
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script src="../Scripts/perfilalumno.js" type="text/javascript"></script>
 
@@ -45,8 +47,12 @@
         <td><input type="text" id="TelefonoMovil" value="" size="32" required></td>
       </tr>
       <tr valign="baseline">
+        <td nowrap align="right">Fecha Ingreso:</td>
+        <td><input type="date" id="FechaIngreso" value="" size="32" required></td>
+      </tr>
+      <tr valign="baseline">
         <td nowrap align="right">&nbsp;</td>
-        <td><input id="btnInsertarAlumno" type="submit" value="Insertar registro" ></td>
+        <td><a id="btnInsertarAlumno"> Insertar registro</a></td>
       </tr>
     </table>
     <input type="hidden" name="MM_insert" value="form1">

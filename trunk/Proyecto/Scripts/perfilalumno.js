@@ -16,13 +16,14 @@ $(document).ready(function(e)
 				"fechanacimiento":$("#FechaNacimiento").val(),
 				"direccion":$("#Direccion").val(),
 				"telefonofijo":$("#TelefonoFijo").val(),
-				"telefonomovil":$("#TelefonoMovil").val()
+				"telefonomovil":$("#TelefonoMovil").val(),
+				"fechaingreso":$("#FechaIngreso").val()
 			};
 		};
 		
 		$.ajax({
 			data:parametros,
-			url:"../PHP/registrarProfesor.php",
+			url:"../PHP/registrarAlumno.php",
 			type: "POST",
 
 			success: function(response){
