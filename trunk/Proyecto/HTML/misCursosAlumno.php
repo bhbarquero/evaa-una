@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Cursos del Estudiante</title>
 
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../Scripts/misCursosAlumno.js"></script>
@@ -17,17 +17,27 @@
             <label>Listado de Cursos de Estudiante </label>
         </header>
     </div>
+    
+	<script language=Javascript>
+		function soloNumeros(evt) {
+			var keyPress = (evt.which) ? evt.which : event.keyCode
+			return !(keyPress > 31 && (keyPress < 48 || keyPress > 57));
+		}
+	</script>
             
     <div id="divContenido">
     	<br><label><strong>Filtrar Cursos</strong></label>
-    	<br><input type="text" id="NomCurso" placeholder="Nombre Curso"> &nbsp; <input type="text" name="Año" placeholder="Año"><br>
-
-		<div id="divTablaResultados">
+    	<br><input type="text" id="NomCurso" placeholder="Nombre Curso"> &nbsp; 
+        <input id="Ano" onkeypress="return soloNumeros(event)" type="text" placeholder="Año">
         
+		<div id="divTablaResultados">
+			<!-- Lista la tabla con los cursos de estudiante -->
         </div>
 
     </div>
+    
     <footer>
     </footer>
+    
 </body>
 </html>

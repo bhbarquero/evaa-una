@@ -5,11 +5,16 @@ $(document).ready(function(e) {
     $("#NomCurso").keyup(function(){
 		Listar();
 	});
+	
+	$("#Ano").keyup(function(){
+		Listar();
+	});
 });
 
 function Listar() {
 	var parametros={ 
-		"Nombre":$("#NomCurso").val()
+		"Nombre":$("#NomCurso").val(),
+		"AnnoGrupo":$("#Ano").val()
 	};
 		
 	$.ajax({
