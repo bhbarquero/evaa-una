@@ -7,12 +7,13 @@
                                 WHERE tb_curso.CursoId = tb_grupo.CursoId 
                                 AND tb_grupo.GrupoId = tb_matricula.GrupoId 
 								AND tb_curso.Descripcion LIKE '%".$_POST['Nombre']."%'
-                                AND tb_matricula.usuarioCoreo = '123@gmail.com'";			
+								AND tb_grupo.Anno LIKE '%".$_POST["AnnoGrupo"]."%'
+                                AND tb_matricula.CorreoUsuario  = 'rvalverde@gmail.com'";			
 								
-		if (mysql_num_rows( $result = mysql_query($consulta, $link))>0){ 
-			$tabla ="<table border = '1'><br/><tr><td><b>Nombre Cursos</b></td></tr> \n";
+		if (mysql_num_rows($result = mysql_query($consulta, $link))>0){ 
+			$tabla ="<table border = '1'><br/><tr><td><b>Historial de Cursos</b></td></tr> \n";
 				while($row = mysql_fetch_row($result))   
-					$tabla= $tabla."<tr><td>".$row[0]."</td></tr> \n </table> \n";
+					$tabla= $tabla."<tr><td>".$row[0]."</td></tr><br/></table>\n";
 				echo $tabla; 
 		}else 
 			echo "<br>No se ha encontrado ningún curso!";	
