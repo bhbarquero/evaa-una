@@ -17,18 +17,11 @@
             <label>Listado de Cursos de Estudiante </label>
         </header>
     </div>
-    
-	<script language=Javascript>
-		function soloNumeros(evt) {
-			var keyPress = (evt.which) ? evt.which : event.keyCode
-			return !(keyPress > 31 && (keyPress < 48 || keyPress > 57));
-		}
-	</script>
             
     <div id="divContenido">
     	<br><label><strong>Filtrar Cursos</strong></label>
     	<br><input type="text" id="NomCurso" placeholder="Nombre Curso"> &nbsp; 
-        <input id="Ano" onkeypress="return soloNumeros(event)" type="text" placeholder="Año">
+        <input id="Ano" onkeypress="return soloNumeros(event)" type="number" placeholder="Año">
         
 		<div id="divTablaResultados">
 			<!-- Lista la tabla con los cursos de estudiante -->
