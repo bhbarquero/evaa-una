@@ -1,0 +1,146 @@
+body {
+	color: #777;
+}
+
+h2{
+	color:#67abb8!important;
+}
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout, #notif, .notif-link {
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+/*
+This is the parent `<div>`
+*/
+#layout {
+	position: relative;
+	padding-left: 0;
+}
+#layout.active {
+	position: relative;
+	left: 150px;
+}
+#layout.active #notif {
+	left: 150px;
+	width: 150px;
+}
+#layout.active .notif-link {
+	left: 150px;
+}
+/*
+The content `<div>`
+*/
+.content {
+	margin: 0 auto;
+	padding: 0 2em;
+	max-width: 800px;
+	margin-bottom: 50px;
+	line-height: 1.6em;
+}
+header {
+	margin: 0;
+	color: #333;
+	text-align: center;
+	padding: 2.5em 2em 0;
+	border-bottom: 1px solid #eee;
+}
+header h1 {
+	margin: 0.2em 0;
+	font-size: 3em;
+	font-weight: 300;
+	color:#67abb8;
+}
+header h2 {
+	font-weight: 300;
+	color: #ccc;
+	padding: 0;
+	margin-top: 0;
+}
+.content-subhead {
+	margin: 50px 0 20px 0;
+	font-weight: 300;
+	color: #888;
+}
+/*
+The `#notif`
+*/
+
+#notif {
+	margin-left: -150px;
+	width: 150px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+	background: #262626;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* -- Dynamic Button For Responsive notif -------------------------------------*/
+
+.notif-link {
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+	background: #000;
+	background: #262626;
+	font-size: 10px;
+	z-index: 10;
+	width: 2em;
+	height: auto;
+	padding: 2.1em 1.6em;
+
+}
+.notif-link:hover,  .notif-link:focus {
+	background: #262626;
+}
+.notif-link span {
+	position: relative;
+	display: block;
+}
+.notif-link span,  .notif-link span:before,  .notif-link span:after {
+	background-color: #fff;
+	width: 100%;
+	height: 0.2em;
+}
+.notif-link span:before,  .notif-link span:after {
+	position: absolute;
+	margin-top: -0.6em;
+	content: " ";
+}
+.notif-link span:after {
+	margin-top: 0.6em;
+}
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+@media (min-width: 48em) {
+header,  .content {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+#layout {
+	padding-left: 150px;
+	left: 0;
+}
+#notif {
+	left: 150px;
+}
+.notif-link {
+	position: fixed;
+	left: 150px;
+	display: none;
+}
+#layout.active .notif-link {
+	left: 150px;
+}
+}

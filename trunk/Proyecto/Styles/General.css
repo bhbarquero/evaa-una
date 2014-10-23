@@ -1,131 +1,467 @@
-@charset "utf-8";
 /* CSS Document */
+/*
+BOTONES
+*/
+.evaa-button {
+    display: inline-block;
+    *display: inline; /*IE 6/7*/
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
-@font-face {
-	font-family: Titulo;
-	src: url(../Fuentes/Dense-Regular.otf);
+/* Firefox: Get rid of the inner focus border */
+.evaa-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
 }
-body {
-	margin: 0px;
-	padding: 0px;/*color: #777;*/
+
+.evaa-button {
+    font-family: inherit;
+    font-size: 100%;
+    *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
+    *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+    padding: 0.5em 1em;
+    color: #444; /* rgba not supported (IE 8) */
+    color: rgba(0, 0, 0, 0.80); /* rgba supported */
+    *color: #444; /* IE 6 & 7 */
+    border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
 }
-#layout, #notifications .notifications-link {
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition: all 0.2s ease-out;
-	-ms-transition: all 0.2s ease-out;
-	-o-transition: all 0.2s ease-out;
-	transition: all 0.2s ease-out;
+
+.evaa-button-hover,
+.evaa-button:hover,
+.evaa-button:focus {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+    background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
 }
-#layout {
-	position: relative;
-	padding-left: 0;
+.evaa-button:focus {
+    outline: 0;
 }
-#layout {
+.evaa-button-active,
+.evaa-button:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+}
+
+.evaa-button[disabled],
+.evaa-button-disabled,
+.evaa-button-disabled:hover,
+.evaa-button-disabled:focus,
+.evaa-button-disabled:active {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.evaa-button-hidden {
+    display: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.evaa-button::-moz-focus-inner{
+    padding: 0;
+    border: 0;
+}
+
+.evaa-button-primary,
+.evaa-button-selected,
+a.evaa-button-primary,
+a.evaa-button-selected {
+    background-color: #f15b40;
+    color: #fff;
+}
+
+/*
+FORMS
+*/
+
+/*!
+evaa v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/evaa/blob/master/LICENSE.md
+*/
+.evaa-form input[type="text"],
+.evaa-form input[type="password"],
+.evaa-form input[type="email"],
+.evaa-form input[type="url"],
+.evaa-form input[type="date"],
+.evaa-form input[type="month"],
+.evaa-form input[type="time"],
+.evaa-form input[type="datetime"],
+.evaa-form input[type="datetime-local"],
+.evaa-form input[type="week"],
+.evaa-form input[type="number"],
+.evaa-form input[type="search"],
+.evaa-form input[type="tel"],
+.evaa-form input[type="color"],
+.evaa-form select,
+.evaa-form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.evaa-form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.evaa-form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+
+
+.evaa-form input[type="text"]:focus,
+.evaa-form input[type="password"]:focus,
+.evaa-form input[type="email"]:focus,
+.evaa-form input[type="url"]:focus,
+.evaa-form input[type="date"]:focus,
+.evaa-form input[type="month"]:focus,
+.evaa-form input[type="time"]:focus,
+.evaa-form input[type="datetime"]:focus,
+.evaa-form input[type="datetime-local"]:focus,
+.evaa-form input[type="week"]:focus,
+.evaa-form input[type="number"]:focus,
+.evaa-form input[type="search"]:focus,
+.evaa-form input[type="tel"]:focus,
+.evaa-form input[type="color"]:focus,
+.evaa-form select:focus,
+.evaa-form textarea:focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.evaa-form input:not([type]):focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+}
+
+.evaa-form input[type="file"]:focus,
+.evaa-form input[type="radio"]:focus,
+.evaa-form input[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline: 1px auto #129FEA;
+}
+.evaa-form .evaa-checkbox,
+.evaa-form .evaa-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.evaa-form input[type="text"][disabled],
+.evaa-form input[type="password"][disabled],
+.evaa-form input[type="email"][disabled],
+.evaa-form input[type="url"][disabled],
+.evaa-form input[type="date"][disabled],
+.evaa-form input[type="month"][disabled],
+.evaa-form input[type="time"][disabled],
+.evaa-form input[type="datetime"][disabled],
+.evaa-form input[type="datetime-local"][disabled],
+.evaa-form input[type="week"][disabled],
+.evaa-form input[type="number"][disabled],
+.evaa-form input[type="search"][disabled],
+.evaa-form input[type="tel"][disabled],
+.evaa-form input[type="color"][disabled],
+.evaa-form select[disabled],
+.evaa-form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.evaa-form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.evaa-form input[readonly],
+.evaa-form select[readonly],
+.evaa-form textarea[readonly] {
+    background: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.evaa-form input:focus:invalid,
+.evaa-form textarea:focus:invalid,
+.evaa-form select:focus:invalid {
+    color: #b94a48;
+    border-color: #ee5f5b;
+}
+.evaa-form input:focus:invalid:focus,
+.evaa-form textarea:focus:invalid:focus,
+.evaa-form select:focus:invalid:focus {
+    border-color: #e9322d;
+}
+.evaa-form input[type="file"]:focus:invalid:focus,
+.evaa-form input[type="radio"]:focus:invalid:focus,
+.evaa-form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.evaa-form select {
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.evaa-form select[multiple] {
+    height: auto;
+}
+.evaa-form label {
+    margin: 0.5em 0 0.2em;
+}
+.evaa-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.evaa-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.evaa-form-stacked input[type="text"],
+.evaa-form-stacked input[type="password"],
+.evaa-form-stacked input[type="email"],
+.evaa-form-stacked input[type="url"],
+.evaa-form-stacked input[type="date"],
+.evaa-form-stacked input[type="month"],
+.evaa-form-stacked input[type="time"],
+.evaa-form-stacked input[type="datetime"],
+.evaa-form-stacked input[type="datetime-local"],
+.evaa-form-stacked input[type="week"],
+.evaa-form-stacked input[type="number"],
+.evaa-form-stacked input[type="search"],
+.evaa-form-stacked input[type="tel"],
+.evaa-form-stacked input[type="color"],
+.evaa-form-stacked select,
+.evaa-form-stacked label,
+.evaa-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.evaa-form-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.evaa-form-aligned input,
+.evaa-form-aligned textarea,
+.evaa-form-aligned select,
+/* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */
+.evaa-form-aligned .evaa-help-inline,
+.evaa-form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.evaa-form-aligned textarea {
+    vertical-align: top;
+}
+
+/* Aligned Forms */
+.evaa-form-aligned .evaa-control-group {
+    margin-bottom: 0.5em;
+}
+.evaa-form-aligned .evaa-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.evaa-form-aligned .evaa-controls {
+    margin: 1.5em 0 0 10em;
+}
+
+/* Rounded Inputs */
+.evaa-form input.evaa-input-rounded,
+.evaa-form .evaa-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.evaa-form .evaa-group fieldset {
+    margin-bottom: 10px;
+}
+.evaa-form .evaa-group input {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
     position: relative;
-    padding-left: 0;
+    top: -1px;
 }
-    #layout.active {
-        position: relative;
-        left: 150px;
+.evaa-form .evaa-group input:focus {
+    z-index: 2;
+}
+.evaa-form .evaa-group input:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+}
+.evaa-form .evaa-group input:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+}
+.evaa-form .evaa-group button {
+    margin: 0.35em 0;
+}
+
+.evaa-form .evaa-input-1 {
+    width: 100%;
+}
+.evaa-form .evaa-input-2-3 {
+    width: 66%;
+}
+.evaa-form .evaa-input-1-2 {
+    width: 50%;
+}
+.evaa-form .evaa-input-1-3 {
+    width: 33%;
+}
+.evaa-form .evaa-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */
+.evaa-form .evaa-help-inline,
+.evaa-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Block help for forms */
+.evaa-form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
+
+@media only screen and (max-width : 480px) {
+    .evaa-form button[type="submit"] {
+        margin: 0.7em 0 0;
     }
-        #layout.active #notifications {
-            left: 150px;
-            width: 150px;
-        }
 
-        #layout.active .notifications-link {
-            left: 150px;
-        }
-.content {
-	margin: 0 auto;
-	padding: 0 2em;
-	max-width: 700px;
-	margin-bottom: 50px;
-	line-height: 1.6em;
-}
-.content h2{
-	color: #f15b40;
-}
-
-header {
-	margin: 0;
-	color: #f15b40;
-	text-align: center;
-	padding: 2.5em 2em 0;
-	border-bottom: 1px solid #eee;
-}
-header h1 {
-	margin: 0.2em 0;
-	font-size: 3em;
-	font-weight: 300;
-}
-
-#notifications {
-    margin-left: -150px; /* "#notifications" width */
-    width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000; /* so the notifications or its navicon stays above all content */
-    background: #262626;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-.notifications-link:hover,
-    .notifications-link:focus {
-        background: #000;
-    }
-
-    .notifications-link span {
-        position: relative;
+    .evaa-form input:not([type]),
+    .evaa-form input[type="text"],
+    .evaa-form input[type="password"],
+    .evaa-form input[type="email"],
+    .evaa-form input[type="url"],
+    .evaa-form input[type="date"],
+    .evaa-form input[type="month"],
+    .evaa-form input[type="time"],
+    .evaa-form input[type="datetime"],
+    .evaa-form input[type="datetime-local"],
+    .evaa-form input[type="week"],
+    .evaa-form input[type="number"],
+    .evaa-form input[type="search"],
+    .evaa-form input[type="tel"],
+    .evaa-form input[type="color"],
+    .evaa-form label {
+        margin-bottom: 0.3em;
         display: block;
     }
 
-    .notifications-link span,
-    .notifications-link span:before,
-    .notifications-link span:after {
-        background-color: #fff;
+    .evaa-group input:not([type]),
+    .evaa-group input[type="text"],
+    .evaa-group input[type="password"],
+    .evaa-group input[type="email"],
+    .evaa-group input[type="url"],
+    .evaa-group input[type="date"],
+    .evaa-group input[type="month"],
+    .evaa-group input[type="time"],
+    .evaa-group input[type="datetime"],
+    .evaa-group input[type="datetime-local"],
+    .evaa-group input[type="week"],
+    .evaa-group input[type="number"],
+    .evaa-group input[type="search"],
+    .evaa-group input[type="tel"],
+    .evaa-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .evaa-form-aligned .evaa-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
         width: 100%;
-        height: 0.2em;
     }
 
-        .notifications-link span:before,
-        .notifications-link span:after {
-            position: absolute;
-            margin-top: -0.6em;
-            content: " ";
-        }
-
-        .notifications-link span:after {
-            margin-top: 0.6em;
-        }
-
-/* -- Responsive Styles (Media Queries) ------------------------------------- */
-
-@media (min-width: 48em) {
-
-    header,
-    .content {
-        padding-left: 2em;
-        padding-right: 2em;
+    .evaa-form-aligned .evaa-controls {
+        margin: 1.5em 0 0 0;
     }
 
-    #layout {
-        padding-left: 150px; /* left col width "#notifications" */
-        left: 0;
-    }
-    #notifications {
-        left: 150px;
-    }
-
-    #layout.active {
-        left: 150px;
-    }
-	.notifications-link {
-        position: fixed;
-        left: 150px;
-        display: none;
+    /* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */
+    .evaa-form .evaa-help-inline,
+    .evaa-form-message-inline,
+    .evaa-form-message {
+        display: block;
+        font-size: 0.75em;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2em 0 0.8em;
     }
 }
+
 
