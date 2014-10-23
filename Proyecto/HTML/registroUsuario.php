@@ -3,29 +3,36 @@
 <head>
 <meta charset="utf-8">
 <title>Registro de usuario</title>
-<link type="text/css" rel="stylesheet" href="../Styles/General.css">
-<link type="text/css" rel="stylesheet" href="../Styles/forms.css">
-<link type="text/css" rel="stylesheet" href="../Styles/buttons.css">
+
+<!-- Master Page-->
+<link rel="stylesheet" href="../Styles/Master.css">
+
+<!-- Adicionales -->
+<link rel="stylesheet" href="../Styles/General.css">
 
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script src="../Scripts/registroUsuario.js" type="text/javascript"></script>
-<script src="../Scripts/General.js" type="text/javascript"></script>
 </head>
 
 <body>
-<div id="layout"> <a href="#notifications" id="notificationsLink" class="notifications-link"> 
-  <!-- Hamburger icon --> 
-  <span></span> l</a>
-  <div id="notifications">
-    <div > <a href="#"></a> </div>
-  </div>
-  <div id="main">
+<!-- Contenedor Principal -->
+<div id="layout"> 
+  
+  <!-- Ícono de notificación --> 
+  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
+  <div id="notif"> </div>
+  
+  <!-- Contenedor Secundario -->
+  <div id="main"> 
+    <!-- Encabezado -->
     <header>
       <h1>EVAA</h1>
     </header>
+    
+    <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
       <h2 class="content-subhead">Crea tu cuenta</h2>
-      <form id="frmResgistro" class="pure-form pure-form-stacked">
+      <form id="frmResgistro" class="evaa-form evaa-form-stacked">
         <label for="CorreoUsuario">Correo electrónico:</label>
         <input type="email" id="CorreoUsuario" value="" size="32" placeholder="Obligatorio" required>
         <label for="Contrasena">Contraseña:</label>
@@ -38,10 +45,13 @@
           <option value="2">Estudiante</option>
         </select>
         <br/>
-        <a id="btnRegistrar2" class="pure-button pure-button-primary" >Registrarse </a>
+        <a id="btnRegistrar2" class="evaa-button evaa-button-primary" >Registrarse </a>
       </form>
     </div>
   </div>
 </div>
+
+<!-- Master Page--> 
+<script src="../Scripts/Master.js"></script>
 </body>
 </html>
