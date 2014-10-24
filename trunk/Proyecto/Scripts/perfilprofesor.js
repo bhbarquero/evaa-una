@@ -14,7 +14,7 @@ $(document).ready(function(e)
 			type: "POST",
 
 			success: function(response){
-				 var variable1 = <%=Session["PersonaCedula"] %>;
+				 var variable1 =Session["PersonaCedula"];
 				
 				$("#Cedula").val(variable1);
 				
@@ -28,7 +28,7 @@ $(document).ready(function(e)
 		
 		});
 
-	$("#btnInsertarAlumno").click(function()
+	$("#btnInsertarProfesor").click(function()
 	{
 		
 		if($("#Cedula").val() != "")
