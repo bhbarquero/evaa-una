@@ -17,50 +17,25 @@
 </header>
 <div id="">
   <form method="post" name="form1" >
-    <table align="center">
-      <tr valign="baseline">
-        <td nowrap align="right">Cedula:</td>
-        <td><input type="text" id="Cedula" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Nombre:</td>
-        <td><input type="text" id="Nombre" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Apellido:</td>
-        <td><input type="text" id="Apellido" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">FechaNacimiento:</td>
-        <td><input type="date" id="FechaNacimiento" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Direccion:</td>
-        <td><input type="text" id="Direccion" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Telefono Fijo:</td>
-        <td><input type="text" id="TelefonoFijo" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Telefono Movil:</td>
-        <td><input type="text" id="TelefonoMovil" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">Especialidad:</td>
-        <td><input type="text" id="Especialidad" value="" size="32" required></td>
-      </tr>
-      <tr valign="baseline">
-        <td nowrap align="right">&nbsp;</td>
-        <td><a id="btnInsertarAlumno"> Insertar registro</a></td>
-      </tr>
-    </table>
-    <input type="hidden" name="MM_insert" value="form1">
+  		<div class="pure-control-group">
+            <label for="name">Cédula </label>
+            <input type="text" id="Cedula" value="" size="32"  required>
+        </div>
+        <input type="text" id="Nombre" value="" size="32" required>
+        <input type="text" id="Apellido" value="" size="32" required>
+      	<input type="date" id="FechaNacimiento" value="" size="32" required>
+     	 <input type="text" id="Direccion" value="" size="32" required>
+     	 <input type="text" id="TelefonoFijo" value="" size="32" required>
+     	 <input type="text" id="TelefonoMovil" value="" size="32" required>
+     	 <input type="text" id="Especialidad" value="" size="32" required>
+     	 <a id="btnInsertarProfesor"> Insertar</a>
+  <!--  <input type="hidden" name="MM_insert" value="form1">-->
   </form>
   
   <input id="pruebaTxt" type="text">
-  <a id="pruebaBtn">Buscar</a></td>
+  <a id="pruebaBtn">Buscar</a>
 </div>
+		
 
 
 <footer>
