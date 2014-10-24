@@ -22,56 +22,34 @@ if(isset($_POST['cedula']))
 		$TelefonoMovil=$_POST['telefonomovil'];
 		$Especialidad=$_POST['especialidad'];
 		
-		$consulta="insert into tb_persona
-			(
-				Cedula,
-				Nombre,
-				Apellido,
-				FechaNacimiento,
-				Direccion,
-				TelefonoFijo,
-				TelefonoMovil		
-			)
-			values
-			(
-				'$Cedula',
-				'$Nombre',
-				'$Apellido',
-				'$FechaNacimiento',
-				'$Direccion',
-				'$TelefonoFijo',
-				'$TelefonoMovil'
-							
-			);
-		";
+			$consulta="UPDATE tb_persona SET 
+			Nombre='".$Nombre."', 
+			Apellido='".$Apellido."',
+			FechaNacimiento='".$FechaNacimiento."',
+			Direccion='".$Direccion."',
+			TelefonoFijo=".$TelefonoFijo.",
+ 			TelefonoMovil =".$TelefonoMovil."
+			WHERE Cedula='".$Cedula."'";
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			$consulta2="insert into tb_profesor
-				(
-					Cedula,
-					Especialidad		
-				)
-				values
-				(
-					'$Cedula',
-					'$Especialidad'
-							
-				);
-			";	
+			$consulta2="UPDATE tb_profesor SET
+				Especialidad='".$Especialidad."'
+				Where Cedula='".$Cedula."'";	
 			if($resultado2=mysqli_query($conexion,$consulta2))
 			{
 			
-				echo "Guardado con exito";
+				echo "Se actualizo con éxito";
+				
 			}
 			else
 			{
-				echo "Error al Ingresar el Nuevo Profesor: ".mysqli_connect_error();
+				echo "Error al Actualizar el Profesor: ".mysqli_connect_error();
 			}
 		}
 		else
 		{
-			echo "Error al Ingresar la nueva Persona: ".mysqli_connect_error();
+			echo "Error al Actualizar la Persona: ".mysqli_connect_error();
 		}
 		
 	}
