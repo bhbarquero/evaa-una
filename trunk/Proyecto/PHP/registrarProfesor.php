@@ -17,9 +17,10 @@ if(isset($_POST['cedula']))
 		$Nombre=$_POST['nombre'];
 		$Apellido=$_POST['apellido'];
 		$FechaNacimiento=$_POST['fechanacimiento'];
-		$Direccion=$_POST['diricion'];
+		$Direccion=$_POST['direccion'];
 		$TelefonoFijo=$_POST['telefonofijo'];
 		$TelefonoMovil=$_POST['telefonomovil'];
+		$Especialidad=$_POST['especialidad'];
 		
 		$consulta="insert into tb_persona
 			(
@@ -43,14 +44,34 @@ if(isset($_POST['cedula']))
 							
 			);
 		";
-		
-		if($resultado=mysqli_query($conexion,$consulta))
+			
+	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			echo "$short";
+			$consulta2="insert into tb_profesor
+				(
+					Cedula,
+					Especialidad		
+				)
+				values
+				(
+					'$Cedula',
+					'$Especialidad'
+							
+				);
+			";	
+			if($resultado2=mysqli_query($conexion,$consulta2))
+			{
+			
+				echo "Guardado con exito";
+			}
+			else
+			{
+				echo "Error al Ingresar el Nuevo Profesor: ".mysqli_connect_error();
+			}
 		}
 		else
 		{
-			echo "Error al acortar la dirección: ".mysqli_connect_error();
+			echo "Error al Ingresar el Profesor: ".mysqli_connect_error();
 		}
 		
 	}
