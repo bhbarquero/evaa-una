@@ -15,19 +15,21 @@ if(isset($_POST['correoUsuario']))
 	{
 		$Correo=$_POST['correoUsuario'];		
 		
+		$consulta="SELECT tb_persona.*,tb_profesor.Especialidad  
+				  from tb_persona 
+				  inner join tb_profesor on tb_persona.cedula=tb_profesor.cedula 
+				  where tb_persona.CorreoUsuario='".$Correo."'";
 		
-		$consulta="Select * 
-				   From tb_persona 
-				   Where CorreoUsuario LIKE '".$Correo."'";
-				   
 	     
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			while ($resEmp = mysqli_fetch_assoc($resultado)) {
-				session.satar();
-				$_SESSION['CedulaPersona']=$resEmp['Cedula'];
+			while ($resPro = mysqli_fetch_assoc($resultado)) {
+				echo $resPro['Cedula'].','.$resPro['Nombre'].','.$resPro['Apellido'].','.$resPro['FechaNacimiento']
+				.','.$resPro['Direccion'].','.$resPro['TelefonoFijo'].','.$resPro['TelefonoMovil']
+				.','.$resPro['Especialidad'];
 			}
+			
 		}
 		else
 		{
