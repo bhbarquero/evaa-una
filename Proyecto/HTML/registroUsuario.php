@@ -5,32 +5,27 @@
 <title>Registro de usuario</title>
 
 <!-- Master Page-->
-<link rel="stylesheet" href="../Styles/Master.css">
+<link rel="stylesheet" href="../Styles/RegistrarUsuario.css">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 
-<script src="../Scripts/registroUsuario.js" type="text/javascript"></script>
-
-
 <!-- Adicionales -->
+<script src="../Scripts/registroUsuario.js" type="text/javascript"></script>
 <link rel="stylesheet" href="../Styles/General.css">
-
 </head>
 
 <body>
 <!-- Contenedor Principal -->
-<div id="layout"> 
-  
-  
-  <div class="msgContent"></div>
-  <!-- Ícono de notificación --> 
-  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-  <div id="notif"> </div>
+<div id="layout">
+
+  <div class="msgContent">
+    <label id="mensaje"></label>
+  </div>
   
   <!-- Contenedor Secundario -->
   <div id="main"> 
     <!-- Encabezado -->
     <header>
-      <h1>EVAA</h1>
+      <h1 id="titulo">EVAA</h1>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
@@ -53,13 +48,10 @@
       </form>
     </div>
   </div>
-  <div class="notify"><span id="notifyType" class=""></span></div>
 </div>
 
 <!-- Master Page--> 
-<script src="../Scripts/Master.js"></script>
-<script src="../Scripts/jquery.blockUI.js"></script>
+<script src="../Scripts/jquery.blockUI.js"></script> 
 <script src="../Scripts/jquery.validate.js"></script>
-
 </body>
 </html>
