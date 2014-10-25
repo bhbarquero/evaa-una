@@ -1,5 +1,5 @@
 (function (window, document) {
-
+	
     var layout   = document.getElementById('layout'),
         notif     = document.getElementById('notif'),
         notifLink = document.getElementById('notifLink');
@@ -34,3 +34,26 @@
 
 }(this, this.document));
 
+
+
+    $.mensajeExito = function(mensaje, segundos){
+	$(".msgContent").toggleClass("activeExito");
+	  /*$("#notifyType").toggleClass("success");*/
+	  $(".msgContent").html(mensaje);
+	  
+	  setTimeout(function(){
+		$(".msgContent").removeClass("active");
+		/*$("#notifyType").removeClass("success");*/
+	  },segundos*1000);
+	};
+
+	$.mensajeError = function(mensaje, segundos){
+	  $(".msgContent").toggleClass("activeError");
+	  /*$("#notifyType").toggleClass("success");*/
+	  $(".msgContent").html(mensaje);
+	  
+	  setTimeout(function(){
+		$(".msgContent").removeClass("active");
+		/*$("#notifyType").removeClass("success");*/
+	  },segundos*1000);
+	};

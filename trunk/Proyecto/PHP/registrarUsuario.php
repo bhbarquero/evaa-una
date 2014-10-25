@@ -1,15 +1,10 @@
 <?php
 
-//REGISTRAR la dirección
-
-if(isset($_POST['correo']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		echo "2,Error al conectar con la BD. ".mysqli_connect_error();
 	}
 	else
 	{
@@ -33,17 +28,15 @@ if(isset($_POST['correo']))
 		
 		if($resultado=mysqli_query($conexion,$consulta))
 		{
-			echo "Éxito al guardar el usuario.";
+			echo "1,Éxito al guardar el usuario.";
 		}
 		else
 		{
-			echo "Error al guardar el usuario: ".mysqli_connect_error();
+			echo "2,Error al guardar el usuario: ".mysqli_connect_error();
 		}
 		
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Ocurrió un error. Lo siento, intentalo denuevo.";}
+
 ?>

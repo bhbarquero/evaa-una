@@ -7,10 +7,12 @@
 <!-- Master -->
 <link rel="stylesheet" href="../Styles/Master.css">
 
+<script src="../Scripts/jquery-2.1.1.min.js"></script>
+
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
-<script src="../Scripts/jquery-2.1.1.min.js"></script>
+
 
 </head>
 
@@ -39,6 +41,8 @@
 
 <!-- Master --> 
 <script src="../Scripts/Master.js"></script> 
+<script src="../Scripts/jquery.blockUI.js"></script>
+<script src="../Scripts/jquery.validate.js"></script>
 
 <!-- Adicionales -->
 
