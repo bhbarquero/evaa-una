@@ -6,18 +6,22 @@
 
 <!-- Master Page-->
 <link rel="stylesheet" href="../Styles/Master.css">
+<script src="../Scripts/jquery-2.1.1.min.js"></script>
+
+<script src="../Scripts/registroUsuario.js" type="text/javascript"></script>
+
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
 
-<script src="../Scripts/jquery-2.1.1.min.js"></script>
-<script src="../Scripts/registroUsuario.js" type="text/javascript"></script>
 </head>
 
 <body>
 <!-- Contenedor Principal -->
 <div id="layout"> 
   
+  
+  <div class="msgContent"></div>
   <!-- Ícono de notificación --> 
   <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
   <div id="notif"> </div>
@@ -32,12 +36,12 @@
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
       <h2 class="content-subhead">Crea tu cuenta</h2>
-      <form id="frmResgistro" class="evaa-form evaa-form-stacked">
+      <form id="frmResgistro" class="evaa-form evaa-form-stacked" onsubmit="return false">
         <label for="CorreoUsuario">Correo electrónico:</label>
-        <input type="email" id="CorreoUsuario" value="" size="32" placeholder="Obligatorio" required>
+        <input type="email" id="CorreoUsuario" value="" size="32" placeholder="ejemplo@evaa.com" required>
         <label for="Contrasena">Contraseña:</label>
-        <input type="password" id="Contrasena" value="" size="32" required>
-        <label for="ReContrasena">Contraseña:</label>
+        <input type="password" id="Contrasena" value="" size="32" placeholder="Mínimo 6 caracteres" required>
+        <label for="ReContrasena">Redigite su contraseña:</label>
         <input type="password" id="ReContrasena" value="" size="32" required>
         <label for="TipousuarioId" >Tipo de Usuario:</label>
         <select id="TipoUsuarioId">
@@ -45,13 +49,17 @@
           <option value="2">Estudiante</option>
         </select>
         <br/>
-        <a id="btnRegistrar2" class="evaa-button evaa-button-primary" >Registrarse </a>
+        <button id="btnRegistrar" class="evaa-button evaa-button-primary">Registrarse </button>
       </form>
     </div>
   </div>
+  <div class="notify"><span id="notifyType" class=""></span></div>
 </div>
 
 <!-- Master Page--> 
 <script src="../Scripts/Master.js"></script>
+<script src="../Scripts/jquery.blockUI.js"></script>
+<script src="../Scripts/jquery.validate.js"></script>
+
 </body>
 </html>
