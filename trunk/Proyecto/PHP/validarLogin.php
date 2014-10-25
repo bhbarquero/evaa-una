@@ -1,15 +1,10 @@
 <?php
 
-//REGISTRAR la dirección
-
-if(isset($_POST['correo']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		echo "2,Error al conectar con la BD. ".mysqli_connect_error();
 	}
 	else
 	{
@@ -22,17 +17,14 @@ if(isset($_POST['correo']))
 		
 		if(mysqli_num_rows($resultado=mysqli_query($conexion,$consulta))>0)
 		{
-			echo "Correo y contraseña válidos.";
+			echo "1,Correo y contraseña válidos.";
 		}
 		else
 		{
-			echo "Usuario y contraseña inválidos.";
+			echo "2,Usuario y contraseña inválidos.";
 		}
 		
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Ocurrió un error. Lo siento, intentalo denuevo.";}
 ?>
