@@ -2,9 +2,33 @@
 
 $(document).ready(function(e) 
 {
+	
+		alert("mi correo es correo");
+		
+		var persona;
+	var sesion=	{
+		"correo":correo
+		};
+	$.ajax({
+			data:sesion,
+			url:"../PHP/VerificarCorreo.php",
+			type: "POST",
+
+			success: function(response){
+				
+				persona=response;
+			},
+			error: function(response){
+							
+				alert(response);
+				}
+		});
+		
+	if(persona==null){
 
 	$("#btnInsertarAlumno").click(function()
 	{
+		
 		
 		if($("#Cedula").val() != "")
 		{
@@ -35,4 +59,11 @@ $(document).ready(function(e)
 		});
 		
 	});
+		}
+		else
+		{
+			$("#Cedula").val(persona['Cedula']);
+			$("#Nombre").val(persona['Nombre']);
+			
+			}
 });
