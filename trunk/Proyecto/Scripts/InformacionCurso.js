@@ -1,7 +1,15 @@
 $(document).ready(function(e) {
+	
+	var src = String( window.location.href ).split('=');
+	
+	$('#btnAsiganciones').click(function(e) {
+        alertr(src[0]);
+		alertr();
+    });
+	
     var parametros =
 		{
-			"grupoId":1
+			"grupoId":src[1]
 		}
 		$.ajax({
 			data:parametros,
