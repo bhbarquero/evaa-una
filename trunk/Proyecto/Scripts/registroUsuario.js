@@ -13,7 +13,7 @@ $(document).ready(function(e) {
 							"pass":$('#Contrasena').val(),
 							"tipo":$('#TipoUsuarioId').val()
 						};
-						alert(parametros["tipo"]);
+
 					$.ajax({
 						data:parametros,
 						url: "../PHP/registrarUsuario.php",
@@ -21,8 +21,12 @@ $(document).ready(function(e) {
 						
 						success: function(response){
 							var r=response.split(",");
-							if(r[0]==1)
+							if(r[0]==1){
 								$.mensajeExito(r[1], 4);
+								setTimeout(function(){
+								document.location='../HTML/login.php';
+								},2000);
+							}
 							else
 								$.mensajeError(r[1], 4);
 						},

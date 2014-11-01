@@ -14,18 +14,20 @@ $(document).ready(function(e){
 				
 			$.ajax({
 			data:parametros,
-			url:"../PHP/validarLogin.php",
+			url:"../PHP/validarUsuario.php",
 			type: "POST",
-	
-			success: function(response){
-				var r=response.split(",");
-				if(r[0]==1)
-					$.mensajeExito(r[1], 4);
+			dataType: 'json',
+			success: function(data){
+				if(data.TipoMensaje==1)
+					if(data.TipoUsuario==1)
+						document.location='../HTML/misCursosProfesor.php';
+					else
+						document.location='../HTML/misCursosAlumno.php';
 				else
-					$.mensajeError(r[1], 4);
+					$.mensajeError(data.Mensaje, 4);
 			},
-			error: function(response){
-				$.mensajeError(response, 4);
+			error: function(data){
+				$.mensajeError("Error al validar el usario", 4);
 				}
 			});
 		}
@@ -34,24 +36,20 @@ $(document).ready(function(e){
 });
 
 
-$.mensajeExito = function(mensaje, segundos){
-	$(".msgContent").toggleClass("activeExito");
-	  /*$("#notifyType").toggleClass("success");*/
-	  $("#mensaje").html(mensaje);
-	  
-	  setTimeout(function(){
-		$(".msgContent").removeClass("activeExito");
-		/*$("#notifyType").removeClass("success");*/
-	  },segundos*1000);
+	$.mensajeExito = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeExito");
+		$("#mensaje").html(mensaje);
+		  
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeExito");
+		},segundos*1000);
 	};
 
 	$.mensajeError = function(mensaje, segundos){
-	  $(".msgContent").toggleClass("activeError");
-	  /*$("#notifyType").toggleClass("success");*/
-	  $("#mensaje").html(mensaje);
-	  
-	  setTimeout(function(){
-		$(".msgContent").removeClass("activeError");
-		/*$("#notifyType").removeClass("success");*/
-	  },segundos*1000);
+		$(".msgContent").toggleClass("activeError");
+		$("#mensaje").html(mensaje);
+		
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeError");
+		},segundos*1000);
 	};

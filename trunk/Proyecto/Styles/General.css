@@ -4,17 +4,16 @@
 	font-family: titulo;
 	src: url(../Fuentes/LeagueGothic-Regular.otf);
 }
-
 #titulo {
 	color: #67abb8;
 	font-family: titulo;
-	font-size:48px;
+	font-size: 48px;
 }
 /*
 IMAGENES
 */
 
-img {
+.evaa-img {
 	max-width: 100%;
 	height: auto;
 }
@@ -92,8 +91,9 @@ BOTONES
  border: 0;
 }
 .evaa-button-primary, .evaa-button-selected, a.evaa-button-primary, a.evaa-button-selected {
-	background-color: #f15b40;
-	color: #fff;
+	background-color: transparent;
+	color: #f15b40;
+	text-transform: uppercase;
 }
 /*
 FORMS
@@ -220,8 +220,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	display: block;
 	margin: 0.25em 0;
 }
-.evaa-form-aligned input, .evaa-form-aligned textarea, .evaa-form-aligned select, /* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */
-.evaa-form-aligned .evaa-help-inline, .evaa-form-message-inline {
+.evaa-form-aligned input, .evaa-form-aligned textarea, .evaa-form-aligned select, /* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */ .evaa-form-aligned .evaa-help-inline, .evaa-form-message-inline {
 	display: inline-block;
  *display: inline;
  *zoom: 1;
@@ -307,15 +306,14 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 }
 
 @media only screen and (max-width : 480px) {
-
 .evaa-form button[type="submit"] {
 	margin: 0.7em 0 0;
 }
-.evaa-form input:not([type]),  .evaa-form input[type="text"],  .evaa-form input[type="password"],  .evaa-form input[type="email"],  .evaa-form input[type="url"],  .evaa-form input[type="date"],  .evaa-form input[type="month"],  .evaa-form input[type="time"],  .evaa-form input[type="datetime"],  .evaa-form input[type="datetime-local"],  .evaa-form input[type="week"],  .evaa-form input[type="number"],  .evaa-form input[type="search"],  .evaa-form input[type="tel"],  .evaa-form input[type="color"],  .evaa-form label {
+.evaa-form input:not([type]), .evaa-form input[type="text"], .evaa-form input[type="password"], .evaa-form input[type="email"], .evaa-form input[type="url"], .evaa-form input[type="date"], .evaa-form input[type="month"], .evaa-form input[type="time"], .evaa-form input[type="datetime"], .evaa-form input[type="datetime-local"], .evaa-form input[type="week"], .evaa-form input[type="number"], .evaa-form input[type="search"], .evaa-form input[type="tel"], .evaa-form input[type="color"], .evaa-form label {
 	margin-bottom: 0.3em;
 	display: block;
 }
-.evaa-group input:not([type]),  .evaa-group input[type="text"],  .evaa-group input[type="password"],  .evaa-group input[type="email"],  .evaa-group input[type="url"],  .evaa-group input[type="date"],  .evaa-group input[type="month"],  .evaa-group input[type="time"],  .evaa-group input[type="datetime"],  .evaa-group input[type="datetime-local"],  .evaa-group input[type="week"],  .evaa-group input[type="number"],  .evaa-group input[type="search"],  .evaa-group input[type="tel"],  .evaa-group input[type="color"] {
+.evaa-group input:not([type]), .evaa-group input[type="text"], .evaa-group input[type="password"], .evaa-group input[type="email"], .evaa-group input[type="url"], .evaa-group input[type="date"], .evaa-group input[type="month"], .evaa-group input[type="time"], .evaa-group input[type="datetime"], .evaa-group input[type="datetime-local"], .evaa-group input[type="week"], .evaa-group input[type="number"], .evaa-group input[type="search"], .evaa-group input[type="tel"], .evaa-group input[type="color"] {
 	margin-bottom: 0;
 }
 .evaa-form-aligned .evaa-control-group label {
@@ -328,7 +326,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	margin: 1.5em 0 0 0;
 }
 /* NOTE: evaa-help-inline is deprecated. Use .evaa-form-message-inline instead. */
-.evaa-form .evaa-help-inline,  .evaa-form-message-inline,  .evaa-form-message {
+.evaa-form .evaa-help-inline, .evaa-form-message-inline, .evaa-form-message {
 	display: block;
 	font-size: 0.75em;
 	/* Increased bottom padding to make it group with its related input element. */
@@ -337,28 +335,57 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 }
 /*MENSAJES*/
 .msgContent {
-	position: fixed;
-	right: auto;
-	left: 0px;
+	position: absolute;
 	bottom: 0px;
 	width: 100%;
-	height: 0px;
+	height: 0;
 	box-sizing: border-box;
-	color: #FFF;
+	color: white;
 	text-align: center;
 	overflow: hidden;
 	box-sizing: border-box;
+	-webkit-transition: height .2s;
 	transition: height .2s;
 	z-index: 1000000;
+
 }
 .activeError {
 	height: auto;
-	padding:10px;
+	padding: 10px;
 	background: #f15b40;
 }
 .activeExito {
 	height: auto;
-	padding:10px;
+	padding: 10px;
 	background: #67abb8;
 }
-
+.flexC {
+	/* flexbox setup */
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	-webkit-justify-content: center;
+	justify-content: center;
+	/* Vertical */	
+	-webkit-align-items: center;
+	align-items: center;
+	/* Wrap */
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.flexR {
+	/* flexbox setup */
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	-webkit-justify-content: center;
+	justify-content: center;
+	/* Vertical */	
+	-webkit-align-items: center;
+	align-items: center;
+	/* Wrap */
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
