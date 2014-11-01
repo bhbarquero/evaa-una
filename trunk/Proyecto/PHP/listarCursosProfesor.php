@@ -14,8 +14,9 @@
 			$consulta .= " AND tb_grupo.Anno = ".$_POST['AnnoGrupo']."";
 		
 		if ($result = mysql_query($consulta, $link)) {	
+		
 			if (mysql_num_rows($result = mysql_query($consulta, $link))>0){ 
-				$tabla ="<table border = '1'><br/><tr><td><b>Historial de Cursos</b></td></tr> \n";
+				$tabla ="<table class='pure-table' border = '1'><br/><tr><td><b>Historial de Cursos</b></td></tr> \n";
 					while($row = mysql_fetch_row($result))   
 						$tabla= $tabla."<tr><td>".$row[0]."<a href=".'../HTML/InformacionCurso.php?grupId='.$row[1]."> Consultar </a> </td></tr><br/></table>\n";
 					echo $tabla; 

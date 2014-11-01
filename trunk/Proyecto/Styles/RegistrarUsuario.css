@@ -22,17 +22,7 @@ This is the parent `<div>`
 #layout {
 	position: relative;
 }
-/*#layout.active {
-	position: relative;
-	left: 150px;
-}
-#layout.active #notif {
-	left: 150px;
-	width: 150px;
-}
-#layout.active .notif-link {
-	left: 150px;
-}*/
+
 /*
 The content `<div>`
 */
@@ -44,10 +34,8 @@ The content `<div>`
 	line-height: 1.6em;
 }
 header {
-	
 	color: #333;
 	text-align: center;
-	/*padding: 2.5em 2em 0;*/
 	border-bottom: 1px solid #eee;
 }
 header h1 {
