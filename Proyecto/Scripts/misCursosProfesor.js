@@ -23,7 +23,9 @@ function Listar() {
 		data:parametros,
 		url: "../PHP/listarCursosProfesor.php",
 		type: "POST",
-
+		beforeSend: function(){
+			$("#divTablaResultados").html("<br/>Cargando...");
+		},
 		success: function(response){
 			$("#divTablaResultados").html(response);
 		},

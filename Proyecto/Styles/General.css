@@ -8,6 +8,7 @@
 	color: #67abb8;
 	font-family: titulo;
 	font-size: 48px;
+	margin:0px!important;
 }
 /*
 IMAGENES
@@ -388,4 +389,79 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	/* Wrap */
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
+}
+/*Tablas*/
+
+.evaa-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.evaa-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.evaa-table td,
+.evaa-table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+.evaa-table td:first-child,
+.evaa-table th:first-child {
+    border-left-width: 0;
+}
+
+.evaa-table thead {
+    background: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.evaa-table td {
+    background-color: transparent;
+}
+.evaa-table-odd td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.evaa-table-striped tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+
+/* BORDERED TABLES */
+.evaa-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+.evaa-table-bordered tbody > tr:last-child td,
+.evaa-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+
+/* HORIZONTAL BORDERED TABLES */
+
+.evaa-table-horizontal td,
+.evaa-table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #cbcbcb;
+}
+.evaa-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
 }

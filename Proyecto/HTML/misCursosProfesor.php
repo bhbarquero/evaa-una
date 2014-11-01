@@ -25,8 +25,8 @@
   <div id="main"> 
     <!-- Encabezado -->
     <header>
-      <h1>EVAA</h1>
-      <h2>MIS CURSOS</h2>
+      <h1 id="titulo">EVAA</h1>
+     
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
@@ -39,7 +39,7 @@
 			<!-- Lista la tabla con los cursos del Profesor -->
         </div>
         
-		<br><input type="button" value="Nuevo Curso" class="evaa-button evaa-button-primary" onClick=" window.location.href='../HTML/misCursosAlumno.php' ">  
+		<br><input type="button" value="Nuevo Curso" class="evaa-button evaa-button-primary">  
     </div>
   </div>
 </div>
