@@ -6,7 +6,7 @@
 
 <!-- Master -->
 <link rel="stylesheet" href="../Styles/Master.css">
-
+<link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 
 

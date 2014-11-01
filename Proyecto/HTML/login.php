@@ -20,7 +20,7 @@
         </header>
         <div id="divContenido">
             <div id="divLogin">
-           <img src="../Imagenes/book.png" alt="Logo EVAA">
+           <img src="../Imagenes/book.png" alt="Logo EVAA" class="evaa-img">
                 <form onSubmit="return false" id="frmLogin" class="evaa-form">
                     <input id="correo" type="email" placeholder="Correo electrónico" required>
                     <input id="pass" type="password" placeholder="Contraseña" required> 

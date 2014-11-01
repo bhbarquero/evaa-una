@@ -6,6 +6,7 @@
 
 <!-- Master Page-->
 <link rel="stylesheet" href="../Styles/RegistrarUsuario.css">
+<link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 
 <!-- Adicionales -->
@@ -29,7 +30,7 @@
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
-    <div class="content">
+    <div class="content flexC">
       <h2 class="content-subhead">Crea tu cuenta</h2>
       <form id="frmResgistro" class="evaa-form evaa-form-stacked" onsubmit="return false">
         <label for="CorreoUsuario">Correo electrónico:</label>

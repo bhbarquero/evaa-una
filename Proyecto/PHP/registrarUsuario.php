@@ -28,7 +28,7 @@
 		
 		if($resultado=mysqli_query($conexion,$consulta))
 		{
-			echo "1,Éxito al guardar el usuario.";
+			echo "1,Éxito al guardar el usuario. Redirigiendo al login...";
 		}
 		else
 		{
@@ -38,5 +38,6 @@
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
+
 
 ?>

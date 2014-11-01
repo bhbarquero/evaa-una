@@ -42,20 +42,6 @@ The content `<div>`
 	width: 100%;
 	margin-bottom: 50px;
 	line-height: 1.6em;
-	
-	/* flexbox setup */
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	-webkit-justify-content: center;
-	justify-content: center;
-	/* Vertical */	
-	-webkit-align-items: center;
-	align-items: center;
-	/* Wrap */
-	-webkit-flex-wrap: wrap;
-	flex-wrap: wrap;
 }
 header {
 	
