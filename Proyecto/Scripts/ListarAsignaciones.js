@@ -1,11 +1,5 @@
 $(document).ready(function(e) {
-	
 	var src = String( window.location.href ).split('=');
-	
-	$('#btnAsiganciones').click(function(e) {
-		var url="ListarAsignaciones.php?grupoId="+src[1];
-       $(document.location=url);
-    });
 	
     var parametros =
 		{
@@ -13,15 +7,13 @@ $(document).ready(function(e) {
 		}
 		$.ajax({
 			data:parametros,
-			url:"../PHP/ConsultarGrupo.php",
+			url:"../PHP/ListarAsignacionesphp.php",
 			type: "POST",
 
 			success: function(response){
 				var res=response.split(",");
-				$('#Anno').val(res[0]);
-				$('#Ciclo').val(res[1]);
-				$('#Curso').val(res[2]);
-				$('#Profesor').val(res[3]);
+				$('#Resultado').html(res[0]);
+				$('#Curso').val(res[1]);
 				
 			},
 			error: function(response){
