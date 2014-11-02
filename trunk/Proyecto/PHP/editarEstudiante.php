@@ -20,7 +20,7 @@ if(isset($_POST['cedula']))
 		$Direccion=$_POST['direccion'];
 		$TelefonoFijo=$_POST['telefonofijo'];
 		$TelefonoMovil=$_POST['telefonomovil'];
-		$Especialidad=$_POST['especialidad'];
+		$FechaIngreso=$_POST['fechaingreso'];
 		
 			$consulta="UPDATE tb_persona SET 
 			Nombre='".$Nombre."', 
