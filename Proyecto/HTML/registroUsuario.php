@@ -36,8 +36,8 @@
         <label for="CorreoUsuario">Correo electrónico:</label>
         <input type="email" id="CorreoUsuario" value="" size="32" placeholder="ejemplo@evaa.com" required>
         <label for="Contrasena">Contraseña:</label>
-        <input type="password" id="Contrasena" value="" size="32" placeholder="Mínimo 6 caracteres" required>
-        <label for="ReContrasena">Redigite su contraseña:</label>
+        <input type="password" id="Contrasena" value="" size="32" placeholder="Mínimo 6 caracteres" minlength="6" required>
+        <label for="ReContrasena">Vuelve a ingresar su contraseña:</label>
         <input type="password" id="ReContrasena" value="" size="32" required>
         <label for="TipousuarioId" >Tipo de Usuario:</label>
         <select id="TipoUsuarioId">
@@ -45,7 +45,7 @@
           <option value="2">Estudiante</option>
         </select>
         <br/>
-        <button id="btnRegistrar" class="evaa-button evaa-button-primary">Registrarse </button>
+        <input type="submit" id="btnRegistrar" class="evaa-button evaa-button-primary" value="Registrarse">
       </form>
     </div>
   </div>
