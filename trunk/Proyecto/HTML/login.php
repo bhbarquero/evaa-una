@@ -16,7 +16,7 @@
     <div id="divPrincipal">
      <div class="msgContent"><label id="mensaje"></label></div>
         <header>
-            <h1 id="titulo">EVAA</h1>   
+            <h1 id="titulo">EVAA</h1> 
         </header>
         <div id="divContenido">
             <div id="divLogin">

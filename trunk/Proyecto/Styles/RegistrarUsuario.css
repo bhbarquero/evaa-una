@@ -1,5 +1,9 @@
 /* CSS Document */
 
+.error{
+	color:#F00;
+}
+
 body {
 	color: #777;
 }

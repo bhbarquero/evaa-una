@@ -6,11 +6,12 @@
 
 <!-- Master -->
 <link rel="stylesheet" href="../Styles/Master.css">
+<link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
-
+<link rel="stylesheet" href="../Styles/misCursosProfesor.css">
 </head>
 
 <body>
@@ -26,31 +27,31 @@
     <!-- Encabezado -->
     <header>
       <h1 id="titulo">EVAA</h1>
-     
+      <h2 class="content-subhead">Mis Cursos</strong></h2>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
-      <br><label><strong>Filtrar Cursos</strong></label>
-    	<br><input type="text" id="NomCurso" placeholder="Nombre Curso"> &nbsp; 
-        <input id="Ano" onkeypress="return soloNumeros(event)" type="number" placeholder="Año">
-        
-		<div id="divTablaResultados">
-			<!-- Lista la tabla con los cursos del Profesor -->
-        </div>
-        
-		<br><input type="button" value="Nuevo Curso" class="evaa-button evaa-button-primary">  
+      <div class="evaa-form">
+        <h2 class="content-subhead">Filtro:</h2>
+        <input type="text" id="NomCurso" placeholder="Nombre Curso">
+        &nbsp;
+        <input id="Ano" type="number" placeholder="Año" min="0" width="20">
+        &nbsp; <a id="btnFiltrar" class="evaa-button evaa-button-primary">Buscar</a> </div>
+      <div id="divTablaResultados" class="flexC"> 
+        <!-- Lista la tabla con los cursos del Profesor --> 
+      </div>
+      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a>
     </div>
   </div>
 </div>
 
 <!-- Master --> 
 <script src="../Scripts/Master.js"></script> 
-<script src="../Scripts/jquery.blockUI.js"></script>
-<script src="../Scripts/jquery.validate.js"></script>
+<script src="../Scripts/jquery.blockUI.js"></script> 
+<script src="../Scripts/jquery.validate.js"></script> 
 
-<!-- Adicionales -->
+<!-- Adicionales --> 
 <script type="text/javascript" src="../Scripts/misCursosProfesor.js"></script>
-
 </body>
 </html>

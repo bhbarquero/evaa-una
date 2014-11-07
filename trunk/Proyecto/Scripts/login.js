@@ -3,6 +3,8 @@ $(document).ready(function(e){
 	
 	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 	
+	$('#correo').focus();
+	
     $("#btnEntrar").click(function(){
 		
 		if($('#frmLogin').valid()){
@@ -23,8 +25,10 @@ $(document).ready(function(e){
 						document.location='../HTML/misCursosProfesor.php';
 					else
 						document.location='../HTML/misCursosAlumno.php';
-				else
+				else{
 					$.mensajeError(data.Mensaje, 4);
+					$('#pass').val("");
+				}
 			},
 			error: function(data){
 				$.mensajeError("Error al validar el usario", 4);
