@@ -15,7 +15,7 @@ if(isset($_POST['grupoId']))
 	{
 		$Grupo=$_POST['grupoId'];		
 		
-		$consulta="SELECT AsignacionId, Descripccion, Archivo, FechaEntrega, Estado,(tb_Curso.Descripcion) as curso
+		$consulta="SELECT AsignacionId, DescripcionA, Archivo, FechaFin, FechaInicio,(tb_Curso.Descripcion) as curso
 					FROM tb_asignaciones
 					 join tb_grupo on tb_grupo.grupoId = tb_asignaciones.grupoId 
 					 join tb_curso on tb_grupo.CursoId = tb_curso.CursoId
@@ -26,19 +26,31 @@ if(isset($_POST['grupoId']))
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
 			
-			$tabla="<table class='evaa-table' width='200' border='1'>";
+			$tabla="<table class='evaa-table evaa-table-bordered' border='1'>
+			
+				<thead>
+					<tr>						
+						<th>#</th>
+						<th>Descripción</th>
+						<th>Curso</th>
+						<th>Fecha Inicio</th>
+						<th>Fecha Fin</th>
+					</tr>
+				</thead>
+				<tbody>";
 			while ($resPro = mysqli_fetch_assoc($resultado)) {
 				$cur=$resPro['curso'];
 				$tabla=$tabla."
 						<tr>
 						  <td><a href='login.php'>".$resPro['AsignacionId']."</a>
-						  <td>".$resPro['Descripccion']."</td>
+						  <td>".$resPro['DescripcionA']."</td>
 						  <td>".$resPro['curso']."</td>
-						  <td>".$resPro['FechaEntrega']."</td>
-						  <td>".$resPro['Estado']."</td>
+						  <td>".$resPro['FechaInicio']."</td>
+						  <td>".$resPro['FechaFin']."</td>
 					     </tr>";				  
 			}
-			$tabla=$tabla."</table>";
+			$tabla=$tabla."</tbody>
+							</table>";
 			if(mysqli_num_rows($resultado)>0)
 				{
 					echo $tabla.",".$cur;}

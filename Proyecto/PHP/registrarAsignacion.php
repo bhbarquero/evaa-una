@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['descripciona'])&&isset($_POST['archivo'])&&isset($_POST['grupoid'])&&isset($_POST['fechainicio'])&&isset($_POST['fechafinal']))
+if(isset($_POST['descripciona']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -14,25 +14,23 @@ if(isset($_POST['descripciona'])&&isset($_POST['archivo'])&&isset($_POST['grupoi
 	else
 	{
 		$DescripcionA=$_POST['descripciona'];		
-		$Archivo=$_POST['archivo'];
+		//$Archivo=$_POST['archivo'];
 		$GrupoId=$_POST['grupoid'];
 		$FechaInicio=$_POST['fechainicio'];
-		$FechaFinal=$_POST['fechafinal'];
+		$FechaFinal=$_POST['fechafin'];
 		
 		$consulta="insert into tb_asignaciones
 			(
 				DescripcionA,
-				Archivo,
 				GrupoId,
 				FechaInicio,
-				FechaFinal				
+				FechaFin				
 			)
 			values
 			(
 				'$DescripcionA',
-				'$Archivo',
 				'$GrupoId',
-				'$FechaInicio,
+				'$FechaInicio',
 				'$FechaFinal'
 			);
 		";
