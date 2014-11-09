@@ -13,20 +13,18 @@ if(isset($_POST['descripciona']))
 	}
 	else
 	{
-		$AsignacionId=$_POST['asiganacionid'];
+		$AsignacionId=$_POST['asignacionid'];
 		$DescripcionA=$_POST['descripciona'];		
-		$Archivo=$_POST['archivo'];
-		$GrupoId=$_POST['grupoid'];
+		//$Archivo=$_POST['archivo'];
+		//$GrupoId=$_POST['grupoid'];
 		$FechaInicio=$_POST['fechainicio'];
-		$FechaFinal=$_POST['fechafinal'];
-		
+		$FechaFinal=$_POST['fechafin'];
+		//Archivo='".$Archivo."',
 			$consulta="UPDATE tb_asignaciones SET 
 			DescripcionA='".$DescripcionA."', 
-			Archivo='".$Archivo."',
-			GrupoId='".$GrupoId."',
 			FechaInicio='".$FechaInicio."',
-			FechaFinal=".$FechaFinal.",
-			WHERE AsiganacionId='".$AsignacionId."'";
+			FechaFin='".$FechaFinal."'
+			WHERE AsignacionId='".$AsignacionId."'";
 				
 			if($resultado=mysqli_query($conexion,$consulta))
 			{
