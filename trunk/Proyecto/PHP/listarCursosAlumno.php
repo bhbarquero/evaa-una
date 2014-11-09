@@ -1,13 +1,15 @@
 		<?php 
         $link = mysql_connect("localhost", "root"); 
         mysql_select_db("evaa_bd", $link); 
-
+		session_start();
+		$sesi = $_SESSION["user"];
+		
         //Listar Cursos Estudiantes, filtrando por CORREO
 		$consulta = "SELECT Descripcion FROM tb_curso, tb_grupo, tb_matricula 
                                 WHERE tb_curso.CursoId = tb_grupo.CursoId 
                                 AND tb_grupo.GrupoId = tb_matricula.GrupoId 
 								AND tb_curso.Descripcion LIKE '%".$_POST['Nombre']."%'
-                                AND tb_matricula.CorreoUsuario  = 'rvalverde@gmail.com'";			
+                                AND tb_matricula.CorreoUsuario  = ". $sesi;			
 								
 		if ($_POST['AnnoGrupo'] != "")
 			$consulta .= " AND tb_grupo.Anno = ".$_POST['AnnoGrupo']."";

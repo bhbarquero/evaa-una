@@ -47,6 +47,15 @@
         <br/>
         <input type="submit" id="btnRegistrar" class="evaa-button evaa-button-primary" value="Registrarse">
       </form>
+      
+      <form action="../PHP/subir1.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <label for="archivo">Archivo:</label>
+    <input type="file" name="archivo" id="archivo">
+  <p>
+    <input type="submit" name="cmm" id="cmm" value="Subir">
+  </p>
+</form>
+      
     </div>
   </div>
 </div>
