@@ -47,7 +47,6 @@
               <a id="btnAgregar" class="evaa-button evaa-button-primary" >Agregar</a> 
               
               </p>
-  <!--  <input type="hidden" name="MM_insert" value="form1">-->
     </form>
   </div>
   </div>

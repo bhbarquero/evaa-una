@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['descripciona'])&&isset($_POST['archivo'])&&isset($_POST['grupoid'])&&isset($_POST['fechainicio'])&&isset($_POST['fechafinal']))
+if(isset($_POST['descripciona']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
