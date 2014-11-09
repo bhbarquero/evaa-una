@@ -1,6 +1,5 @@
 $(document).ready(function(e) {
 	var src = String( window.location.href ).split('=');
-	
     var parametros =
 		{
 			"grupoId":src[1]
