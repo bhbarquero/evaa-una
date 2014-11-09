@@ -22,6 +22,7 @@
 		{
 			session_start();
 			$_SESSION["user"]="$correo";
+			//echo "Favorite color is " . $_SESSION["user"] . ".<br>";
 			
 			$row = mysqli_fetch_row($resultado);
 				$retorno = array(
