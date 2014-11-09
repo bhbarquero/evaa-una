@@ -23,7 +23,27 @@ $(document).ready(function(e) {
 		});
 	
 	$('#btnEditarAsignacion').click(function(e) {
-       alert("Hola")
+       var parametros=
+			{
+				"asignacionid":src[1],
+				"descripciona":$("#Descripcion").val(),
+				"fechainicio":$("#FechaInicio").val(),
+				"fechafin":$("#FechaFin").val()
+			};
+			$.ajax({
+			data:parametros,
+			url:"../PHP/EditarAsignacion.php",
+			type: "POST",
+
+			success: function(response){
+				
+				alert(response);
+			},
+			error: function(response){
+							
+				alert(response);
+				}
+		});
     });
 	
 	$('#btnInsertarAsignacion').click(function(e) {
