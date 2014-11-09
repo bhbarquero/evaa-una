@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['correoUsuario']))
+if(isset($_POST['asignacionid']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -13,21 +13,19 @@ if(isset($_POST['correoUsuario']))
 	}
 	else
 	{
-		$Correo=$_POST['correoUsuario'];		
+		$AsignacionId=$_POST['asignacionid'];		
 		
-		$consulta="SELECT tb_persona.*,tb_estudiante.FechaIngreso  
-				  from tb_persona 
-				  inner join tb_estudiante on tb_persona.cedula=tb_estudiante.cedula 
-				  where tb_persona.CorreoUsuario='".$Correo."'";
+		$consulta="SELECT tb_asignaciones.*  
+				  from tb_asignaciones
+				  where tb_asignaciones.AsignacionId='".$AsignacionID."'";
 		
 	     
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			while ($resEst = mysqli_fetch_assoc($resultado)) {
-				echo $resEst['Cedula'].','.$resEst['Nombre'].','.$resEst['Apellido'].','.$resEst['FechaNacimiento']
-				.','.$resEst['Direccion'].','.$resEst['TelefonoFijo'].','.$resEst['TelefonoMovil']
-				.','.$resEst['FechaIngreso'];
+			while ($resAsig = mysqli_fetch_assoc($resultado)) {
+				echo $resAsig['AsignacionId'].','.$resAsig['Descripcion'].','.$resAsig['Archivo'].','.$resAsig['GrupoId']
+				.','.$resAsig['FechaInicio'].','.$resAsig['FechaFinal'];
 			}
 			
 		}
