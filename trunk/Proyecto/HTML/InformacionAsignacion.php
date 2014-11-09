@@ -19,9 +19,6 @@
 </head>
 
 <body>
-<?php
-		$var1=$_GET['AsignacionId']
-	?>
 
 <!-- Contenedor Principal -->
 <div id="layout"> 
@@ -48,13 +45,13 @@
         <input type="date" id="FechaInicio" value="" size="32" required>
         <label for="fechaFin">Fecha de Fin</label>
         <input type="date" id="FechaFin" value="" size="32" required>
-
                <a id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Guardar </a> 
                
                <a id="btnEditarAsignacion" class="evaa-button evaa-button-primary" >Editar </a>
   <!--  <input type="hidden" name="MM_insert" value="form1">-->
   </form>
-  
+  <input type="hidden" id="Id" value=<?php echo $_GET['P'] ?>>
+  <input type="hidden" id="Guardar" value=<?php echo $_GET['G'] ?>>
   </div>
   </div>
 </div>

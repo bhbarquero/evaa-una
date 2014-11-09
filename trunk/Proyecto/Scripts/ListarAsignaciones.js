@@ -21,4 +21,8 @@ $(document).ready(function(e) {
 				alert(response);
 				}
 		});
+		
+		$('#btnAgregar').click(function(e) {
+            document.location="../HTML/InformacionAsignacion.php?P="+src[1]+"&G=1"
+        });
 });

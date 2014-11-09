@@ -42,7 +42,7 @@ if(isset($_POST['grupoId']))
 				$cur=$resPro['curso'];
 				$tabla=$tabla."
 						<tr>
-						  <td class='evaa-table-odd'><a href=".'../HTML/InformacionAsignacion.php?AsignacionId='.$resPro['AsignacionId']."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
+						  <td class='evaa-table-odd'><a href=".'../HTML/InformacionAsignacion.php?P='.$resPro['AsignacionId']."&G=0"."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
 						  <td>".$resPro['DescripcionA']."</td>
 						  <td>".$resPro['curso']."</td>
 						  <td>".$resPro['FechaInicio']."</td>
