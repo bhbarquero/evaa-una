@@ -1,10 +1,7 @@
 <?php
 
 //REGISTRAR la dirección
-
-if(isset($_POST['correoUsuario']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
+	session_start();
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
@@ -13,7 +10,7 @@ if(isset($_POST['correoUsuario']))
 	}
 	else
 	{
-		$Correo=$_POST['correoUsuario'];		
+		$Correo=$_SESSION['user'];		
 		
 		$consulta="SELECT tb_persona.*,tb_estudiante.FechaIngreso  
 				  from tb_persona 
@@ -39,7 +36,5 @@ if(isset($_POST['correoUsuario']))
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Faltan Datos Requeridos";}
+
 ?>

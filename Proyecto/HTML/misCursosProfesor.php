@@ -1,6 +1,12 @@
 <!doctype html>
 <html>
 <head>
+<?php
+session_start();
+if( !isset($_SESSION['user']) ){
+	header('location:../HTML/login.php');
+}
+?>
 <meta charset="utf-8">
 <title>Registro de usuario</title>
 
@@ -27,22 +33,21 @@
     <!-- Encabezado -->
     <header>
       <h1 id="titulo">EVAA</h1>
-      <h2 class="content-subhead">Mis Cursos</strong></h2>
+      <h2 class="content-subhead">MIS CURSOS</strong></h2>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
       <div class="evaa-form">
-        <h2 class="content-subhead">Filtro:</h2>
-        <input type="text" id="NomCurso" placeholder="Nombre Curso">
+        <h2 class="content-subhead">FILTRO:</h2>
+        <input type="text" id="NomCurso" placeholder="Nombre Curso" class="evaa-input-rounded">
         &nbsp;
-        <input id="Ano" type="number" placeholder="Año" min="0" width="20">
-        &nbsp; <a id="btnFiltrar" class="evaa-button evaa-button-primary">Buscar</a> </div>
+        <input id="Ano" type="number" placeholder="Año" min="0" width="20" class="evaa-input-rounded">
+        
       <div id="divTablaResultados" class="flexC"> 
         <!-- Lista la tabla con los cursos del Profesor --> 
       </div>
-      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a>
-    </div>
+      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a> </div>
   </div>
 </div>
 

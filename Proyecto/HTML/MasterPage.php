@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Registro de usuario</title>
-
+<?php
+session_start();
+if( !isset($_SESSION['user']) ){
+	header('location:../HTML/login.php');
+}
+?>
 <!-- Master -->
 <link rel="stylesheet" href="../Styles/Master.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
@@ -29,7 +34,7 @@
     <!-- Encabezado -->
     <header>
       <h1>EVAA</h1>
-      <h2>A subtitle for your page goes here</h2>
+      <h2 class="content-subhead">Mis Cursos</strong></h2>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->

@@ -2,14 +2,14 @@
 
 $(document).ready(function(e) 
 {
+	
+	//Consulta de correo para usuario
+	consultarInfo();
 		
-
-
-	$("#btnInsertarAlumno").click(function()
+	$("#btnGuardarAlumno").click(function()
 	{
 		
-		
-		if($("#Cedula").val() != "")
+		if($("#frmAlumno").valid())
 		{
 			var parametros=
 			{
@@ -22,40 +22,67 @@ $(document).ready(function(e)
 				"telefonomovil":$("#TelefonoMovil").val(),
 				"fechaingreso":$("#FechaIngreso").val()
 			};
-		};
 		
-		$.ajax({
-			data:parametros,
-			url:"../PHP/registrarAlumno.php",
-			type: "POST",
-
-			success: function(response){
-				alert(response);
-			},
-			error: function(response){
-				alert(response);
-				}
-		});
+		
+			$.ajax({
+				data:parametros,
+				url:"../PHP/registrarAlumno.php",
+				type: "POST",
+	
+				success: function(response){
+					alert(response);
+				},
+				error: function(response){
+					alert(response);
+					}
+			});
+		};
 		
 	});
 	
-	
-	//Consulta de correo para usuario
-	
-		$("#btnConsulta").click(function()
-	{
-		var parametros =
-		{
-			"correoUsuario":$("#prueba").val()
+
+	//Funcion Editar Estudiante
+		
+	$('#btnEditarAlumno').click(function() {
+		if($('#frmAlumno').valid()){
+			var parametros=
+				{
+					"cedula":$("#Cedula").val(),
+					"nombre":$("#Nombre").val(),
+					"apellido":$("#Apellido").val(),
+					"fechanacimiento":$("#FechaNacimiento").val(),
+					"direccion":$("#Direccion").val(),
+					"telefonofijo":$("#TelefonoFijo").val(),
+					"telefonomovil":$("#TelefonoMovil").val(),
+					"fechaingreso":$("#FechaIngreso").val()
+				};
+				
+				$.ajax({
+				data:parametros,
+				url:"../PHP/editarEstudiante.php",
+				type: "POST",
+		
+				success: function(response){
+					alert(response);
+				},
+				error: function(response){			
+					alert(response);
+					}
+				});
 		}
-		$.ajax({
-			data:parametros,
-			url:"../PHP/ConsultarEstudiante.php",
+			
+    });
+	
+
+});
+
+function consultarInfo(){
+	$.ajax({
+			url:"../PHP/ConsultarAlumno.php",
 			type: "POST",
 
 			success: function(response){
 				var res=response.split(",");
-				alert(res[7]);
 				$('#Cedula').val(res[0]);
 				$('#Nombre').val(res[1]);
 				$('#Apellido').val(res[2]);
@@ -71,40 +98,4 @@ $(document).ready(function(e)
 				alert(response);
 				}
 		});
-		
-		});
-		
-		
-		//Funcion Editar Estudiante
-		
-		$('#btnEditarAlumno').click(function() {
-        var parametros=
-			{
-				"cedula":$("#Cedula").val(),
-				"nombre":$("#Nombre").val(),
-				"apellido":$("#Apellido").val(),
-				"fechanacimiento":$("#FechaNacimiento").val(),
-				"direccion":$("#Direccion").val(),
-				"telefonofijo":$("#TelefonoFijo").val(),
-				"telefonomovil":$("#TelefonoMovil").val(),
-				"fechaingreso":$("#FechaIngreso").val()
-			};
-			$.ajax({
-			data:parametros,
-			url:"../PHP/editarEstudiante.php",
-			type: "POST",
-
-			success: function(response){
-				
-				alert(response);
-			},
-			error: function(response){
-							
-				alert(response);
-				}
-		});
-			
-    });
-	
-
-});
+}
