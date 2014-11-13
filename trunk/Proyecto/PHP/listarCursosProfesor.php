@@ -2,7 +2,7 @@
         $link = mysql_connect("localhost", "root"); 
         mysql_select_db("evaa_bd", $link); 
 		session_start();
-		
+
         //Listar Cursos de cada Profesor
 		$consulta = "SELECT Descripcion, (tb_grupo.Anno) as Anno, (tb_grupo.GrupoId) as GrupoId
 							 FROM tb_curso, tb_grupo, tb_profesor, tb_persona

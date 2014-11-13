@@ -6,11 +6,11 @@ $(document).ready(function(e) {
 		Listar();
 	});
 	
-	$('#btnFiltrar').keyup(function(){
+	$('#btnFiltrar').click(function(){
 		Listar();
 	});
 	
-	$("#Ano").keydown(function (e) {
+	$("#Ano").keyup(function (e) {
         soloNumeros(e);
     });
 });
