@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['cedula']))
+if(isset($_POST['cedula'])&&isset($_POST['nombre'])&&isset($_POST['apellido'])&&isset($_POST['fechanacimiento'])&&isset($_POST['direccion'])&&isset($_POST['telefonofijo'])&&isset($_POST['telefonomovil'])&&isset($_POST['fechaingreso']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -63,7 +63,7 @@ if(isset($_POST['cedula']))
 		}
 		else
 		{
-			echo "Error al acortar la dirección: ".mysqli_connect_error();
+			echo "Error al Guardar los Datos de Estudiante".mysqli_connect_error();
 		}
 		
 	}
