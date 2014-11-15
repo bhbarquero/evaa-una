@@ -22,7 +22,7 @@
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
 			while ($resEst = mysqli_fetch_assoc($resultado)) {
-				echo $resEst['Cedula'].','.$resEst['Nombre'].','.$resEst['Apellido'].','.$resEst['FechaNacimiento']
+				echo '1'.','.$resEst['Cedula'].','.$resEst['Nombre'].','.$resEst['Apellido'].','.$resEst['FechaNacimiento']
 				.','.$resEst['Direccion'].','.$resEst['TelefonoFijo'].','.$resEst['TelefonoMovil']
 				.','.$resEst['FechaIngreso'];
 			}
@@ -30,7 +30,7 @@
 		}
 		else
 		{
-			echo "Error al Consultar: ".mysqli_connect_error();
+			echo '1'."Error al Consultar: ".mysqli_connect_error();
 		}
 		
 	}

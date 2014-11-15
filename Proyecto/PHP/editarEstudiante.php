@@ -1,8 +1,7 @@
 <?php
 
 //REGISTRAR la dirección
-
-if(isset($_POST['cedula']))
+if(isset($_POST['cedula'])&&isset($_POST['nombre'])&&isset($_POST['apellido'])&&isset($_POST['fechanacimiento'])&&isset($_POST['direccion'])&&isset($_POST['telefonofijo'])&&isset($_POST['telefonomovil'])&&isset($_POST['fechaingreso']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -31,7 +30,7 @@ if(isset($_POST['cedula']))
  			TelefonoMovil =".$TelefonoMovil."
 			WHERE Cedula='".$Cedula."'";
 			
-	if($resultado=mysqli_query($conexion,$consulta))
+		if($resultado=mysqli_query($conexion,$consulta))
 		{
 			$consulta2="UPDATE tb_estudiante SET
 				FechaIngreso='".$FechaIngreso."'
