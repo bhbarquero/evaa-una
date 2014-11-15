@@ -17,13 +17,11 @@ if(isset($_POST['grupoId']))
 		
 		$consulta="SELECT Anno, Ciclo, (tb_curso.Descripcion) as curso, 
 						Concat(tb_persona.Nombre,tb_persona.apellido) as nombreCompleto
-				   FROM tb_grupo 
-				   Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId
-				   Inner join tb_persona on tb_persona.cedula= tb_grupo.Pofesor
-				   WHERE GrupoId=".$Grupo;
-		
-	     
-			
+				   		FROM tb_grupo 
+				   		Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId
+				   		Inner join tb_persona on tb_persona.cedula= tb_grupo.Pofesor
+				   		WHERE GrupoId=".$Grupo;
+				
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
 			while ($resPro = mysqli_fetch_assoc($resultado)) {
