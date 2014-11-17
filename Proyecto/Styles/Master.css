@@ -7,7 +7,7 @@ h2 {
 /*
 Add transition to containers so they can push in and out.
 */
-#layout, #notif, .notif-link {
+#divPrincipal, #notif, .notif-link {
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-ms-transition: all 0.2s ease-out;
@@ -17,19 +17,19 @@ Add transition to containers so they can push in and out.
 /*
 This is the parent `<div>`
 */
-#layout {
+#divPrincipal {
 	position: relative;
 	padding-left: 0;
 }
-#layout.active {
+#divPrincipal.active {
 	position: relative;
 	left: 150px;
 }
-#layout.active #notif {
+#divPrincipal.active #notif {
 	left: 150px;
 	width: 150px;
 }
-#layout.active .notif-link {
+#divPrincipal.active .notif-link {
 	left: 150px;
 }
 /*
@@ -61,6 +61,7 @@ header h2 {
 .content-subhead {
 	font-weight: 300;
 	color: #888;
+	text-transform:uppercase;
 }
 /*
 The `#notif`
@@ -120,7 +121,7 @@ header, .content {
 	padding-left: 2em;
 	padding-right: 2em;
 }
-#layout {
+#divPrincipal {
 	padding-left: 150px;
 	left: 0;
 }
@@ -132,7 +133,7 @@ header, .content {
 	left: 150px;
 	display: none;
 }
-#layout.active .notif-link {
+#divPrincipal.active .notif-link {
 	left: 150px;
 }
 }

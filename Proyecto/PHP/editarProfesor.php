@@ -1,15 +1,17 @@
 <?php
 
-//REGISTRAR la dirección
 
-if(isset($_POST['cedula']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
+	session_start();
+	$Correo = $_SESSION['user'];
+	
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
@@ -23,13 +25,14 @@ if(isset($_POST['cedula']))
 		$Especialidad=$_POST['especialidad'];
 		
 			$consulta="UPDATE tb_persona SET 
+			Cedula='".$Cedula."',
 			Nombre='".$Nombre."', 
 			Apellido='".$Apellido."',
 			FechaNacimiento='".$FechaNacimiento."',
 			Direccion='".$Direccion."',
 			TelefonoFijo=".$TelefonoFijo.",
  			TelefonoMovil =".$TelefonoMovil."
-			WHERE Cedula='".$Cedula."'";
+			WHERE CorreoUsuario='".$Correo."'";
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
@@ -39,23 +42,30 @@ if(isset($_POST['cedula']))
 			if($resultado2=mysqli_query($conexion,$consulta2))
 			{
 			
-				echo "Se actualizo con éxito";
+				$retorno = array(
+					"TipoMensaje" => 1,
+					"Mensaje" => "Perfil gurdado con éxito");
+				echo json_encode($retorno);
 				
 			}
 			else
 			{
-				echo "Error al Actualizar el Profesor: ".mysqli_connect_error();
+				$retorno = array(
+					"TipoMensaje" => 2,
+					"Mensaje" => "Error al guardar el perfil. ".mysqli_error($consulta));
+				echo json_encode($retorno);
 			}
 		}
 		else
 		{
-			echo "Error al Actualizar la Persona: ".mysqli_connect_error();
+			$retorno = array(
+				"TipoMensaje" => 2,
+				"Mensaje" => "Error al guardar el perfil.. ".mysqli_error($consulta));
+			echo json_encode($retorno);
 		}
 		
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Faltan Datos Requeridos";}
+
 ?>

@@ -1,8 +1,16 @@
 // JavaScript Document
-
 $(document).ready(function(e) 
 {
-	$('#btnEditarProfesor').click(function() {
+	var dir="";
+	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+	
+	//carga info en el form
+	consultarInfoP();
+	
+	
+	$("#frmProfesor").validate(
+	{
+		submitHandler: function(form){
         var parametros=
 			{
 				"cedula":$("#Cedula").val(),
@@ -13,87 +21,81 @@ $(document).ready(function(e)
 				"telefonofijo":$("#TelefonoFijo").val(),
 				"telefonomovil":$("#TelefonoMovil").val(),
 				"especialidad":$("#Especialidad").val()
+				
 			};
 			$.ajax({
 			data:parametros,
-			url:"../PHP/editarProfesor.php",
+			url:dir,
 			type: "POST",
+			dataType: 'json',
 
 			success: function(response){
-				
-				alert(response);
-			},
-			error: function(response){
-							
-				alert(response);
+				if(response.TipoMensaje==1){
+					dir="../PHP/editarProfesor.php";
+					$.mensajeExito(response.Mensaje,4);
 				}
-		});
-			
+				else
+					$.mensajeError(response.Mensaje,4);
+			},
+			error: function(response){			
+				$.mensajeError("Error al guardar el perfil. "+response.Mensaje,4);
+				}
+			});
+		}
     });
 	
-	$("#pruebaBtn").click(function()
+	
+	function consultarInfoP()
 	{
-		var parametros =
-		{
-			"correoUsuario":$("#pruebaTxt").val()
-		}
 		$.ajax({
-			data:parametros,
-			url:"../PHP/ConsultarProfesor.php",
+			url:"../PHP/consultarProfesor.php",
 			type: "POST",
+			dataType: 'json',
 
 			success: function(response){
-				var res=response.split(",");
-				$('#Cedula').val(res[0]);
-				$('#Nombre').val(res[1]);
-				$('#Apellido').val(res[2]);
-				$('#FechaNacimiento').val(res[3]);
-				$('#Direccion').val(res[4]);
-				$('#TelefonoFijo').val(res[5]);
-				$('#TelefonoMovil').val(res[6]);
-				$('#Especialidad').val(res[7]);
+				if(response.TipoMensaje==1){
+					$('#Cedula').val(response.Cedula);
+					$('#Nombre').val(response.Nombre);
+					$('#Apellido').val(response.Apellido);
+					$('#FechaNacimiento').val(response.FechaNac);
+					$('#Direccion').val(response.Direccion);
+					$('#TelefonoFijo').val(response.TelefonoFijo);
+					$('#TelefonoMovil').val(response.TelefonoMovil);
+					$('#Especialidad').val(response.Especialidad);
+					
+					dir="../PHP/editarProfesor.php";
+				}
+				if(response.TipoMensaje==2){
+					$.mensajeError(response.Mensaje,4)
+				}
+				if(response.TipoMensaje==3){
+					dir="../PHP/registrarProfesor.php";					
+				}
 				
 			},
 			error: function(response){
-							
-				alert(response);
+				$.mensajeError("Error cargar los datos:" + response.Mensaje, 4);
 				}
 		});
 		
-		});
+	};
 
-	$("#btnInsertarProfesor").click(function()
-	{
-		
-		if($("#Cedula").val() != "")
-		{
-			var parametros=
-			{
-				"cedula":$("#Cedula").val(),
-				"nombre":$("#Nombre").val(),
-				"apellido":$("#Apellido").val(),
-				"fechanacimiento":$("#FechaNacimiento").val(),
-				"direccion":$("#Direccion").val(),
-				"telefonofijo":$("#TelefonoFijo").val(),
-				"telefonomovil":$("#TelefonoMovil").val(),
-				"especialidad":$("#Especialidad").val()
-			};
-		};
-		
-		$.ajax({
-			data:parametros,
-			url:"../PHP/registrarProfesor.php",
-			type: "POST",
-
-			success: function(response){
-				
-				alert(response);
-			},
-			error: function(response){
-							
-				alert(response);
-				}
-		});
-		
-	});
 });
+
+$.mensajeExito = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeExito");
+		$("#mensaje").html(mensaje);
+		  
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeExito");
+		},segundos*1000);
+	};
+
+$.mensajeError = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeError");
+		$("#mensaje").html(mensaje);
+		
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeError");
+		},segundos*1000);
+	};

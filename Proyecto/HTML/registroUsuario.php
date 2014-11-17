@@ -17,7 +17,6 @@
 <body>
 <!-- Contenedor Principal -->
 <div id="layout">
-
   <div class="msgContent">
     <label id="mensaje"></label>
   </div>
@@ -32,13 +31,13 @@
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content flexC">
       <h2 class="content-subhead">Crea tu cuenta</h2>
-      <form id="frmResgistro" class="evaa-form evaa-form-stacked" onsubmit="return false">
+      <form id="frmResgistro" class="evaa-form evaa-form-stacked">
         <label for="CorreoUsuario">Correo electrónico:</label>
-        <input type="email" id="CorreoUsuario" value="" size="32" placeholder="ejemplo@evaa.com" required>
+        <input type="email" name="CorreoUsuario" id="CorreoUsuario" value="" size="32" placeholder="ejemplo@evaa.com" required>
         <label for="Contrasena">Contraseña:</label>
-        <input type="password" id="Contrasena" value="" size="32" placeholder="Mínimo 6 caracteres" minlength="6" required>
+        <input type="password" id="Contrasena" name="Contrasena" value="" size="32" placeholder="Mínimo 6 caracteres" required pattern=".{6,}">
         <label for="ReContrasena">Vuelve a ingresar su contraseña:</label>
-        <input type="password" id="ReContrasena" value="" size="32" required>
+        <input type="password" name="ReContrasena" id="ReContrasena" value="" size="32" required>
         <label for="TipousuarioId" >Tipo de Usuario:</label>
         <select id="TipoUsuarioId">
           <option value="1">Profesor</option>
@@ -47,15 +46,13 @@
         <br/>
         <input type="submit" id="btnRegistrar" class="evaa-button evaa-button-primary" value="Registrarse">
       </form>
-      
       <form action="../PHP/subir1.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
-    <label for="archivo">Archivo:</label>
-    <input type="file" name="archivo" id="archivo">
-  <p>
-    <input type="submit" name="cmm" id="cmm" value="Subir">
-  </p>
-</form>
-      
+        <label for="archivo">Archivo:</label>
+        <input type="file" name="archivo" id="archivo">
+        <p>
+          <input type="submit" name="cmm" id="cmm" value="Subir">
+        </p>
+      </form>
     </div>
   </div>
 </div>

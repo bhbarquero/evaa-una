@@ -8,7 +8,9 @@
 <link  type="text/css" rel="stylesheet" href="../Styles/Login.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 
-<script src="../Scripts/jquery-2.1.1.min.js"></script>
+<script src="../Scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="../Scripts/jquery.validate.js" type="text/javascript"></script>
+<script src="../Scripts/login.js" type="text/javascript"></script>
 
 </head>
 
@@ -21,10 +23,10 @@
         <div id="divContenido">
             <div id="divLogin">
            <img src="../Imagenes/book.png" alt="Logo EVAA" class="evaa-img">
-                <form onSubmit="return false" id="frmLogin" class="evaa-form">
-                    <input id="correo" type="email" placeholder="Correo electrónico" required>
-                    <input id="pass" type="password" placeholder="Contraseña" required> 
-                    <button id="btnEntrar" class="evaa-button evaa-button-primary">Iniciar Sesión </button>
+                <form  id="frmLogin" class="evaa-form">
+                    <input id="correo" name="correo" type="email" placeholder="Correo electrónico" required>
+                    <input id="pass" name="pass" type="password" placeholder="Contraseña" required> 
+                    <button type="submit" id="btnEntrar" class="evaa-button evaa-button-primary" >Entrar</button>
                 </form>
                 
             </div>
@@ -34,9 +36,9 @@
         </footer>
     </div>
    
-<script src="../Scripts/login.js" type="text/javascript"></script>
+
 <script src="../Scripts/jquery.blockUI.js"></script>
-<script src="../Scripts/jquery.validate.js"></script>
+
 
 </body>
 </html>

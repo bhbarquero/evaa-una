@@ -33,7 +33,7 @@ $.extend($.fn, {
 		}
 
 		// Add novalidate tag if HTML5.
-		this.attr( "novalidate", "novalidate" );
+		//this.attr( "novalidate", "novalidate" );
 
 		validator = new $.validator( options, this[ 0 ] );
 		$.data( this[ 0 ], "validator", validator );
@@ -50,9 +50,9 @@ $.extend($.fn, {
 				}
 
 				// allow suppressing validation by adding the html5 formnovalidate attribute to the submit button
-				if ( $( event.target ).attr( "formnovalidate" ) !== undefined ) {
+				/*if ( $( event.target ).attr( "formnovalidate" ) !== undefined ) {
 					validator.cancelSubmit = true;
-				}
+				}*/
 			});
 
 			// validate the form on submit
@@ -310,7 +310,7 @@ $.extend( $.validator, {
 	},
 
 	messages: {
-		required: "Este campo es requerido.",
+		/*required: "Este campo es requerido.",
 		remote: "Please fix this field.",
 		email: "Please enter a valid email address.",
 		url: "Please enter a valid URL.",
@@ -325,7 +325,7 @@ $.extend( $.validator, {
 		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
 		range: $.validator.format( "Please enter a value between {0} and {1}." ),
 		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
-		min: $.validator.format( "Please enter a value greater than or equal to {0}." )
+		min: $.validator.format( "Please enter a value greater than or equal to {0}." )*/
 	},
 
 	autoCreateRanges: false,

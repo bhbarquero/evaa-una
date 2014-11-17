@@ -27,7 +27,7 @@
 			$row = mysqli_fetch_row($resultado);
 				$retorno = array(
 					"TipoMensaje" => 1,
-					"Mensaje" => "Correo y contraseña válidos",
+					"Mensaje" => $correo,
 					"TipoUsuario" =>$row[0]);
 					
 				echo json_encode($retorno);
