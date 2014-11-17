@@ -1,44 +1,57 @@
 <?php
 
-//REGISTRAR la dirección
-
-if(isset($_POST['grupoId']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
+	session_start();
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
+	$Grupo=$_POST['grupo'];
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
-	if(mysqli_connect_errno())
+	if(!$conexion)
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
-		$Grupo=$_POST['grupoId'];		
-		
-		$consulta="SELECT Anno, Ciclo, (tb_curso.Descripcion) as curso, 
-						Concat(tb_persona.Nombre,tb_persona.apellido) as nombreCompleto
-				   		FROM tb_grupo 
-				   		Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId
-				   		Inner join tb_persona on tb_persona.cedula= tb_grupo.Pofesor
-				   		WHERE GrupoId=".$Grupo;
+		try{
+							
+			$consulta="SELECT Anno, Ciclo, (tb_curso.Descripcion) as Curso, 
+							Concat(tb_persona.Nombre,tb_persona.apellido) as NombreCompleto
+							FROM tb_grupo 
+							Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId
+							Inner join tb_persona on tb_persona.cedula= tb_grupo.Pofesor
+							WHERE GrupoId=".$Grupo;
 				
-	if($resultado=mysqli_query($conexion,$consulta))
-		{
-			while ($resPro = mysqli_fetch_assoc($resultado)) {
-				echo $resPro['Anno'].','.$resPro['Ciclo'].','.$resPro['curso'].','
-				.$resPro['nombreCompleto'];
-			}
-			
+			if($resultado=mysqli_query($conexion,$consulta))
+				{
+					while ($resPro = mysqli_fetch_assoc($resultado)) {
+						$retorno = array(
+								"TipoMensaje" => 1,
+								"Anno" =>$resPro['Anno'],
+								"Ciclo" => $resPro['Ciclo'],
+								"Curso" => $resPro['Curso'],
+								"Profesor" => $resPro['NombreCompleto']);
+								
+							echo json_encode($retorno);
+					}
+					
+				}
+				else
+				{
+					$retorno = array(
+						"TipoMensaje" => 2,
+						"Mensaje" => "Error al cargar los datos. ".mysqli_error($conexion));
+					echo json_encode($retorno);
+				}
 		}
-		else
-		{
-			echo "Error al Consultar: ".mysqli_connect_error();
+		catch(Exception $e){
+			$retorno = array(
+				"TipoMensaje" => 2,
+				"Mensaje" => "Error al cargar los datos. ".$e);
+			echo json_encode($retorno);
 		}
-		
+
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Faltan Datos Requeridos";}
 ?>

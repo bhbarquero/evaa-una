@@ -22,7 +22,7 @@ if( !isset($_SESSION['user']) ){
 
 <body>
 <!-- Contenedor Principal -->
-<div id="layout"> 
+<div id="divPrincipal"> 
   
   <!-- Ícono de notificación --> 
   <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>

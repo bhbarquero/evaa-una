@@ -2,15 +2,19 @@
 
 //REGISTRAR la dirección
 	session_start();
+	$Correo=$_SESSION['user'];	
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
-		$Correo=$_SESSION['user'];		
+			
 		
 		$consulta="SELECT tb_persona.*,tb_estudiante.FechaIngreso  
 				  from tb_persona 
@@ -21,16 +25,39 @@
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			while ($resEst = mysqli_fetch_assoc($resultado)) {
-				echo '1'.','.$resEst['Cedula'].','.$resEst['Nombre'].','.$resEst['Apellido'].','.$resEst['FechaNacimiento']
-				.','.$resEst['Direccion'].','.$resEst['TelefonoFijo'].','.$resEst['TelefonoMovil']
-				.','.$resEst['FechaIngreso'];
+			if(mysqli_num_rows($resultado=mysqli_query($conexion,$consulta))>0){
+				while ($resEst = mysqli_fetch_assoc($resultado)) {
+					$retorno = array(
+						"TipoMensaje" => 1,
+						"Cedula" =>$resEst['Cedula'],
+						"Nombre" => $resEst['Nombre'],
+						"Apellido" => $resEst['Apellido'],
+						"FechaNac" => $resEst['FechaNacimiento'],
+						"Direccion" => $resEst['Direccion'],
+						"TelefonoFijo" => $resEst['TelefonoFijo'],
+						"TelefonoMovil" => $resEst['TelefonoMovil'],
+						"FechaIngreso" => $resEst['FechaIngreso']);
+						
+					echo json_encode($retorno);
+					
+				}
+			}
+			else{
+				$retorno = array(
+				"TipoMensaje" => 3,
+				"Mensaje" => $Correo,
+				);
+				echo json_encode($retorno);
 			}
 			
 		}
 		else
 		{
-			echo '1'."Error al Consultar: ".mysqli_connect_error();
+			$retorno = array(
+			"TipoMensaje" => 1,
+			"Mensaje" => "Error al Consultar: ".mysqli_error($conexion)
+			);
+			echo json_encode($retorno);
 		}
 		
 	}

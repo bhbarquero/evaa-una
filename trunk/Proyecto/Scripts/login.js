@@ -2,19 +2,20 @@
 $(document).ready(function(e){
 	
 	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
-	
+		
 	$('#correo').focus();
 	
-    $("#btnEntrar").click(function(){
-		
-		if($('#frmLogin').valid()){
+    $("#frmLogin").validate({
+        
+        submitHandler: function(form){
+			
 			var parametros=
 				{
 					"correo":$("#correo").val(),
 					"pass":$("#pass").val()
 				};
-				
-			$.ajax({
+			
+            $.ajax({			
 			data:parametros,
 			url:"../PHP/validarUsuario.php",
 			type: "POST",

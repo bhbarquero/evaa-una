@@ -2,18 +2,18 @@
 $(document).ready(function(e) {
 
 	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
-	$("#btnRegistrar").click(function()
-	{	
-		if($('#frmResgistro').valid()){
-			if($("#Contrasena").val().length>5){
-				if($("#Contrasena").val()==$("#ReContrasena").val()){
+
+		$('#frmResgistro').validate({
+        
+        	submitHandler: function(form){
 					
 					var parametros={
 							"correo":$('#CorreoUsuario').val(),
 							"pass":$('#Contrasena').val(),
 							"tipo":$('#TipoUsuarioId').val()
 						};
-
+						
+				if($('#Contrasena').val()==$('#ReContrasena').val()){
 					$.ajax({
 						data:parametros,
 						url: "../PHP/registrarUsuario.php",
@@ -37,10 +37,6 @@ $(document).ready(function(e) {
 				}
 				else
 				$.mensajeError("Las contraseñas no coinciden", 4);
-			}
-			else
-			$.mensajeError("La contraseña no cumple con el tamaño mínimo", 4);
-				
 		}
 
 	});

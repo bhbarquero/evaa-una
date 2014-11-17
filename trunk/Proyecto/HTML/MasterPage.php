@@ -26,8 +26,7 @@ if( !isset($_SESSION['user']) ){
 <div id="layout"> 
   
   <!-- Ícono de notificación --> 
-  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-  <div id="notif"> </div>
+  <div class="msgContent"><label id="mensaje"></label></div>
   
   <!-- Contenedor Secundario -->
   <div id="main"> 

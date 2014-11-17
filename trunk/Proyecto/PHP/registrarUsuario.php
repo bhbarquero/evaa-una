@@ -32,7 +32,7 @@
 		}
 		else
 		{
-			echo "2,Error al guardar el usuario: ".mysqli_connect_error();
+			echo "2,Error al guardar el usuario: ".mysqli_error();
 		}
 		
 	}

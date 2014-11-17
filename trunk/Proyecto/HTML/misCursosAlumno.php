@@ -20,7 +20,7 @@ if( !isset($_SESSION['user']) ){
 </head>
 
 <body>
-<div id="layout"> 
+<div id="divPrincipal"> 
   
   <!-- Ícono de notificación --> 
   <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
@@ -40,7 +40,7 @@ if( !isset($_SESSION['user']) ){
         <h2 class="content-subhead">Filtro:</h2>
         <input type="text" id="NomCurso" placeholder="Nombre Curso" class="evaa-input-rounded">
         &nbsp;
-        <input id="Ano"  type="number" placeholder="Año" class="evaa-input-rounded">
+        <input id="Ano"  type="number" min="0" width="20" placeholder="Año" class="evaa-input-rounded">
         <div id="divTablaResultados" class="flexC"> 
           <!-- Lista la tabla con los cursos de estudiante --> 
         </div>

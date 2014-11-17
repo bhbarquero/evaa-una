@@ -1,6 +1,6 @@
 (function (window, document) {
 	
-    var layout   = document.getElementById('layout'),
+    var layout   = document.getElementById('divPrincipal'),
         notif     = document.getElementById('notif'),
         notifLink = document.getElementById('notifLink');
 

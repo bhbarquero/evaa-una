@@ -31,7 +31,7 @@
 					$tabla= $tabla."
 					<td class='evaa-odd'>".$row[0]."</td>
 					<td class='evaa-odd'>".$row[1]."</td>
-					<td class='evaa-table-odd'><a href=".'../HTML/InformacionCurso.php?grupId='.$row[2]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
+					<td class='evaa-table-odd'><a href=".'../HTML/InfoCursoAlumno.php?grupId='.$row[2]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
 						</td>   
 						
 					</tr>";
