@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2014 a las 01:56:31
+-- Tiempo de generación: 18-11-2014 a las 02:14:02
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -28,40 +28,43 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `tb_asignaciones` (
 `AsignacionId` int(11) NOT NULL,
-  `DescripccionA` varchar(250) NOT NULL,
+  `Id_tipo` int(11) NOT NULL,
+  `DescripcionA` varchar(250) NOT NULL,
   `Archivo` longblob,
-  `GrupoId` int(11) NOT NULL
+  `GrupoId` int(11) NOT NULL,
+  `FechaFin` date NOT NULL,
+  `FechaInicio` date NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Volcado de datos para la tabla `tb_asignaciones`
 --
 
-INSERT INTO `tb_asignaciones` (`AsignacionId`, `DescripccionA`, `Archivo`, `GrupoId`) VALUES
-(1, 'Tarea 1', NULL, 1),
-(2, 'Tarea 2', NULL, 1),
-(3, 'Taller 1', NULL, 1),
-(4, 'Taller 2', NULL, 1),
-(5, 'Examen 1', NULL, 1),
-(6, 'Examen 2', NULL, 1),
-(7, 'Tarea 1', NULL, 2),
-(8, 'Tarea 2', NULL, 2),
-(9, 'Taller 1', NULL, 2),
-(10, 'Taller 2', NULL, 2),
-(11, 'Examen 1', NULL, 2),
-(12, 'Examen 2', NULL, 2),
-(13, 'Tarea 1', NULL, 3),
-(14, 'Tarea 2', NULL, 3),
-(15, 'Taller 1', NULL, 3),
-(16, 'Taller 2', NULL, 3),
-(17, 'Examen 1', NULL, 3),
-(18, 'Examen 2', NULL, 3),
-(19, 'Tarea 1', NULL, 4),
-(20, 'Tarea 2', NULL, 4),
-(21, 'Taller 1', NULL, 4),
-(22, 'Taller 2', NULL, 4),
-(23, 'Examen 1', NULL, 4),
-(24, 'Examen 2', NULL, 4);
+INSERT INTO `tb_asignaciones` (`AsignacionId`, `Id_tipo`, `DescripcionA`, `Archivo`, `GrupoId`, `FechaFin`, `FechaInicio`) VALUES
+(1, 4, 'Tarea 1', NULL, 1, '0000-00-00', '0000-00-00'),
+(2, 4, 'Tarea 2', NULL, 1, '0000-00-00', '0000-00-00'),
+(3, 5, 'Taller 1', NULL, 1, '0000-00-00', '0000-00-00'),
+(4, 5, 'Taller 2', NULL, 1, '0000-00-00', '0000-00-00'),
+(5, 1, 'Examen 1', NULL, 1, '0000-00-00', '0000-00-00'),
+(6, 1, 'Examen 2', NULL, 1, '0000-00-00', '0000-00-00'),
+(7, 4, 'Tarea 1', NULL, 2, '0000-00-00', '0000-00-00'),
+(8, 4, 'Tarea 2', NULL, 2, '0000-00-00', '0000-00-00'),
+(9, 5, 'Taller 1', NULL, 2, '0000-00-00', '0000-00-00'),
+(10, 5, 'Taller 2', NULL, 2, '0000-00-00', '0000-00-00'),
+(11, 1, 'Examen 1', NULL, 2, '0000-00-00', '0000-00-00'),
+(12, 1, 'Examen 2', NULL, 2, '0000-00-00', '0000-00-00'),
+(13, 4, 'Tarea 1', NULL, 3, '0000-00-00', '0000-00-00'),
+(14, 4, 'Tarea 2', NULL, 3, '0000-00-00', '0000-00-00'),
+(15, 5, 'Taller 1', NULL, 3, '0000-00-00', '0000-00-00'),
+(16, 5, 'Taller 2', NULL, 3, '0000-00-00', '0000-00-00'),
+(17, 1, 'Examen 1', NULL, 3, '0000-00-00', '0000-00-00'),
+(18, 1, 'Examen 2', NULL, 3, '0000-00-00', '0000-00-00'),
+(19, 4, 'Tarea 1', NULL, 4, '0000-00-00', '0000-00-00'),
+(20, 4, 'Tarea 2', NULL, 4, '0000-00-00', '0000-00-00'),
+(21, 5, 'Taller 1', NULL, 4, '0000-00-00', '0000-00-00'),
+(22, 5, 'Taller 2', NULL, 4, '0000-00-00', '0000-00-00'),
+(23, 1, 'Examen 1', NULL, 4, '0000-00-00', '0000-00-00'),
+(24, 1, 'Examen 2', NULL, 4, '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -191,14 +194,14 @@ INSERT INTO `tb_grupo` (`GrupoId`, `Pofesor`, `CursoId`, `Anno`, `Ciclo`) VALUES
 CREATE TABLE IF NOT EXISTS `tb_matricula` (
   `CorreoUsuario` varchar(30) NOT NULL,
   `GrupoId` int(11) NOT NULL,
-  `Nota` int(11) NOT NULL
+  `NotaFinal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tb_matricula`
 --
 
-INSERT INTO `tb_matricula` (`CorreoUsuario`, `GrupoId`, `Nota`) VALUES
+INSERT INTO `tb_matricula` (`CorreoUsuario`, `GrupoId`, `NotaFinal`) VALUES
 ('bbarquero@gmail.com', 1, 98),
 ('bbarquero@gmail.com', 2, 88),
 ('bbarquero@gmail.com', 3, 80),
@@ -249,12 +252,23 @@ INSERT INTO `tb_persona` (`Cedula`, `Nombre`, `Apellido`, `FechaNacimiento`, `Di
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tb_porcentajeasignaciones`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_porcentajeasignaciones` (
+  `Id_grupo` int(11) NOT NULL,
+  `Id_tipoasignacion` int(11) NOT NULL,
+  `Porcentaje` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tb_profesor`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_profesor` (
   `Cedula` varchar(10) NOT NULL,
-  `Sueldo` int(10) NOT NULL,
   `Especialidad` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -262,12 +276,36 @@ CREATE TABLE IF NOT EXISTS `tb_profesor` (
 -- Volcado de datos para la tabla `tb_profesor`
 --
 
-INSERT INTO `tb_profesor` (`Cedula`, `Sueldo`, `Especialidad`) VALUES
-('555555555', 500, 'Bases de Datos'),
-('666666666', 600, 'Matematica'),
-('777777777', 700, 'Ingenieria'),
-('888888888', 800, 'Programacion'),
-('999999999', 900, 'Redes');
+INSERT INTO `tb_profesor` (`Cedula`, `Especialidad`) VALUES
+('555555555', 'Bases de Datos'),
+('666666666', 'Matematica'),
+('777777777', 'Ingenieria'),
+('888888888', 'Programacion'),
+('999999999', 'Redes');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tb_tipoasignacion`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_tipoasignacion` (
+`Id_tipoasignacion` int(11) NOT NULL,
+  `Descripcion` varchar(20) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `tb_tipoasignacion`
+--
+
+INSERT INTO `tb_tipoasignacion` (`Id_tipoasignacion`, `Descripcion`) VALUES
+(1, 'Examen'),
+(2, 'Exposición'),
+(3, 'Quiz'),
+(4, 'Tarea'),
+(5, 'Taller'),
+(6, 'Laboratorio'),
+(7, 'Foro');
 
 -- --------------------------------------------------------
 
@@ -296,7 +334,7 @@ INSERT INTO `tb_tipousuario` (`TipoUsuarioId`, `Descripcion`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `CorreoUsuario` varchar(30) NOT NULL,
-  `Contraseña` varchar(20) NOT NULL,
+  `Contrasena` varchar(20) NOT NULL,
   `TipoUsuarioId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -304,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 -- Volcado de datos para la tabla `tb_usuario`
 --
 
-INSERT INTO `tb_usuario` (`CorreoUsuario`, `Contraseña`, `TipoUsuarioId`) VALUES
+INSERT INTO `tb_usuario` (`CorreoUsuario`, `Contrasena`, `TipoUsuarioId`) VALUES
 ('aflores@gmail.com', 'alejandro', 1),
 ('bbarquero@gmail.com', 'bernal', 2),
 ('ctenorio@gmail.com', 'carlos', 2),
@@ -362,6 +400,12 @@ ALTER TABLE `tb_profesor`
  ADD PRIMARY KEY (`Cedula`);
 
 --
+-- Indices de la tabla `tb_tipoasignacion`
+--
+ALTER TABLE `tb_tipoasignacion`
+ ADD PRIMARY KEY (`Id_tipoasignacion`);
+
+--
 -- Indices de la tabla `tb_tipousuario`
 --
 ALTER TABLE `tb_tipousuario`
@@ -392,6 +436,11 @@ MODIFY `CursoId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 ALTER TABLE `tb_grupo`
 MODIFY `GrupoId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT de la tabla `tb_tipoasignacion`
+--
+ALTER TABLE `tb_tipoasignacion`
+MODIFY `Id_tipoasignacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `tb_tipousuario`
 --
