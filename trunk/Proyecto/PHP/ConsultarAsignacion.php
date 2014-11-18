@@ -25,7 +25,7 @@ if(isset($_POST['asignacionid']))
 		{
 			while ($resAsig = mysqli_fetch_assoc($resultado)) {
 				echo $resAsig['AsignacionId'].','.$resAsig['DescripcionA'].','.$resAsig['Archivo'].','.$resAsig['GrupoId']
-				.','.$resAsig['FechaInicio'].','.$resAsig['FechaFin'];
+				.','.$resAsig['FechaInicio'].','.$resAsig['FechaFin'].','.$resAsig['Archivo'];
 			}
 			
 		}

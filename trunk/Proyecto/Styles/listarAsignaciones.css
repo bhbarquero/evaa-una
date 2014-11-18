@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-#btnNuevoCurso {
+#btnAgregar {
 	float: right;
 }
 #divResultados {
@@ -15,14 +15,4 @@
 	color: #FFF;
 }
 
-/*@media (max-width: 48em) {
-#divResultados {
-	margin: 20px;
-	margin-top: auto;
 }
-input[type="text"], input[type="number"] {
-	width: 100px;
-	float: left;
-	margin: 5px;
-}
-}*/
