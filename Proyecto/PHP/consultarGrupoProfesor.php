@@ -15,21 +15,16 @@
 	{
 		try{
 							
-			$consulta="SELECT Concat(Ciclo,' - ',Anno) as Periodo,
-						   (tb_curso.Descripcion) as Curso
-							FROM tb_grupo 
-							Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId							
-							Inner join tb_persona on tb_persona.CorreoUsuario ='".$_SESSION['user']."'
-							WHERE tb_persona.cedula = tb_grupo.Pofesor
-							AND tb_grupo.grupoId=".$Grupo;
+			$consulta="SELECT CursoId, Anno, Ciclo FROM tb_grupo WHERE GrupoId=".$Grupo;
 				
 			if($resultado=mysqli_query($conexion,$consulta))
 				{
 					while ($resPro = mysqli_fetch_assoc($resultado)) {
 						$retorno = array(
 								"TipoMensaje" => 1,
-								"Periodo" =>$resPro['Periodo'],
-								"Curso" => $resPro['Curso']);
+								"CursoId" =>$resPro['CursoId'],
+								"Ciclo" =>$resPro['Ciclo'],
+								"Anno" => $resPro['Anno']);
 								
 							echo json_encode($retorno);
 					}
