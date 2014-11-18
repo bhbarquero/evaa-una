@@ -9,32 +9,32 @@ $dirg ='../Archivos/'.$_POST['Id'].$_SESSION['user'];
     if ($_FILES["archivo"]["size"] < 2000000)   // en bytes 
     { 
 		// Validar el MimeType
-		if ((($_FILES["archivo"]["type"] == "image/gif") || 
-		($_FILES["archivo"]["type"] == "image/jpeg") || 
-		($_FILES["archivo"]["type"] == "image/pjpeg"))) { 
+		//if ((($_FILES["archivo"]["type"] == "image/gif") || 
+		//($_FILES["archivo"]["type"] == "image/jpeg") || 
+		//($_FILES["archivo"]["type"] == "image/pjpeg"))) { 
 		
 			$uploadfile = $uploaddir . basename($_FILES['archivo']['name']);
 		
 			if (move_uploaded_file($_FILES['archivo']['tmp_name'], $uploadfile)) 
 			{
-			echo $dirg.$_FILES['archivo']['name'];
+				echo $dirg.$_FILES['archivo']['name'];
 			} 
 			else 
 			{
-			echo"Error";
-		}
-		}
-		else
-		{
+				//echo"Error";
+			}
+	}
+	else
+	{
 		//echo "Archivo incorrecto del tipo incorrecto".$_FILES["archivo"]["type"];
 		exit;
-		}
-	} else {
+	}
+} else {
 		
 		//echo "Tamaño excedido";
-	}
-}else
-	echo "";
+}
+//}else
+	//echo "";
 
 /*
 	

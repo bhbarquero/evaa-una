@@ -17,7 +17,7 @@ if( !isset($_SESSION['user']) ){
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
-<script src="../Scripts/ListarAsignaciones.js" type="text/javascript"></script>
+<script src="../Scripts/ListarAsignacionesAlumno.js" type="text/javascript"></script>
 </head>
 
 <body>

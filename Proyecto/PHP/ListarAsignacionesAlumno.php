@@ -12,16 +12,12 @@
 	}
 	else
 	{
-		session_start();
 		$Grupo=$_POST['grupoId'];		
 		
-		$consulta="SELECT (tb_Asignaciones.AsignacionId) as AsignacionId, DescripcionA, (tb_Asignaciones.Archivo) as Archivo, FechaFin, FechaInicio,(tb_Curso.Descripcion) as curso, (tb_entregaasiganacion.Nota) as Nota
+		$consulta="SELECT AsignacionId, DescripcionA, Archivo, FechaFin, FechaInicio,(tb_Curso.Descripcion) as curso
 					FROM tb_asignaciones
 					 join tb_grupo on tb_grupo.grupoId = tb_asignaciones.grupoId 
 					 join tb_curso on tb_grupo.CursoId = tb_curso.CursoId
-					join tb_entregaasiganacion on tb_entregaasiganacion.AsignacionId = tb_Asignaciones.AsignacionId and
-tb_entregaasiganacion.CorreoUsuario='".$_SESSION["user"]."'
-
 					WHERE tb_asignaciones.GrupoId=".$Grupo;
 		
 	     
@@ -34,8 +30,8 @@ tb_entregaasiganacion.CorreoUsuario='".$_SESSION["user"]."'
 				<thead>
 					<tr>						
 						<th>Descripción</th>
-						<th>Entrega</th>
-						<th>Nota</th>
+						<th>Inicia</th>
+						<th>Finaliza</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -45,9 +41,9 @@ tb_entregaasiganacion.CorreoUsuario='".$_SESSION["user"]."'
 				$tabla=$tabla."
 						<tr>
 						  <td class='evaa-odd'>".$resPro['DescripcionA']."</td>
+						  <td class='evaa-odd'>".$resPro['FechaInicio']."</td>
 						  <td class='evaa-odd'>".$resPro['FechaFin']."</td>
-						   <td class='evaa-odd'>".$resPro['Nota']."</td>
-						  <td class='evaa-table-odd'><a href=".'../HTML/InformacionAsignacion.php?P='.$resPro['AsignacionId']."&G=0"."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a></td>
+						  <td class='evaa-table-odd'><a href=".'../HTML/InformacionAsignacionAlumno.php?P='.$resPro['AsignacionId']."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a></td>
 					     </tr>";				  
 			}
 			$tabla=$tabla."</tbody>

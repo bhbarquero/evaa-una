@@ -74,9 +74,14 @@ $(document).ready(function(e) {
 				success: function(response){
 					
 					if(response.TipoMensaje==1){
-							dir="../PHP/EditarAsignacion.php";
+							
 							$.mensajeExito(response.Mensaje,4);
-							document.location.reload(true);
+							if(dir="../PHP/EditarAsignacion.php")
+							{
+								document.location.reload(true);
+							}
+							else
+							 document.location='../HTML/ListarAsignacionesProfesor';
 						}
 						else
 							$.mensajeError(response.Mensaje,4);
