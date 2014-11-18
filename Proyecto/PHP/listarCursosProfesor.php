@@ -4,7 +4,8 @@
 		session_start();
 
         //Listar Cursos de cada Profesor
-		$consulta = "SELECT Descripcion, (tb_grupo.Anno) as Anno, (tb_grupo.GrupoId) as GrupoId
+		$consulta = "SELECT Descripcion, Concat(tb_grupo.Ciclo,' - ',tb_grupo.Anno)  as Periodo,
+							 (tb_grupo.GrupoId) as GrupoId
 							 FROM tb_curso, tb_grupo, tb_profesor, tb_persona
                                 WHERE tb_curso.CursoId = tb_grupo.CursoId 
                                 AND tb_grupo.Pofesor = tb_profesor.Cedula 
@@ -23,7 +24,7 @@
 				<thead>
 					<tr>						
 						<th>Curso</th>
-						<th>Año</th>
+						<th>Periodo</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -33,7 +34,7 @@
 					$tabla= $tabla."
 					<td class='evaa-odd'>".$row[0]."</td>
 					<td class='evaa-odd'>".$row[1]."</td>
-					<td class='evaa-table-odd'><a href=".'../HTML/InformacionCurso.php?grupId='.$row[2]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
+					<td class='evaa-table-odd'><a href=".'../HTML/infoCursoProfesor.php?grupoId='.$row[2]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
 						</td>   
 						
 					</tr>";
@@ -43,8 +44,8 @@
 					echo $tabla; 
 					
 			}else 
-				echo "<br><h2 class='content-subhead'>No se ha encontrado ningún curso!</h2>";
+				echo "<br><br><h2 class='content-subhead'>No se ha encontrado ningún curso!</h2>";
 		}else 
-			echo "<br><h2 class='content-subhead'>Error al buscar los cursos</h2>";
+			echo "<br><br><h2 class='content-subhead'>Error al buscar los cursos</h2>";
 		mysql_close($link);
         ?>

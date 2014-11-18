@@ -20,7 +20,7 @@ if( !isset($_SESSION['user']) ){
 <body>
 
 <!-- Contenedor Principal -->
-<div id="divPrincipal">
+<div id="divPrincipal"> 
   
   <!-- Ícono de notificación --> 
   <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
@@ -35,32 +35,16 @@ if( !isset($_SESSION['user']) ){
     <header>
       <h1 id="titulo">EVAA</h1>
       <h2 id ="nombreCurso" class="content-subhead"></h2>
+      <label id ="Profesor" class="content-subhead"></label>
+      <br/>
+      <label id ="Periodo" class="content-subhead"></label>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"><br/>
+      <input type="hidden" id="grupoId" value="<?php echo $_GET['grupId'] ?>">
       <div class="flexR">
-        <form id="frmCurso" class="evaa-form evaa-form-aligned" >
-          <div class="evaa-control-group">
-            <label for="name">Curso </label>
-            <input type="text" id="Curso" value="" size="32">
-          </div>
-          <div class="evaa-control-group">
-            <label for="name">Profesor </label>
-            <input type="text" id="Profesor" value="" size="32">
-          </div>
-          <div class="evaa-control-group">
-            <label for="name">Ciclo </label>
-            <input type="text" id="Ciclo" value="" size="32">
-          </div>
-          <div class="evaa-control-group">
-            <label for="name">Año </label>
-            <input type="text" id="Anno" value="" size="32">
-          </div>
-          <br/>
-          <div id="diAcciones" class="flexC"> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> <a id="btnPromedio" class="evaa-button evaa-button-primary" >Promedios </a> </div>
-        </form>
-        <input type="hidden" id="grupoId" value="<?php echo $_GET['grupId'] ?>"
+        <div id="diAcciones" class="flexC"> <a id="btnPromedio" class="evaa-button evaa-button-primary" >Promedios </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
       </div>
     </div>
   </div>

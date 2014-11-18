@@ -26,7 +26,7 @@
                 <form  id="frmLogin" class="evaa-form">
                     <input id="correo" name="correo" type="email" placeholder="Correo electrónico" required>
                     <input id="pass" name="pass" type="password" placeholder="Contraseña" required> 
-                    <button type="submit" id="btnEntrar" class="evaa-button evaa-button-primary" >Entrar</button>
+                    <button type="submit" id="btnEntrar" class="evaa-button evaa-button-primary" >Iniciar Sesión</button>
                 </form>
                 
             </div>

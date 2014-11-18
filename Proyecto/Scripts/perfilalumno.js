@@ -36,6 +36,7 @@ $(document).ready(function(e)
 				success: function(response){
 					if(response.TipoMensaje==1){
 						dir="../PHP/editarAlumno.php";
+						$('#Cedula').attr("readonly",true);
 						$.mensajeExito(response.Mensaje,4);
 					}
 					else
@@ -69,6 +70,7 @@ function consultarInfoA(){
 					$('#FechaIngreso').val(response.FechaIngreso);
 					
 					dir="../PHP/editarAlumno.php";
+					$('#Cedula').attr("readonly",true);
 				}
 				if(response.TipoMensaje==2){
 					$.mensajeError(response.Mensaje,4)

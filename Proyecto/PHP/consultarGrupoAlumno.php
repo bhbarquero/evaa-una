@@ -15,8 +15,9 @@
 	{
 		try{
 							
-			$consulta="SELECT Anno, Ciclo, (tb_curso.Descripcion) as Curso, 
-							Concat(tb_persona.Nombre,tb_persona.apellido) as NombreCompleto
+			$consulta="SELECT Concat(Ciclo,' - ',Anno) as Periodo,
+						   (tb_curso.Descripcion) as Curso, 
+							Concat(tb_persona.Nombre,' ',tb_persona.apellido) as NombreCompleto
 							FROM tb_grupo 
 							Inner join tb_curso on tb_curso.CursoId = tb_grupo.CursoId
 							Inner join tb_persona on tb_persona.cedula= tb_grupo.Pofesor
@@ -27,8 +28,7 @@
 					while ($resPro = mysqli_fetch_assoc($resultado)) {
 						$retorno = array(
 								"TipoMensaje" => 1,
-								"Anno" =>$resPro['Anno'],
-								"Ciclo" => $resPro['Ciclo'],
+								"Periodo" =>$resPro['Periodo'],
 								"Curso" => $resPro['Curso'],
 								"Profesor" => $resPro['NombreCompleto']);
 								
