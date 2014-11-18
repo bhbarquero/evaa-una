@@ -4,28 +4,23 @@
 	font-family: titulo;
 	src: url(../Fuentes/LeagueGothic-Regular.otf);
 }
-
 @font-face {
 	font-family: helvetica;
 	src: url(../Fuentes/HelveticaLTStd-Light.otf);
 }
-
-*{
-	font-family:helvetica;
+* {
+	font-family: helvetica;
 }
 #titulo {
 	color: #67abb8;
 	font-family: titulo;
 	font-size: 48px;
-	margin:0px!important;
+	margin: 0px!important;
 }
-
-.subtitulo{
-	color:#f15b40;
+.subtitulo {
+	color: #f15b40!important;
 	font-weight: 300;
 }
-
-
 /*
 IMAGENES
 */
@@ -172,7 +167,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	background-color: #eaeded;
 	color: #cad2d3;
 }
-
 .evaa-form input:not([type])[disabled] {
 	cursor: not-allowed;
 	background-color: #eaeded;
@@ -220,7 +214,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	display: block;
 	margin: 0.25em 0;
 }
-
 .evaa-form-stacked input:not([type]) {
 	display: block;
 	margin: 0.25em 0;
@@ -338,13 +331,11 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	padding: 0.2em 0 0.8em;
 }
 }
-
-
 /*MENSAJES*/
 .msgContent {
 	position: fixed;
 	bottom: 0px;
-	left:0px;
+	left: 0px;
 	width: 100%;
 	height: 0px;
 	box-sizing: border-box;
@@ -355,10 +346,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	-webkit-transition: height 2s;
 	transition: height .2s;
 	z-index: 1000000;
-
 }
-
-
 .activeError {
 	height: auto;
 	padding: 10px;
@@ -383,6 +371,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	/* Wrap */
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
+	clear: both;
 }
 .flexR {
 	/* flexbox setup */
@@ -398,75 +387,62 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	/* Wrap */
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
+	clear: both;
 }
-
-
 /*Tablas*/
 
 .evaa-table {
-    /* Remove spacing between table cells (from Normalize.css) */
-    border-collapse: collapse;
-    border-spacing: 0;
-    empty-cells: show;
-    border: 1px solid #cbcbcb;
+	/* Remove spacing between table cells (from Normalize.css) */
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	border: 1px solid #cbcbcb;
 }
-
 .evaa-table caption {
-    color: #000;
-    font: italic 85%/1 arial, sans-serif;
-    padding: 1em 0;
-    text-align: center;
+	color: #000;
+	font: italic 85%/1 arial, sans-serif;
+	padding: 1em 0;
+	text-align: center;
 }
-
-.evaa-table td,
-.evaa-table th {
-    border-left: 1px solid #cbcbcb;/*  inner column border */
-    border-width: 0 0 0 1px;
-    font-size: inherit;
-    margin: 0;
-    overflow: visible; /*to make ths where the title is really long work*/
-    padding: 0.5em 1em; /* cell padding */
+.evaa-table td, .evaa-table th {
+	border-left: 1px solid #cbcbcb;/*  inner column border */
+	border-width: 0 0 0 1px;
+	font-size: inherit;
+	margin: 0;
+	overflow: visible; /*to make ths where the title is really long work*/
+	padding: 0.5em 1em; /* cell padding */
 }
-.evaa-table td:first-child,
-.evaa-table th:first-child {
-    border-left-width: 0;
+.evaa-table td:first-child, .evaa-table th:first-child {
+	border-left-width: 0;
 }
-
 .evaa-table thead {
-    text-align: center;
-	text-transform:uppercase;
-    vertical-align: bottom;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: bottom;
 }
-
 .evaa-table td {
-    background-color: transparent;
+	background-color: transparent;
 }
 .evaa-table-odd td {
-    background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
-
 /* nth-child selector for modern browsers */
 .evaa-table-striped tr:nth-child(2n-1) td {
-    background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
-
 /* BORDERED TABLES */
 .evaa-table-bordered td {
-    border-bottom: 1px solid #cbcbcb;
+	border-bottom: 1px solid #cbcbcb;
 }
-.evaa-table-bordered tbody > tr:last-child td,
-.evaa-table-horizontal tbody > tr:last-child td {
-    border-bottom-width: 0;
+.evaa-table-bordered tbody > tr:last-child td, .evaa-table-horizontal tbody > tr:last-child td {
+	border-bottom-width: 0;
 }
-
-
 /* HORIZONTAL BORDERED TABLES */
 
-.evaa-table-horizontal td,
-.evaa-table-horizontal th {
-    border-width: 0 0 1px 0;
-    border-bottom: 1px solid #cbcbcb;
+.evaa-table-horizontal td, .evaa-table-horizontal th {
+	border-width: 0 0 1px 0;
+	border-bottom: 1px solid #cbcbcb;
 }
 .evaa-table-horizontal tbody > tr:last-child td {
-    border-bottom-width: 0;
+	border-bottom-width: 0;
 }

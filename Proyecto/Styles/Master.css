@@ -4,37 +4,30 @@ body {
 h2 {
 	color: #67abb8;
 }
-/*
-Add transition to containers so they can push in and out.
-*/
-#divPrincipal, #notif, .notif-link {
+
+#divPrincipal, #menu, .menu-link {
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-ms-transition: all 0.2s ease-out;
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-/*
-This is the parent `<div>`
-*/
+
 #divPrincipal {
 	position: relative;
 	padding-left: 0;
 }
-#divPrincipal.active {
+#divPrincipal.responsivo {
 	position: relative;
-	left: 150px;
+	left: 200px;
 }
-#divPrincipal.active #notif {
-	left: 150px;
-	width: 150px;
+#divPrincipal.responsivo #menu {
+	left: 200px;
+	width: 200px;
 }
-#divPrincipal.active .notif-link {
-	left: 150px;
+#divPrincipal.responsivo .menu-link {
+	left: 200px;
 }
-/*
-The content `<div>`
-*/
 .content {
 	margin: 0 auto;
 	padding: 0 2em;
@@ -57,18 +50,14 @@ header h2 {
 	color: #f15b40!important;
 	padding: 0;
 	margin-top: 0;
-	font-weight:bold!important;
+	font-weight: bold!important;
 }
 .content-subhead {
 	font-weight: 300;
 	color: #888;
-	text-transform:uppercase;
+	text-transform: uppercase;
 }
-/*
-The `#notif`
-*/
-
-#notif {
+#menu {
 	margin-left: -150px;
 	width: 150px;
 	position: fixed;
@@ -80,9 +69,7 @@ The `#notif`
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 }
-/* -- Dynamic Button For Responsive notif -------------------------------------*/
-
-.notif-link {
+.menu-link {
 	position: fixed;
 	display: block;
 	top: 0;
@@ -95,28 +82,86 @@ The `#notif`
 	height: auto;
 	padding: 2.1em 1.6em;
 }
-.notif-link:hover, .notif-link:focus {
+.menu-link:hover, .menu-link:focus {
 	background: #262626;
 }
-.notif-link span {
+.menu-link span {
 	position: relative;
 	display: block;
 }
-.notif-link span, .notif-link span:before, .notif-link span:after {
+.menu-link span, .menu-link span:before, .menu-link span:after {
 	background-color: #fff;
 	width: 100%;
 	height: 0.2em;
 }
-.notif-link span:before, .notif-link span:after {
+.menu-link span:before, .menu-link span:after {
 	position: absolute;
 	margin-top: -0.6em;
 	content: " ";
 }
-.notif-link span:after {
+.menu-link span:after {
 	margin-top: 0.6em;
 }
-/* -- Responsive Styles (Media Queries) ------------------------------------- */
+#divTablaResultados {
+	width: 100%;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	float: left;
+	margin-top: 20px;
+}
+table {
+	overflow-x: auto;
+	overflow-y: auto;
+	display: block;
+}
+#menu {
+	margin-left: -200px; /* "#menu" width */
+	width: 200px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1000; /* so the menu or its navicon stays above all content */
+	background: #191818;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
 
+#menu a {
+	color: #999;
+	border: none;
+	padding: 0.6em 0 0.6em 0.6em;
+}
+
+#menu .pure-menu,  #menu .pure-menu ul {
+	border: none;
+	background: transparent;
+}
+
+#menu .pure-menu ul,  #menu .pure-menu .menu-item-divided {
+	border-top: 1px solid #333;
+}
+
+#menu .pure-menu li a:hover,  #menu .pure-menu li a:focus {
+	background: #333;
+	color:#FFF;
+}
+
+#menu .pure-menu-selected,  #menu .pure-menu-heading {
+	background: #67abb8;
+}
+
+#menu .pure-menu-selected a {
+	color: #fff;
+}
+
+#menu .pure-menu-heading {
+	font-size: 100%;
+	color: #fff;
+	margin: 0;
+}
+
+/*pantalla grande*/
 @media (min-width: 48em) {
 header, .content {
 	padding-left: 2em;
@@ -126,15 +171,30 @@ header, .content {
 	padding-left: 150px;
 	left: 0;
 }
-#notif {
-	left: 150px;
+#menu {
+	left: 200px;
 }
-.notif-link {
+.menu-link {
 	position: fixed;
-	left: 150px;
+	left: 200px;
 	display: none;
 }
-#divPrincipal.active .notif-link {
-	left: 150px;
+#divPrincipal.responsivo .menu-link {
+	left: 200px;
+}
+.dTabla {
+	/* flexbox setup */
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	-webkit-justify-content: center;
+	justify-content: center;
+	/* Vertical */	
+	-webkit-align-items: center;
+	align-items: center;
+	/* Wrap */
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 }

@@ -1,5 +1,8 @@
 <?php
 
+	session_start();
+	$Correo =$_SESSION["user"];
+	
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
@@ -11,22 +14,16 @@
 	}
 	else
 	{
-		$correo=$_POST['correo'];
-		$pass=$_POST['pass'];
 		
 		$consulta="select u.TipoUsuarioId from tb_usuario u
-					where u.CorreoUsuario = '$correo' and
-					u.Contrasena = '$pass'";
+					where u.CorreoUsuario = '$Correo.'";
 		
 		if(mysqli_num_rows($resultado=mysqli_query($conexion,$consulta))>0)
 		{
-			session_start();
-			$_SESSION["user"]="$correo";
-			
+						
 			$row = mysqli_fetch_row($resultado);
 				$retorno = array(
 					"TipoMensaje" => 1,
-					"Mensaje" => $correo,
 					"TipoUsuario" =>$row[0]);
 					
 				echo json_encode($retorno);
@@ -36,7 +33,7 @@
 					
 			$retorno = array(
 					"TipoMensaje" => 2,
-					"Mensaje" => "Correo y contraseña inválidos");
+					"Mensaje" => "Error al comprobar el tipo de usuario".mysqli_error($conexion));
 				echo json_encode($retorno);
 		}
 		
