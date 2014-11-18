@@ -11,7 +11,7 @@ $(document).ready(function(e)
 	var dir="";
 	
 	//Guarda o Edita la persona	
-	$("#frmAlumno").validate(
+	$("#frmAgregar").validate(
 	{
 		submitHandler: function(form){
 			var parametros=

@@ -49,26 +49,6 @@ if( !isset($_SESSION['user']) ){
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
-<<<<<<< .mine	<div class="content">
-	<h2 class="content-subhead">Información Asignación</h2>
-	
-  	<form name="form1" class="evaa-form evaa-form-stacked" >
-            <label for="name">Descripción </label>
-            <input type="text" id="Descripcion" value="" size="32" placeholder="Obligatorio" required>
-            <label for="fechaInicio">Fecha de Inicio </label>
-        <input type="date" id="FechaInicio" value="" size="32" required>
-        <label for="fechaFin">Fecha de Fin</label>
-        <input type="date" id="FechaFin" value="" size="32" required>
-               <a id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Guardar </a> 
-               
-               <a id="btnEditarAsignacion" class="evaa-button evaa-button-primary" >Editar </a>
-               
-                 <a id="btnCalificar" class="evaa-button evaa-button-primary" >Calificar </a>
-  <!--  <input type="hidden" name="MM_insert" value="form1">-->
-  </form>
-  <input type="hidden" id="Id" value=<?php echo $_GET['P'] ?>>
-  <input type="hidden" id="Guardar" value=<?php echo $_GET['G'] ?>>
-=======    <div class="content"> <br/>
       <form id="frmAsignacion" class="evaa-form evaa-form-stacked flexC" enctype="multipart/form-data">
         <div class="evaa-control-group">
           <label for="name">Descripción </label>
@@ -90,13 +70,12 @@ if( !isset($_SESSION['user']) ){
         <input type="file" name="archivo" id="archivo" value="" size="32">
         <div id="diAcciones" class="flexR">
           <button type="submit" id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Guardar </button>
-          <a id="btnClificar" class="evaa-button evaa-button-primary" >Calificar</a>
+          <a id="btnCalificar" class="evaa-button evaa-button-primary" >Calificar</a>
         </div>
         <input type="hidden" name="Id" id="Id" value=<?php echo $_GET['P'] ?>>
         <input type="hidden" id="Guardar" value=<?php echo $_GET['G'] ?>>
       </form>
     </div>
->>>>>>> .theirs  </div>
 </div>
 <script src="../Scripts/Master.js"></script> 
 <script src="../Scripts/jquery.blockUI.js"></script> 

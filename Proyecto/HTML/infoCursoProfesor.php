@@ -67,7 +67,7 @@ if( !isset($_SESSION['user']) ){
           </div><br/>
           <div id="diAcciones" class="flexR">
             <button type="submit" id="btnGuardarGrupo" class="evaa-button evaa-button-primary">Guardar</button>
-            <a id="btnEstudiantes" class="evaa-button evaa-button-primary" >Estudiantes </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
+            <a id="btnEstudiantes" class="evaa-button evaa-button-primary" >Invitar Estudiantes </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
         </form>
       </div>
     </div>

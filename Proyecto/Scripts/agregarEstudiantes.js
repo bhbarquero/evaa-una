@@ -1,6 +1,8 @@
 $(document).ready(function(e) {
     
-	$('#btnAgregar').click(function(e) {
+	$("#frmAgregar").validate(
+	{
+		submitHandler: function(form){
         var parametros=
 			{
 				"grupoid":$('#GrupoId').val(),
@@ -15,7 +17,7 @@ $(document).ready(function(e) {
 
 			success: function(response){
 				if(response.TipoMensaje==1){
-					alert(response.Mensaje)
+					$.mensajeExito(response.Mensjae,4);
 				}
 				else
 				$.mensajeError(response.Mensaje,4);
@@ -24,6 +26,7 @@ $(document).ready(function(e) {
 				$.mensajeError("Error desconocido",4);
 				}
 		});
+		}
     });
 	
 });

@@ -26,16 +26,23 @@
 				<tbody>
         			<tr>";
 					while($row = mysql_fetch_row($result))
-					
+					{
 					$tabla= $tabla."
-					<td class='evaa-odd'>".$row[0]."</td>
-					<td class='evaa-odd'> <a target='_blank' href='".$row[1]."'>Descargar</a></td>
+					<td class='evaa-odd'>".$row[0]."</td>";
+					if($row[1]!="")
+					{$tabla= $tabla." <td class='evaa-odd'> <a target='_blank' href='".$row[1]."'>Descargar</a></td>";	}
+					else
+					{$tabla= $tabla."<td class='evaa-odd'> </td>";		}
+					$tabla= $tabla."
+					
+					
+					 		
 					<td class='evaa-odd'>".$row[2]."</td>
-					<td class='evaa-table-odd'><input value='Seleccionar' onClick='funSeleccionar(".$row[3].")' type='button' id='btnSeleccionar'>
+					<td class='evaa-table-odd'><input value='Seleccionar' onClick='funSeleccionar(".$row[3].")' type='button' id='btnSeleccionar' class='evaa-button evaa-button-primary'>
 						</td>   
 						
 					</tr>";
-					
+					}
 				$tabla= $tabla."</tbody>
 								</table>";
 					echo $tabla; 

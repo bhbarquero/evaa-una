@@ -13,6 +13,8 @@ if( !isset($_SESSION['user']) ){
 <link rel="stylesheet" href="../Styles/Master.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <link rel="stylesheet" href="../Styles/General.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script src="../Scripts/agregarEstudiantes.js" type="text/javascript"></script>
 </head>
@@ -22,9 +24,23 @@ if( !isset($_SESSION['user']) ){
 <!-- Contenedor Principal -->
 <div id="divPrincipal"> 
   
-  <!-- Ícono de notificación --> 
-  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-  <div id="notif"> </div>
+  <!-- Menú --> 
+  <a href="#menu" id="menuLink" class="menu-link"> <span></span> </a>
+  <div id="menu">
+  <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?></a>
+
+            <ul>
+                <li id ="aCursos" ><a href="#">Mis Cursos</a></li>
+                <li id="aPerfil" ><a href="#">Mi Perfil</a></li>
+
+                <li>
+                    <a href="#" id="aCerrar">Cerrar Sesión</a>
+                </li>
+
+            </ul>
+        </div>
+  </div>
   
   <!-- Contenedor Secundario -->
   <div class="msgContent">
@@ -39,18 +55,19 @@ if( !isset($_SESSION['user']) ){
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"><br/>
-
+<form id="fromAgregar" class="flexR">
       <input type="hidden" id="GrupoId" value="<?php echo $_GET['grupoid'] ?>" >
       <div class="evaa-control-group">
           <label for="Correo">Correo Estudiante: </label>
-          <input type="email" name="Correo" id="Correo" value="" size="32" placeholder="Correo" required>
+          <input type="email" name="Correo" id="Correo" value="" size="32" placeholder="ejemplo@evaa.com" required>
         </div>
         
       
       <div class="flexR">
         <div id="diAcciones" class="flexC"> 
-        <a id="btnAgregar" class="evaa-button evaa-button-primary" >Agregar </a>
+        <button type="submit" id="btnAgregar" class="evaa-button evaa-button-primary" >Agregar </button>
       </div>
+      </form>
     </div>
   </div>
 </div>

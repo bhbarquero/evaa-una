@@ -13,6 +13,8 @@ if( !isset($_SESSION['user']) ){
 <link rel="stylesheet" href="../Styles/Master.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <link rel="stylesheet" href="../Styles/General.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script src="../Scripts/calificarNota.js" type="text/javascript"></script>
 </head>
@@ -22,9 +24,23 @@ if( !isset($_SESSION['user']) ){
 <!-- Contenedor Principal -->
 <div id="divPrincipal"> 
   
-  <!-- Ícono de notificación --> 
-  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-  <div id="notif"> </div>
+  <!-- Menú --> 
+  <a href="#menu" id="menuLink" class="menu-link"> <span></span> </a>
+  <div id="menu">
+  <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?></a>
+
+            <ul>
+                <li id ="aCursos" ><a href="#">Mis Cursos</a></li>
+                <li id="aPerfil" ><a href="#">Mi Perfil</a></li>
+
+                <li>
+                    <a href="#" id="aCerrar">Cerrar Sesión</a>
+                </li>
+
+            </ul>
+        </div>
+  </div>
   
   <!-- Contenedor Secundario -->
   <div class="msgContent">
@@ -42,14 +58,15 @@ if( !isset($_SESSION['user']) ){
 		<input type="hidden" id="cedula">
       <input type="hidden" id="asignacionId" value="<?php echo $_GET['asigId'] ?>" >
       <div class="evaa-control-group">
-         <div id="divResultado"></div>
+         <div id="divTablaResultados" class="dTabla"></div> 
+         
         </div>
         
       
-      <div class="flexR">
-        <div id="diAcciones" class="flexC"> 
-       	<input type="text" id="txtNota" style="display:none"> 
-        <input value="Calificar" type="button" style="display:none" id="btnBoton">
+      <div class="flexC">
+        <div id="diAcciones" class="flexC" style="display:none"> 
+        <input type="text" id="txtNota" placeholder="Nota"> 
+        <input value="Calificar" type="button"  id="btnBoton" class="evaa-button evaa-button-primary">
       </div>
     </div>
   </div>
