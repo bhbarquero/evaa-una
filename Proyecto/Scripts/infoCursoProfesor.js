@@ -10,8 +10,9 @@ $(document).ready(function(e) {
        $(document.location=url);
     });
 	
-	$('#btnPromedio').click(function(e) {
-        $('#cmbCurso').val(5);
+	$('#btnEstudiantes').click(function(e) {
+      
+		$(document.location="agregarEstudiantes.php?grupoid="+$('#grupoId').val());
     });
 	
 	$('#btnEditar').click(function(e) {
@@ -80,7 +81,7 @@ $(document).ready(function(e) {
 	{
 		$('#btnEditar').css('display','none');
 		$('#btnAsiganciones').css('display','none');
-		$('#btnPromedio').css('display','none');
+		$('#btnEstudiantes').css('display','none');
 		
 		}
 		else
