@@ -34,8 +34,13 @@ $(document).ready(function(e) {
 		{
 			dir="../PHP/registrarAsignacion.php";
 			$('#btnClificar').css("display","none");
+			$('#btnCalificar').css('display','none');
 		}
-	
+		
+		$('#btnCalificar').click(function(e) {
+            $(document.location="CalificarAsignacion.php?asigId="+$('#Id').val());
+        });
+		
 	$("#frmAsignacion").validate(
 	{
 		submitHandler: function(form){
