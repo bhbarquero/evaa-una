@@ -1,8 +1,12 @@
 $(document).ready(function(e) {
 	
+	var dir="";
+	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+	
 		if($('#Guardar').val()==0)
 		{
-			$('#btnInsertarAsignacion').css('display','none');
+			dir="../PHP/EditarAsignacion.php";
+			
 		 var parametros=
 				{
 					"asignacionid":$('#Id').val()
@@ -17,6 +21,8 @@ $(document).ready(function(e) {
 					$('#Descripcion').val(res[1]);
 					$('#FechaInicio').val(res[4]);
 					$('#FechaFin').val(res[5]);
+					if(res[6]!="")
+					$('#link').html('<a href="'+res[6]+'" target="_blank">Ver archivo</a>')
 				},
 				error: function(response){
 								
@@ -26,55 +32,79 @@ $(document).ready(function(e) {
 		}
 		else
 		{
-			$('#btnEditarAsignacion').css('display','none');
+			dir="../PHP/registrarAsignacion.php";
+			$('#btnClificar').css("display","none");
 		}
 	
-	$('#btnEditarAsignacion').click(function(e) {
-       var parametros=
-			{
-				"asignacionid":$('#Id').val(),
-				"descripciona":$("#Descripcion").val(),
-				"fechainicio":$("#FechaInicio").val(),
-				"fechafin":$("#FechaFin").val()
-			};
+	$("#frmAsignacion").validate(
+	{
+		submitHandler: function(form){
+		var formData = new FormData($("#frmAsignacion")[0]);
+       
 			$.ajax({
-			data:parametros,
-			url:"../PHP/EditarAsignacion.php",
+			data:formData,
+			cache: false,
+            contentType: false,
+            processData: false,
+			url:"../PHP/subirArchivo.php",
 			type: "POST",
 
 			success: function(response){
+				var parametros=
+				{
+					"dir":response,
+					"asignacionid":$('#Id').val(),
+					"grupoid":$('#Id').val(),
+					"descripciona":$("#Descripcion").val(),
+					"fechainicio":$("#FechaInicio").val(),
+					"fechafin":$("#FechaFin").val()
+				};
 				
-				alert(response);
-			},
-			error: function(response){
-							
-				alert(response);
-				}
-		});
-    });
+				$.ajax({
+				data:parametros,
+				url:dir,
+				type: "POST",
+				dataType:"json",
 	
-	$('#btnInsertarAsignacion').click(function(e) {
-        var parametros=
-			{
-				"grupoid":$('#Id').val(),
-				"descripciona":$('#Descripcion').val(),
-				"fechainicio":$('#FechaInicio').val(),
-				"fechafin":$('#FechaFin').val(),
-				//"archivo":null
-			};
-			$.ajax({
-			data:parametros,
-			url:"../PHP/registrarAsignacion.php",
-			type: "POST",
-
-			success: function(response){
-				
-				alert(response);
+				success: function(response){
+					
+					if(response.TipoMensaje==1){
+							dir="../PHP/EditarAsignacion.php";
+							$.mensajeExito(response.Mensaje,4);
+							document.location.reload(true);
+						}
+						else
+							$.mensajeError(response.Mensaje,4);
+				},
+				error: function(response){		
+					$.mensajeError("Error al guardar. "+response.Mensaje,4);
+					}
+				});
 			},
 			error: function(response){
 							
 				alert(response);
 				}
 		});
+			
+		}
     });
 });
+
+$.mensajeExito = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeExito");
+		$("#mensaje").html(mensaje);
+		  
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeExito");
+		},segundos*1000);
+	};
+
+$.mensajeError = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeError");
+		$("#mensaje").html(mensaje);
+		
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeError");
+		},segundos*1000);
+	};

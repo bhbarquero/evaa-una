@@ -6,7 +6,7 @@ $(document).ready(function(e) {
 	var src = String( window.location.href ).split('=');
 	
 	$('#btnAsiganciones').click(function(e) {
-		var url="ListarAsignaciones.php?grupoId="+src[1];
+		var url="ListarAsignacionesProfesor.php?grupoId="+src[1];
        $(document.location=url);
     });
 	
