@@ -10,12 +10,11 @@ $(document).ready(function(e) {
        $(document.location=url);
     });
 	
-	$('#btnEstudiantes').click(function(e) {
-      
-		$(document.location="agregarEstudiantes.php?grupoid="+$('#grupoId').val());
-    });
+	var dir="";
 	
-	$('#btnEditar').click(function(e) {
+	$('#frmResgistro').validate(
+	{
+		submitHandler: function(form){
         var parametros=
 			{
 				"anno":$('#Anno').val(),
@@ -23,46 +22,32 @@ $(document).ready(function(e) {
 				"cursoid":$('#cmbCurso').val(),
 				"grupoid":$('#grupoId').val()
 			};
-
-		$.ajax({
+	
+			$.ajax({
 			data:parametros,
-			url:"../PHP/editarGrupo.php",
+			url:dir,
 			type: "POST",
-
+			dataType: 'json',
+			
 			success: function(response){
-				alert(response)
+				if(response.TipoMensaje==1){
+					$.mensajeExito(response.Mensaje,4);
+					document.location='../HTML/misCursosProfesor.php';
+				}
+				else{
+					$.mensajeError(response.Mensaje,4);
+				}
 			},
 			error: function(response){		
-				$.mensajeError("Error desconocido",4);
+				$.mensajeError("Error desconocido"+response.Mensaje,4);
 				}
-		});
+			});
+		}
     });
 	
-	$('#btnAgregar').click(function(e) {
-        var parametros=
-			{
-				"anno":$('#Anno').val(),
-				"ciclo":$('#Ciclo').val(),
-				"cursoid":$('#cmbCurso').val()
-			};
-
-		$.ajax({
-			data:parametros,
-			url:"../PHP/registrarGrupo.php",
-			type: "POST",
-
-			success: function(response){
-				alert(response)
-			},
-			error: function(response){		
-				$.mensajeError("Error desconocido",4);
-				}
-		});
-    });
 	
-	var parametros=
-			{
-			};
+	//carga los cursos
+	var parametros={};
 
 		$.ajax({
 			data:parametros,
@@ -71,6 +56,7 @@ $(document).ready(function(e) {
 
 			success: function(response){
 				$('#cmbCurso').html(response);
+				//$(".chosen-select").chosen(); 
 			},
 			error: function(response){		
 				$.mensajeError("Error desconocido",4);
@@ -79,13 +65,15 @@ $(document).ready(function(e) {
 	
 	if($('#grupoId').val()==0)
 	{
-		$('#btnEditar').css('display','none');
+		$('#btnPromedio').css('display','none');
 		$('#btnAsiganciones').css('display','none');
-		$('#btnEstudiantes').css('display','none');
+		dir="../PHP/registrarGrupo.php";
+		$('#hs').html("Nuevo grupo");
+	}
+	else
+	{/*Cargar informacion del grupo*/
 		
-		}
-		else
-		{/*Cargar informacion del grupo*/
+		dir="../PHP/editarGrupo.php";
 		$('#btnAgregar').css('display','none');
 		var parametros=
 			{
@@ -103,6 +91,7 @@ $(document).ready(function(e) {
 					$('#Ciclo').val(response.Ciclo);
 					$('#Anno').val(response.Anno);
 					$('#cmbCurso').val(response.CursoId);
+					$('#hs').html("Mi grupo");
 				}
 				else
 				$.mensajeError(response.Mensaje,4);
@@ -112,6 +101,7 @@ $(document).ready(function(e) {
 				}
 		});
 		}
+		
 });
 
 

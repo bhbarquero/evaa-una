@@ -1,15 +1,14 @@
 <?php
 
-//REGISTRAR la dirección
 
-if(isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
-{
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
@@ -27,41 +26,49 @@ if(isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
 				$Profesor=$resPro['Cedula'];
 			}
 			$consulta="insert into tb_grupo
-			(
-				Pofesor,
-				CursoId,
-				Anno,
-				Ciclo				
-			)
-			values
-			(
-				'$Profesor',
-				'$CursoId',
-				'$Anno',
-				'$Ciclo'
-			);
-		";
+				(
+					Pofesor,
+					CursoId,
+					Anno,
+					Ciclo				
+				)
+				values
+				(
+					'$Profesor',
+					'$CursoId',
+					'$Anno',
+					'$Ciclo'
+				);
+			";
 		
 		
-	if($resultado=mysqli_query($conexion,$consulta))
-		{
-			echo "Guardado con Exito";
-		}
-		else
-		{
-			echo "Error al Registrar el Grupo ".mysqli_connect_error();
-		}
+			if($resultado=mysqli_query($conexion,$consulta))
+			{
+				$retorno = array(
+					"TipoMensaje" => 1,
+					"Mensaje" => "Grupo gurdado con éxito");
+				echo json_encode($retorno);
+			}
+			else
+			{
+				$retorno = array(
+					"TipoMensaje" => 2,
+					"Mensaje" => "Error al guardar el grupo. ".mysqli_error($conexion));
+				echo json_encode($retorno);
+			}
 		
 			
 		}
 		else
-		{echo "Error Al consultar El profesor";}
+		{
+			$retorno = array(
+					"TipoMensaje" => 2,
+					"Mensaje" => "Error al gconsultar el profesor. ".mysqli_error($conexion));
+				echo json_encode($retorno);}
 		
 		
 	}
 	//cerrar la conexion
 	mysqli_close($conexion);
-}
-else
-{echo "Faltan Datos Requeridos";}
+	
 ?>

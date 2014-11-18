@@ -13,6 +13,8 @@ if( !isset($_SESSION['user']) ){
 <link rel="stylesheet" href="../Styles/Master.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
 <link rel="stylesheet" href="../Styles/General.css">
+<!--<link rel="stylesheet" href="../Styles/chosen.min.css">-->
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
 <script src="../Scripts/infoCursoProfesor.js" type="text/javascript"></script>
 </head>
@@ -22,9 +24,17 @@ if( !isset($_SESSION['user']) ){
 <!-- Contenedor Principal -->
 <div id="divPrincipal"> 
   
-  <!-- Ícono de notificación --> 
-  <a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-  <div id="notif"> </div>
+  <!-- Menú --> 
+  <a href="#menu" id="menuLink" class="menu-link"> <span></span> </a>
+  <div id="menu">
+    <div class="pure-menu pure-menu-open"> <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?></a>
+      <ul>
+        <li id ="aCursos" ><a href="#">Mis Cursos</a></li>
+        <li id="aPerfil"><a href="#">Mi Perfil</a></li>
+        <li> <a href="#" id="aCerrar">Cerrar Sesión</a> </li>
+      </ul>
+    </div>
+  </div>
   
   <!-- Contenedor Secundario -->
   <div class="msgContent">
@@ -34,41 +44,37 @@ if( !isset($_SESSION['user']) ){
     <!-- Encabezado -->
     <header>
       <h1 id="titulo">EVAA</h1>
-      <h2 id ="nombreCurso" class="content-subhead"></h2>
-      <label id ="Periodo" class="content-subhead"></label>
+      <h2 id="hs" class="content-subhead">Mi Grupo</h2>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"><br/>
-      <input type="hidden" id="grupoId" value="<?php echo $_GET['grupoId'] ?>">
-      
-     <div class="evaa-control-group">
-      <label for="Curso">Curso: </label>
-     	<select id="cmbCurso">
-        </select>
-     </div>
-      
-      <div class="evaa-control-group">
-          <label for="ano">Año: </label>
-          <input type="text" name="Anno" id="Anno" value="" size="32" pattern="[0-9]{4}" placeholder="4 dígitos sin guiones" required>
-        </div>
-        
-        <div class="evaa-control-group">
-          <label for="ciclo">Ciclo: </label>
-          <input type="text" name="Ciclo" id="Ciclo" value="" size="32"  required>
-        </div>
-      
-      <div class="flexR">
-        <div id="diAcciones" class="flexC"> 
-        <a id="btnAgregar" class="evaa-button evaa-button-primary" >Agregar </a>
-        <a id="btnEditar" class="evaa-button evaa-button-primary" >Editar </a>
-        <a id="btnEstudiantes" class="evaa-button evaa-button-primary" >Estudiantes </a>
-         <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
+      <div class="flexC">
+        <form id="frmResgistro" class="evaa-form evaa-form-aligned">
+          <input type="hidden" id="grupoId" value="<?php echo $_GET['grupoId'] ?>">
+          <div class="evaa-control-group">
+            <label for="Curso">Curso: </label>
+            <select id="cmbCurso" class="chosen-select" data-placeholder="Elija un curso..." required>
+            </select>
+          </div>
+          <div class="evaa-control-group">
+            <label for="ano">Año: </label>
+            <input type="text" name="Anno" id="Anno" value="" pattern="[0-9]{4}" placeholder="4 dígitos" required>
+          </div>
+          <div class="evaa-control-group">
+            <label for="ciclo">Ciclo: </label>
+            <input type="text" name="Ciclo" id="Ciclo" value="" maxlength="4" placeholder="Obligatorio" required>
+          </div><br/>
+          <div id="diAcciones" class="flexR">
+            <button type="submit" id="btnGuardarGrupo" class="evaa-button evaa-button-primary">Guardar</button>
+            <a id="btnPromedio" class="evaa-button evaa-button-primary" >Estudiantes </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
 <script src="../Scripts/Master.js"></script> 
+<!--<script src="../Scripts/chosen.jquery.min.js"></script> --> 
 <script src="../Scripts/jquery.blockUI.js"></script> 
 <script src="../Scripts/jquery.validate.js"></script>
 </body>

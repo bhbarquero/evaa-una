@@ -108,6 +108,7 @@ header h2 {
 	border-right-width: 1px;
 	float: left;
 	margin-top: 20px;
+	max-height:400px;
 }
 table {
 	overflow-x: auto;
@@ -196,5 +197,6 @@ header, .content {
 	/* Wrap */
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
+	max-height:400px;
 }
 }
