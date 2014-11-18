@@ -16,13 +16,34 @@
 		$GrupoId=$_POST['grupoid'];
 		$FechaInicio=$_POST['fechainicio'];
 		$FechaFinal=$_POST['fechafin'];
-		
+		$Dir=$_POST['dir'];	
+		if($Dir!=""){
 		$consulta="insert into tb_asignaciones
 			(
 				DescripcionA,
 				GrupoId,
 				FechaInicio,
-				FechaFin				
+				FechaFin,
+				Archivo				
+			)
+			values
+			(
+				'$DescripcionA',
+				'$GrupoId',
+				'$FechaInicio',
+				'$FechaFinal',
+				'$Dir'
+			);
+		";
+		}
+		else
+		{
+		$consulta="insert into tb_asignaciones
+			(
+				DescripcionA,
+				GrupoId,
+				FechaInicio,
+				FechaFin,				
 			)
 			values
 			(
@@ -32,6 +53,8 @@
 				'$FechaFinal'
 			);
 		";
+		}
+		
 		
 		
 	if($resultado=mysqli_query($conexion,$consulta))
