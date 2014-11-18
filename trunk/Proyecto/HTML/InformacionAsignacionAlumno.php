@@ -17,7 +17,7 @@ if( !isset($_SESSION['user']) ){
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
 <script src="../Scripts/jquery-2.1.1.min.js"></script>
-<script src="../Scripts/InformacionAsignacion.js" type="text/javascript"></script>
+<script src="../Scripts/InformacionAsignacionAlumno.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -53,18 +53,19 @@ if( !isset($_SESSION['user']) ){
     
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
+    <div class="content"> <br/>
       <form id="frmAsignacion" class="evaa-form evaa-form-stacked flexC" enctype="multipart/form-data">
         <div class="evaa-control-group">
           <label for="name">Descripción </label>
-          <input type="text" id="Descripcion" value="" size="32" placeholder="Obligatorio" required>
+          <input type="text" id="Descripcion" value="" size="32" placeholder="Obligatorio" required readonly>
         </div>
         <div class="evaa-control-group">
           <label for="fechaInicio">Fecha de Inicio </label>
-          <input type="date" id="FechaInicio" value="" size="32" required>
+          <input type="date" id="FechaInicio" value="" size="32" required readonly>
         </div>
         <div class="evaa-control-group">
           <label for="fechaFin">Fecha de Fin</label>
-          <input type="date" id="FechaFin" value="" size="32" required>
+          <input type="date" id="FechaFin" value="" size="32" required readonly>
         </div>
 	<span id="link">
           
@@ -73,13 +74,13 @@ if( !isset($_SESSION['user']) ){
         <label for="fechaFin">Adjuntar archivo:</label>
         <input type="file" name="archivo" id="archivo" value="" size="32">
         <div id="diAcciones" class="flexR">
-          <button type="submit" id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Guardar </button>
-          <a id="btnCalificar" class="evaa-button evaa-button-primary" >Calificar</a>
+          <button type="submit" id="btnEntregar" class="evaa-button evaa-button-primary" >Entregar </button>
+          <button type="submit" id="btnEditar" class="evaa-button evaa-button-primary" >Editar </button>
         </div>
         <input type="hidden" name="Id" id="Id" value=<?php echo $_GET['P'] ?>>
-        <input type="hidden" id="Guardar" value=<?php echo $_GET['G'] ?>>
       </form>
     </div>
+  </div>
 </div>
 <script src="../Scripts/Master.js"></script> 
 <script src="../Scripts/jquery.blockUI.js"></script> 

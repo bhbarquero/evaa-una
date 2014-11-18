@@ -3,38 +3,137 @@ $(document).ready(function(e) {
 	var dir="";
 	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 	
-		if($('#Guardar').val()==0)
-		{
-			dir="../PHP/EditarAsignacion.php";
-			
 		 var parametros=
 				{
 					"asignacionid":$('#Id').val()
 				};
 				$.ajax({
 				data:parametros,
-				url:"../PHP/ConsultarAsignacion.php",
+				url:"../PHP/consultarEntrega.php",
 				type: "POST",
+				
 	
 				success: function(response){
 					var res= response.split(",");
 					$('#Descripcion').val(res[1]);
-					$('#FechaInicio').val(res[4]);
-					$('#FechaFin').val(res[5]);
-					if(res[6]!="")
-					$('#link').html('<a href="'+res[6]+'" target="_blank">Ver archivo</a>')
+					$('#FechaInicio').val(res[2]);
+					$('#FechaFin').val(res[3]);
+					if(res[4]!="N"){
+						$('#btnEntregar').css('display','none');
+					$('#link').html('<a href="'+res[4]+'" target="_blank">Ver archivo</a>')
+					}else{
+					$('#link').css("display","none");
+					$('#btnEditar').css('display','none');}
+					
+					
 				},
 				error: function(response){
 								
-					alert(response);
-					}
+					$.mensajeError("Error al guardar el archivo. "+resopnse,4);
+				}
 			});
-		}
-		else
-		{
-			dir="../PHP/registrarAsignacion.php";
-			$('#btnClificar').css("display","none");
-		}
+			
+			$('#btnEditar').click(function(e) {
+			
+			var formData = new FormData($("#frmAsignacion")[0]);
+			
+				$.ajax({
+				data:formData,
+			cache: false,
+            contentType: false,
+            processData: false,
+			url:"../PHP/subirArchivo.php",
+			type: "POST",
+				
+	
+				success: function(response){
+					var parametros=
+				{
+					"asignacionid":$('#Id').val(),
+					"archivo":response
+				};
+				$.ajax({
+				data:parametros,
+				url:"../PHP/editarEntrega.php",
+				type: "POST",
+				dataType:"json",
+				
+	
+				success: function(response){
+					if(response.TipoMensaje==1){
+					$.mensajeExito(response.Mensaje,4);
+					document.location.reload(true);
+				}
+				else
+					$.mensajeError(response.Mensaje,4);
+				},
+				error: function(response){
+								
+					$.mensajeError("Error al actualizar la entrega. "+response.Mensaje,4);
+				}
+			});
+				},
+				error: function(response){
+								
+					$.mensajeError("Error al actualizar la entrega. "+response.Mensaje,4);
+				}
+			});
+			
+			
+             
+        });
+		
+	
+		
+		$('#btnEntregar').click(function(e) {
+			
+			var formData = new FormData($("#frmAsignacion")[0]);
+			
+				$.ajax({
+				data:formData,
+			cache: false,
+            contentType: false,
+            processData: false,
+			url:"../PHP/subirArchivo.php",
+			type: "POST",
+				
+	
+				success: function(response){
+					var parametros=
+				{
+					"asignacionid":$('#Id').val(),
+					"archivo":response
+				};
+				$.ajax({
+				data:parametros,
+				url:"../PHP/RegistarEntregaAlumno.php",
+				type: "POST",
+				dataType:"json",
+				
+	
+				success: function(response){
+					if(response.TipoMensaje==1){
+					$.mensajeExito(response.Mensaje,4);
+				}
+				else
+					$.mensajeError(response.Mensaje,4);
+				},
+				error: function(response){
+								
+					$.mensajeError("Error al guardar el perfil. "+response.Mensaje,4);
+				}
+			});
+				},
+				error: function(response){
+								
+					$.mensajeError("Error al guardar el perfil. "+response.Mensaje,4);
+				}
+			});
+			
+			
+             
+        });
+		
 	
 	$("#frmAsignacion").validate(
 	{
@@ -69,9 +168,14 @@ $(document).ready(function(e) {
 				success: function(response){
 					
 					if(response.TipoMensaje==1){
-							dir="../PHP/EditarAsignacion.php";
+							
 							$.mensajeExito(response.Mensaje,4);
-							document.location.reload(true);
+							if(dir="../PHP/EditarAsignacion.php")
+							{
+								document.location.reload(true);
+							}
+							else
+							 document.location='../HTML/ListarAsignacionesProfesor';
 						}
 						else
 							$.mensajeError(response.Mensaje,4);
