@@ -41,8 +41,29 @@ if( !isset($_SESSION['user']) ){
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"><br/>
       <input type="hidden" id="grupoId" value="<?php echo $_GET['grupoId'] ?>">
+      
+     <div class="evaa-control-group">
+      <label for="Curso">Curso: </label>
+     	<select id="cmbCurso">
+        </select>
+     </div>
+      
+      <div class="evaa-control-group">
+          <label for="ano">Año: </label>
+          <input type="text" name="Anno" id="Anno" value="" size="32" pattern="[0-9]{4}" placeholder="4 dígitos sin guiones" required>
+        </div>
+        
+        <div class="evaa-control-group">
+          <label for="ciclo">Ciclo: </label>
+          <input type="text" name="Ciclo" id="Ciclo" value="" size="32"  required>
+        </div>
+      
       <div class="flexR">
-        <div id="diAcciones" class="flexC"> <a id="btnPromedio" class="evaa-button evaa-button-primary" >Estudiantes </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
+        <div id="diAcciones" class="flexC"> 
+        <a id="btnAgregar" class="evaa-button evaa-button-primary" >Agregar </a>
+        <a id="btnEditar" class="evaa-button evaa-button-primary" >Editar </a>
+        <a id="btnPromedio" class="evaa-button evaa-button-primary" >Estudiantes </a>
+         <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['profesor'])&&isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
+if(isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -12,17 +12,19 @@ if(isset($_POST['profesor'])&&isset($_POST['cursoid'])&&isset($_POST['anno'])&&i
 		echo "Error al conectar con la BD. ".mysqli_connect_error();
 	}
 	else
-	{
-		$Profesor=$_POST['profesor'];		
+	{	
 		$CursoId=$_POST['cursoid'];
 		$Anno=$_POST['anno'];
 		$Ciclo=$_POST['ciclo'];
+		$GrupoId=$_POST['grupoid'];
 		
-			$consulta="UPDATE tb_persona SET 
-			Profesor='".$Nombre."', 
-			CursoId='".$Apellido."',
-			Anno='".$FechaNacimiento."',
-			Ciclo='".$Direccion."'";
+			$consulta="UPDATE tb_grupo SET 
+			CursoId=".$CursoId.",
+			Anno=".$Anno.",
+			Ciclo='".$Ciclo."'
+			WHERE GrupoId=".$GrupoId;
+			
+			
 			
 			if($resultado=mysqli_query($conexion,$consulta))
 			{

@@ -49,7 +49,7 @@ if( !isset($_SESSION['user']) ){
         <!-- Lista la tabla con los cursos del Profesor --> 
       </div>
       <div class="flexR">
-      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a> 
+      <a id="btnNuevoCurso" type="button" href="infoCursoProfesor.php?grupoId=0" class="evaa-button evaa-button-primary">Nuevo Curso</a> 
       </div>
       </div>
   </div>

@@ -10,7 +10,82 @@ $(document).ready(function(e) {
        $(document.location=url);
     });
 	
-	/*Cargar informacion del grupo*/
+	$('#btnPromedio').click(function(e) {
+        $('#cmbCurso').val(5);
+    });
+	
+	$('#btnEditar').click(function(e) {
+        var parametros=
+			{
+				"anno":$('#Anno').val(),
+				"ciclo":$('#Ciclo').val(),
+				"cursoid":$('#cmbCurso').val(),
+				"grupoid":$('#grupoId').val()
+			};
+
+		$.ajax({
+			data:parametros,
+			url:"../PHP/editarGrupo.php",
+			type: "POST",
+
+			success: function(response){
+				alert(response)
+			},
+			error: function(response){		
+				$.mensajeError("Error desconocido",4);
+				}
+		});
+    });
+	
+	$('#btnAgregar').click(function(e) {
+        var parametros=
+			{
+				"anno":$('#Anno').val(),
+				"ciclo":$('#Ciclo').val(),
+				"cursoid":$('#cmbCurso').val()
+			};
+
+		$.ajax({
+			data:parametros,
+			url:"../PHP/registrarGrupo.php",
+			type: "POST",
+
+			success: function(response){
+				alert(response)
+			},
+			error: function(response){		
+				$.mensajeError("Error desconocido",4);
+				}
+		});
+    });
+	
+	var parametros=
+			{
+			};
+
+		$.ajax({
+			data:parametros,
+			url:"../PHP/CargarCursos.php",
+			type: "POST",
+
+			success: function(response){
+				$('#cmbCurso').html(response);
+			},
+			error: function(response){		
+				$.mensajeError("Error desconocido",4);
+				}
+		});
+	
+	if($('#grupoId').val()==0)
+	{
+		$('#btnEditar').css('display','none');
+		$('#btnAsiganciones').css('display','none');
+		$('#btnPromedio').css('display','none');
+		
+		}
+		else
+		{/*Cargar informacion del grupo*/
+		$('#btnAgregar').css('display','none');
 		var parametros=
 			{
 				"grupo":$('#grupoId').val()
@@ -24,8 +99,9 @@ $(document).ready(function(e) {
 
 			success: function(response){
 				if(response.TipoMensaje==1){
-					$('#Periodo').html(response.Periodo);
-					$('#nombreCurso').html(response.Curso);
+					$('#Ciclo').val(response.Ciclo);
+					$('#Anno').val(response.Anno);
+					$('#cmbCurso').val(response.CursoId);
 				}
 				else
 				$.mensajeError(response.Mensaje,4);
@@ -34,7 +110,10 @@ $(document).ready(function(e) {
 				$.mensajeError("Error desconocido",4);
 				}
 		});
+		}
 });
+
+
 
 $.mensajeExito = function(mensaje, segundos){
 		$(".msgContent").toggleClass("activeExito");

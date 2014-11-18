@@ -2,7 +2,7 @@
 
 //REGISTRAR la dirección
 
-if(isset($_POST['profesor'])&&isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
+if(isset($_POST['cursoid'])&&isset($_POST['anno'])&&isset($_POST['ciclo']))
 // && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
@@ -13,14 +13,22 @@ if(isset($_POST['profesor'])&&isset($_POST['cursoid'])&&isset($_POST['anno'])&&i
 	}
 	else
 	{
-		$Profesor=$_POST['profesor'];		
+		session_start();
+		
+		//$Profesor=$_SESSION["user"];		
 		$CursoId=$_POST['cursoid'];
 		$Anno=$_POST['anno'];
 		$Ciclo=$_POST['ciclo'];
 		
-		$consulta="insert into tb_grupo
+		$consulta2="SELECT Cedula FROM tb_persona WHERE CorreoUsuario='".$_SESSION["user"]."'";
+		if($resultado2=mysqli_query($conexion,$consulta2))
+		{
+			while ($resPro = mysqli_fetch_assoc($resultado2)) {
+				$Profesor=$resPro['Cedula'];
+			}
+			$consulta="insert into tb_grupo
 			(
-				Profesor,
+				Pofesor,
 				CursoId,
 				Anno,
 				Ciclo				
@@ -43,6 +51,12 @@ if(isset($_POST['profesor'])&&isset($_POST['cursoid'])&&isset($_POST['anno'])&&i
 		{
 			echo "Error al Registrar el Grupo ".mysqli_connect_error();
 		}
+		
+			
+		}
+		else
+		{echo "Error Al consultar El profesor";}
+		
 		
 	}
 	//cerrar la conexion
