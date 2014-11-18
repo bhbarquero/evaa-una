@@ -19,7 +19,7 @@
 							
 			$consulta="INSERT INTO tb_matricula
 					   (CorreoUsuario, GrupoId) 
-					   VALUES ('ctenorio@gmail.com',
+					   VALUES ('bbarquero@gmail.com',
 					   			10)";
 				
 			if($resultado=mysqli_query($conexion,$consulta))
@@ -27,6 +27,7 @@
 					$retorno = array(
 					"TipoMensaje" => 1,
 					"Mensaje" =>"Agregado con éxito");
+					echo json_encode($retorno);
 				}
 				else
 				{
