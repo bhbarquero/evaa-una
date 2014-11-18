@@ -16,7 +16,7 @@
 	{
 		
 		$consulta="select u.TipoUsuarioId from tb_usuario u
-					where u.CorreoUsuario = '$Correo.'";
+					where u.CorreoUsuario = '$Correo'";
 		
 		if(mysqli_num_rows($resultado=mysqli_query($conexion,$consulta))>0)
 		{

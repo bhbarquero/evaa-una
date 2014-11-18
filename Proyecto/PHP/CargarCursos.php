@@ -3,7 +3,10 @@
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{	
@@ -14,31 +17,31 @@
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-
-			//$combo="<div class='evaa-control-group'>
-			//	   <label for='curso'>Curso: </label>
-				//   <select name='cmbCurso'>
-			//";
 			
 			while ($resPro = mysqli_fetch_assoc($resultado)) {
-				//$combo=$combo."
 				$combo=$combo."		
 				<option value=".$resPro['CursoId'].">".$resPro['Descripcion']." </option>";			  
 			}
-			//$combo=$combo.="
-			//	</select>
-        		//</div>
-			//";
+			
 			if(mysqli_num_rows($resultado)>0)
 				{
-					echo $combo;}
+					echo $combo;
+				}
 			else
-				{echo "No hay cursos para mostrar";}
+				{
+					$retorno = array(
+						"TipoMensaje" => 2,
+						"Mensaje" => "No hay cursos registrados. ".mysqli_error($conexion));
+					echo json_encode($retorno);
+				}
 			
 		}
 		else
 		{
-			echo "Error al Consultar: ".mysqli_connect_error();
+			$retorno = array(
+				"TipoMensaje" => 2,
+				"Mensaje" => "Error al cargar los cursos. ".mysqli_error($conexion));
+			echo json_encode($retorno);
 		}
 		
 	}
