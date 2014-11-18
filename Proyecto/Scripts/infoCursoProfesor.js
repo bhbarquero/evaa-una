@@ -10,6 +10,10 @@ $(document).ready(function(e) {
        $(document.location=url);
     });
 	
+	$('#btnEstudiantes').click(function(e) {
+        $(document.location="agregarEstudiantes.php?grupoid="+ $('#grupoId').val());
+    });
+	
 	var dir="";
 	
 	$('#frmResgistro').validate(
