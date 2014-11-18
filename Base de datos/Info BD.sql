@@ -125,7 +125,34 @@ INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("5",'Taller');
 INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("6",'Laboratorio');
 INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("7",'Foro');
 
-
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","1","55");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","2","5");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","3","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","4","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","5","5");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","6","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("1","7","15");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","1","60");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","2","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","3","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","4","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","5","20");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","6","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("2","7","20");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","1","50");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","2","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","3","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","4","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","5","20");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","6","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("3","7","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","1","55");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","2","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","3","0");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","4","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","5","10");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","6","15");
+INSERT INTO `tb_porcentajeasignaciones`(`Id_grupo`, `Id_tipoasignacion`, `Porcentaje`) VALUES ("4","7","10");
 
 
 
