@@ -14,6 +14,7 @@ if( !isset($_SESSION['user']) ){
 <!-- Master Page-->
 <link rel="stylesheet" href="../Styles/Master.css">
 <link rel="icon" href="../Imagenes/book.png" sizes="16x16" type="image/png">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
@@ -26,9 +27,23 @@ if( !isset($_SESSION['user']) ){
 <!-- Contenedor Principal -->
 <div id="divPrincipal">
 
-<!-- Ícono de notificación --> 
-<a href="#notif" id="notifLink" class="notif-link"> <span></span> </a>
-<div id="notif"> </div>
+<!-- Menú --> 
+  <a href="#menu" id="menuLink" class="menu-link"> <span></span> </a>
+  <div id="menu">
+  <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?></a>
+
+            <ul>
+                <li id ="aCursos" ><a href="#">Mis Cursos</a></li>
+                <li id="aPerfil" class="menu-item-divided pure-menu-selected"><a href="#">Mi Perfil</a></li>
+
+                <li>
+                    <a href="#" id="aCerrar">Cerrar Sesión</a>
+                </li>
+
+            </ul>
+        </div>
+  </div>
 
 <!-- Contenedor Secundario -->
 <div class="msgContent">

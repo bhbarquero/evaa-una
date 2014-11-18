@@ -1,20 +1,19 @@
 @charset "utf-8";
 /* CSS Document */
 
-#btnNuevoCurso {
-	float: right;
-}
+
 #divResultados {
 	margin: 20px;
-	margin-top: 80px;
+	/*margin-top: 80px;*/
 	text-align: center;
 }
 #divResultados thead {
 	background: #67abb8;
 	color: #FFF;
+	font-weight:bold;
 }
 
-@media (max-width: 48em) {
+/*@media (max-width: 48em) {
 #divResultados {
 	margin: 20px;
 	margin-top: auto;
@@ -25,4 +24,4 @@ input[type="text"], input[type="number"] {
 	float: left;
 	margin: 5px;
 }
-}
+}*/

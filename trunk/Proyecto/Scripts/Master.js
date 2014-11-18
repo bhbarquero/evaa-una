@@ -1,35 +1,87 @@
-(function (window, document) {
+$(document).ready(function(e) {
+
+	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 	
-    var layout   = document.getElementById('divPrincipal'),
-        notif     = document.getElementById('notif'),
-        notifLink = document.getElementById('notifLink');
-
-    function toggleClass(element, className) {
-        var classes = element.className.split(/\s+/),
-            length = classes.length,
-            i = 0;
-
-        for(; i < length; i++) {
-          if (classes[i] === className) {
-            classes.splice(i, 1);
-            break;
-          }
-        }
-         //The className is not found
-        if (length === classes.length) {
-            classes.push(className);
-        }
-
-        element.className = classes.join(' ');
-    }
-
-    notifLink.onclick = function (e) {
-        var active = 'active';
-
+    $('#menuLink').click(function (e) {
         e.preventDefault();
-        toggleClass(layout, active);
-        toggleClass(notifications, active);
-        toggleClass(notificationsLink, active);
-    };
+		$("#divPrincipal").toggleClass("responsivo");
 
-}(this, this.document));
+    });
+	
+	//cerrar sesion
+	$('#aCerrar').click(function(){
+		if (confirm('¿Está seguro que desea salir?')) {
+    		$.ajax({
+				url:"../PHP/CerrarSesion.php",
+	
+				success: function(response){
+					document.location='../HTML/login.php';
+				}
+			});
+		}
+		else{
+			$('#aCerrar').blur();
+		}	
+	});
+	
+	$('#aCursos').click(function(){
+		 $.ajax({			
+			url:"../PHP/obtenerTipoUsuario.php",
+			dataType: 'json',
+			success: function(data){
+				if(data.TipoMensaje==1)
+					if(data.TipoUsuario==1)
+						document.location='../HTML/misCursosProfesor.php';
+					else
+						document.location='../HTML/misCursosAlumno.php';
+				else{
+					$.mensajeError(data.Mensaje, 4);
+				}
+			},
+			error: function(data){
+				$.mensajeError("Error al comprobar el tipo de usuario"+data.Mensaje, 4);
+				}
+			});
+	});
+	
+	$('#aPerfil').click(function(){
+		$.ajax({			
+			url:"../PHP/obtenerTipoUsuario.php",
+			type: "POST",
+			dataType: 'json',
+			success: function(data){
+				if(data.TipoMensaje==1)
+					if(data.TipoUsuario==1)
+						document.location='../HTML/perfilProfesor.php';
+					else
+						document.location='../HTML/perfilAlumno.php';
+				else{
+					$.mensajeError(data.Mensaje, 4);
+				}
+			},
+			error: function(data){
+				$.mensajeError("Error al comprobar el tipo de usuario", 4);
+				}
+			});
+	});
+
+});
+
+
+$.mensajeExito = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeExito");
+		$("#mensaje").html(mensaje);
+		  
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeExito");
+		},segundos*1000);
+	};
+
+$.mensajeError = function(mensaje, segundos){
+		$(".msgContent").toggleClass("activeError");
+		$("#mensaje").html(mensaje);
+		
+		setTimeout(function(){
+			$(".msgContent").removeClass("activeError");
+		},segundos*1000);
+	};
