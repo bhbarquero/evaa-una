@@ -1,9 +1,9 @@
 <?php
 
-	session_start();
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
-	//$Grupo=$_POST['grupoid'];
-	//$Correo=$_POST['correo'];
+	
+	$Grupo=$_POST['grupoid'];
+	$Correo=$_POST['correo'];
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 
 	if(!$conexion)
@@ -18,9 +18,9 @@
 		try{
 							
 			$consulta="INSERT INTO tb_matricula
-					   (CorreoUsuario, GrupoId) 
-					   VALUES ('bbarquero@gmail.com',
-					   			10)";
+					   (CorreoUsuario,GrupoId) 
+					   VALUES ('".$Correo."',
+					   			".$Grupo.")";
 				
 			if($resultado=mysqli_query($conexion,$consulta))
 				{
@@ -33,14 +33,14 @@
 				{
 					$retorno = array(
 						"TipoMensaje" => 2,
-						"Mensaje" => "Error al cargar los datos. ".mysqli_error($conexion));
+						"Mensaje" => "Error al cargar los datos1. ".mysqli_error($conexion));
 					echo json_encode($retorno);
 				}
 		}
 		catch(Exception $e){
 			$retorno = array(
 				"TipoMensaje" => 2,
-				"Mensaje" => "Error al cargar los datos. ".$e);
+				"Mensaje" => "Error al cargar los datos2. ".$e);
 			echo json_encode($retorno);
 		}
 

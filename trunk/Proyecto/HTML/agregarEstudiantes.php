@@ -40,7 +40,7 @@ if( !isset($_SESSION['user']) ){
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"><br/>
 
-      <input type="hidden" id="GrupoId" value="<?php echo $_GET['grupoId'] ?>" >
+      <input type="hidden" id="GrupoId" value="<?php echo $_GET['grupoid'] ?>" >
       <div class="evaa-control-group">
           <label for="Correo">Correo Estudiante: </label>
           <input type="email" name="Correo" id="Correo" value="" size="32" placeholder="Correo" required>
