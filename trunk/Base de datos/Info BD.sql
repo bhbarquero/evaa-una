@@ -117,6 +117,14 @@ INSERT INTO `tb_usuario`(`CorreoUsuario`, `Contraseña`, `TipoUsuarioId`) VALUES 
 INSERT INTO `tb_usuario`(`CorreoUsuario`, `Contraseña`, `TipoUsuarioId`) VALUES ('ctenorio@gmail.com', "carlos","2");
 INSERT INTO `tb_usuario`(`CorreoUsuario`, `Contraseña`, `TipoUsuarioId`) VALUES ('pobando@gmail.com', "peter","2");
 
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("1",'Examen');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("2",'Exposición');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("3",'Quiz');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("4",'Tarea');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("5",'Taller');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("6",'Laboratorio');
+INSERT INTO `tb_tipoasignacion`(`Id`, `Descripcion`) VALUES ("7",'Foro');
+
 
 
 
