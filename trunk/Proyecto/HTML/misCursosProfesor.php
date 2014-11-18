@@ -8,7 +8,7 @@ if( !isset($_SESSION['user']) ){
 }
 ?>
 <meta charset="utf-8">
-<title>Registro de usuario</title>
+<title>Mis cursos - EVAA</title>
 
 <!-- Master -->
 <link rel="stylesheet" href="../Styles/Master.css">
@@ -17,6 +17,7 @@ if( !isset($_SESSION['user']) ){
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
+<link rel="stylesheet" href="../Styles/grids-responsive.css">
 <link rel="stylesheet" href="../Styles/misCursosProfesor.css">
 </head>
 
@@ -39,7 +40,7 @@ if( !isset($_SESSION['user']) ){
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
       <div class="evaa-form">
-        <h2 class="content-subhead">FILTRO:</h2>
+        <h2 class="subtitlo">Búsqueda:</h2>
         <input type="text" id="NomCurso" placeholder="Nombre Curso" class="evaa-input-rounded">
         &nbsp;
         <input id="Ano" type="number" placeholder="Año" min="0" width="20" class="evaa-input-rounded">
@@ -47,7 +48,10 @@ if( !isset($_SESSION['user']) ){
       <div id="divTablaResultados" class="flexC"> 
         <!-- Lista la tabla con los cursos del Profesor --> 
       </div>
-      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a> </div>
+      <div class="flexR">
+      <a id="btnNuevoCurso" type="button" href="nuevoCurso.php" class="evaa-button evaa-button-primary">Nuevo Curso</a> 
+      </div>
+      </div>
   </div>
 </div>
 

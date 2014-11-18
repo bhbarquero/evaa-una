@@ -4,12 +4,28 @@
 	font-family: titulo;
 	src: url(../Fuentes/LeagueGothic-Regular.otf);
 }
+
+@font-face {
+	font-family: helvetica;
+	src: url(../Fuentes/HelveticaLTStd-Light.otf);
+}
+
+*{
+	font-family:helvetica;
+}
 #titulo {
 	color: #67abb8;
 	font-family: titulo;
 	font-size: 48px;
 	margin:0px!important;
 }
+
+.subtitulo{
+	color:#f15b40;
+	font-weight: 300;
+}
+
+
 /*
 IMAGENES
 */
@@ -100,12 +116,6 @@ BOTONES
 FORMS
 */
 
-/*!
-evaa v0.5.0
-Copyright 2014 Yahoo! Inc. All rights reserved.
-Licensed under the BSD License.
-https://github.com/yui/evaa/blob/master/LICENSE.md
-*/
 .evaa-form input[type="text"], .evaa-form input[type="password"], .evaa-form input[type="email"], .evaa-form input[type="url"], .evaa-form input[type="date"], .evaa-form input[type="month"], .evaa-form input[type="time"], .evaa-form input[type="datetime"], .evaa-form input[type="datetime-local"], .evaa-form input[type="week"], .evaa-form input[type="number"], .evaa-form input[type="search"], .evaa-form input[type="tel"], .evaa-form input[type="color"], .evaa-form select, .evaa-form textarea {
 	padding: 0.5em 0.6em;
 	display: inline-block;
@@ -162,10 +172,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	background-color: #eaeded;
 	color: #cad2d3;
 }
-/*
-Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
-since IE8 won't execute CSS that contains a CSS3 selector.
-*/
+
 .evaa-form input:not([type])[disabled] {
 	cursor: not-allowed;
 	background-color: #eaeded;
@@ -213,10 +220,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	display: block;
 	margin: 0.25em 0;
 }
-/*
-Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
-since IE8 won't execute CSS that contains a CSS3 selector.
-*/
+
 .evaa-form-stacked input:not([type]) {
 	display: block;
 	margin: 0.25em 0;
@@ -334,6 +338,8 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	padding: 0.2em 0 0.8em;
 }
 }
+
+
 /*MENSAJES*/
 .msgContent {
 	position: fixed;
@@ -393,6 +399,8 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
+
+
 /*Tablas*/
 
 .evaa-table {
@@ -430,11 +438,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     vertical-align: bottom;
 }
 
-/*
-striping:
-   even - #fff (white)
-   odd  - #f2f2f2 (light gray)
-*/
 .evaa-table td {
     background-color: transparent;
 }

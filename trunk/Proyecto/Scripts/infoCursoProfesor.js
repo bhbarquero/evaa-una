@@ -1,3 +1,4 @@
+// JavaScript Document
 $(document).ready(function(e) {
 	
 	$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
@@ -17,14 +18,13 @@ $(document).ready(function(e) {
 
 		$.ajax({
 			data:parametros,
-			url:"../PHP/consultarGrupoAlumno.php",
+			url:"../PHP/consultarGrupoProfesor.php",
 			type: "POST",
 			dataType: 'json',
 
 			success: function(response){
 				if(response.TipoMensaje==1){
 					$('#Periodo').html(response.Periodo);
-					$('#Profesor').html(response.Profesor);
 					$('#nombreCurso').html(response.Curso);
 				}
 				else
