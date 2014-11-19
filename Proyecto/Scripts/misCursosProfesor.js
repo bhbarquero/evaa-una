@@ -44,7 +44,7 @@ function Listar() {
 		url: "../PHP/listarCursosProfesor.php",
 		type: "POST",
 		beforeSend: function(){
-			$("#divTablaResultados").html("<br/><h2 class='content-subhead'>Cargando...</br>");
+			$("#divTablaResultados").html("<br/><h2 class='content-subhead'>Cargando cursos...</br>");
 		},
 		success: function(response){
 			$("#divTablaResultados").html(response);

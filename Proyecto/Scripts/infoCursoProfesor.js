@@ -34,16 +34,28 @@ $(document).ready(function(e) {
 			dataType: 'json',
 			
 			success: function(response){
+				
 				if(response.TipoMensaje==1){
 					$.mensajeExito(response.Mensaje,4);
-					document.location='../HTML/misCursosProfesor.php';
+					
+					if(dir=="../PHP/registrarGrupo.php"){
+						alert(dir);
+						setTimeout(function(){
+							document.location='../HTML/misCursosProfesor.php';
+							},3000);
+					}
+					else{
+						setTimeout(function(){
+							document.location.reload(true);
+							},3000);
+					}
 				}
 				else{
 					$.mensajeError(response.Mensaje,4);
 				}
 			},
 			error: function(response){		
-				$.mensajeError("Error desconocido"+response.Mensaje,4);
+				$.mensajeError("Error desconocido: "+response.Mensaje,4);
 				}
 			});
 		}
@@ -57,10 +69,13 @@ $(document).ready(function(e) {
 			data:parametros,
 			url:"../PHP/CargarCursos.php",
 			type: "POST",
+			dataType:"json",
 
 			success: function(response){
-				$('#cmbCurso').html(response);
-				//$(".chosen-select").chosen(); 
+				if(response.TipoMensaje==1)
+				$('#cmbCurso').html(response.Mensaje);
+				else
+				$.mensajeError(response.Mensaje,4); 
 			},
 			error: function(response){		
 				$.mensajeError("Error desconocido",4);

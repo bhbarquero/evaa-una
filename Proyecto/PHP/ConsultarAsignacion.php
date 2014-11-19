@@ -3,13 +3,15 @@
 //REGISTRAR la dirección
 
 if(isset($_POST['asignacionid']))
-// && isset($_POST['pass']) && isset($_POST['activo']) && isset($_POST['vence']) && isset($_POST['tiempo']))
 {
 	$conexion=mysqli_connect("localhost","root","","evaa_bd");
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
@@ -24,14 +26,26 @@ if(isset($_POST['asignacionid']))
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
 			while ($resAsig = mysqli_fetch_assoc($resultado)) {
-				echo $resAsig['AsignacionId'].','.$resAsig['DescripcionA'].','.$resAsig['Archivo'].','.$resAsig['GrupoId']
-				.','.$resAsig['FechaInicio'].','.$resAsig['FechaFin'].','.$resAsig['Archivo'];
+				
+				$retorno = array(
+					"TipoMensaje" => 1,
+					"AsignacionId" => $resAsig['AsignacionId'],
+					"Descripcion" => $resAsig['DescripcionA'],
+					"Archivo" => $resAsig['Archivo'],
+					"GrupoId" => $resAsig['GrupoId'],
+					"Inicio" => $resAsig['FechaInicio'],
+					"Final" => $resAsig['FechaFin']);
+				echo json_encode($retorno);
+				
 			}
 			
 		}
 		else
 		{
-			echo "Error al Consultar: ".mysqli_connect_error();
+			$retorno = array(
+					"TipoMensaje" => 2,
+					"Mensaje" => "Error al Consultar: ".mysqli_connect_error());
+				echo json_encode($retorno);
 		}
 		
 	}

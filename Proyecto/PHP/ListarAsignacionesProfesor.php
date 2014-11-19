@@ -25,7 +25,7 @@
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
 			
-			$tabla="<table id='divResultados' class='evaa-table evaa-table-bordered' border='1'>
+			$tabla="<table  class='evaa-table evaa-table-bordered' border='1'>
 			
 				<thead>
 					<tr>						
@@ -62,7 +62,7 @@
 			{
 				$retorno = array(
 					"TipoMensaje" => 1,
-					"Mensaje" => "No hay asiganciones registradas. ".mysqli_error($conexion),
+					"Mensaje" => "<br><br><h2 class='content-subhead'>No hay asiganciones registradas. </h2>",
 					"Curso" => $cur
 				);
 					

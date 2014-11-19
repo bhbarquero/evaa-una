@@ -29,7 +29,7 @@ if( !isset($_SESSION['user']) ){
 <div id="menu">
   <div class="pure-menu pure-menu-open"> <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?> </a>
     <ul>
-      <li id ="aCursos" class="menu-item-divided pure-menu-selected"><a href="#">Mis Cursos</a></li>
+      <li id ="aCursos"><a href="#">Mis Cursos</a></li>
       <li id="aPerfil" ><a href="#">Mi Perfil</a></li>
       <li> <a href="#" id="aCerrar">Cerrar Sesión</a> </li>
     </ul>
@@ -54,7 +54,7 @@ if( !isset($_SESSION['user']) ){
     <div class="content"><br/>
       <input type="hidden" id="grupoId" value="<?php echo $_GET['grupId'] ?>">
       <div class="flexR">
-        <div id="diAcciones" class="flexC"> <a id="btnPromedio" class="evaa-button evaa-button-primary" >Promedios </a> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
+        <div id="diAcciones" class="flexC"> <a id="btnAsiganciones" class="evaa-button evaa-button-primary" >Ver Asignaciones </a> </div>
       </div>
     </div>
   </div>

@@ -15,6 +15,7 @@ $(document).ready(function(e) {
 				if(response.TipoMensaje==1){
 					$('#divTablaResultados').html(response.Mensaje);
 					$('#Curso').html(response.Curso);
+					$('#Periodo').html(response.Periodo);
 				}
 				else
 				{
@@ -24,7 +25,7 @@ $(document).ready(function(e) {
 			},
 			error: function(response){
 							
-				$.mensajeError(response.Mensaje,4);
+				$.mensajeError("Error al cargar las asignaciones. "+response.Mensaje,4);
 			}
 		});
 		

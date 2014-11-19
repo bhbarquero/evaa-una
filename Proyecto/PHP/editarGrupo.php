@@ -30,7 +30,7 @@
 			
 				$retorno = array(
 						"TipoMensaje" => 1,
-						"Mensaje" => "Grupo gurdado con éxito");
+						"Mensaje" => "Grupo guardado con éxito");
 					echo json_encode($retorno);
 				
 			}

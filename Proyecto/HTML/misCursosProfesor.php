@@ -18,7 +18,6 @@ if( !isset($_SESSION['user']) ){
 
 <!-- Adicionales -->
 <link rel="stylesheet" href="../Styles/General.css">
-<link rel="stylesheet" href="../Styles/misCursosProfesor.css">
 </head>
 
 <body>
@@ -58,7 +57,7 @@ if( !isset($_SESSION['user']) ){
       <div id="divTablaResultados" class="dTabla"> 
         <!-- Lista la tabla con los cursos del Profesor --> 
       </div>
-     <div class="flexR">
+     <div class="flexC">
       <a id="btnNuevoCurso" type="button" href="infoCursoProfesor.php?grupoId=0" class="evaa-button evaa-button-primary">Nuevo Curso</a> 
       </div>
       </div>

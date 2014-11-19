@@ -47,11 +47,7 @@ if( !isset($_SESSION['user']) ){
       <h1 id="titulo">EVAA</h1>
       <h2 class="content-subhead">MI ASIGNACION</strong></h2>
     </header>
-    
-    
-    
-    
-    
+
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content"> <br/>
       <form id="frmAsignacion" class="evaa-form evaa-form-stacked flexC" enctype="multipart/form-data">
@@ -67,12 +63,14 @@ if( !isset($_SESSION['user']) ){
           <label for="fechaFin">Fecha de Fin</label>
           <input type="date" id="FechaFin" value="" size="32" required readonly>
         </div>
-	<span id="link">
-          
+	<span><br/></span>
+        <label for="fechaFin">Adjuntar archivo:</label>
+        <input type="file" name="archivo" id="archivo" value="" size="32" required>
+        
+        <span>
+          <br/>
           <label id="link"> </label>
 </span>
-        <label for="fechaFin">Adjuntar archivo:</label>
-        <input type="file" name="archivo" id="archivo" value="" size="32">
         <div id="diAcciones" class="flexR">
           <button type="submit" id="btnEntregar" class="evaa-button evaa-button-primary" >Entregar </button>
           <button type="submit" id="btnEditar" class="evaa-button evaa-button-primary" >Editar </button>

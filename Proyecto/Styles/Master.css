@@ -106,24 +106,6 @@ header h2 {
 .menu-link span:after {
 	margin-top: 0.6em;
 }
-#divTablaResultados {
-	width: 100%;
-	border-left-width: 1px;
-	border-right-width: 1px;
-	float: left;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	max-height:400px;
-}
-table {
-	overflow-x: auto;
-	overflow-y: auto;
-	display: block;
-}
-
-.dTabla{
-	max-height:400px;
-}
 
 #menu {
 	margin-left: -200px; /* "#menu" width */
@@ -196,17 +178,16 @@ header, .content {
 	left: 200px;
 }
 .dTabla {
-	/* flexbox setup */
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	-webkit-justify-content: center;
 	justify-content: center;
-	/* Vertical */	
+
 	-webkit-align-items: center;
 	align-items: center;
-	/* Wrap */
+
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
 	max-height:400px;

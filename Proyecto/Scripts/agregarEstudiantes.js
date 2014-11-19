@@ -23,7 +23,7 @@ $(document).ready(function(e) {
 				$.mensajeError(response.Mensaje,4);
 			},
 			error: function(response){		
-				$.mensajeError("Error desconocido",4);
+				$.mensajeError("Error desconocido "+ response,4);
 				}
 		});
 		}
