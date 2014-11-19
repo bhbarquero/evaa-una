@@ -21,6 +21,13 @@
 }
 * {
 	font-family: helvetica;
+	scrollbar-face-color: #6685CA; 
+scrollbar-highlight-color: #6685CA; 
+scrollbar-shadow-color: #6685CA; 
+scrollbar-3dlight-color:#FFFFFF;
+scrollbar-arrow-color:#FFFFFF; 
+scrollbar-track-color:#E5E5E5; 
+scrollbar-drakshadow-color:#000000;
 }
 #titulo {
 	color: #67abb8;
@@ -357,7 +364,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	overflow: hidden;
 	box-sizing: border-box;
 	-webkit-transition: height 2s;
-	transition: height .2s;
+	  transition:height .2s;
 	z-index: 1000000;
 }
 .activeError {
@@ -370,6 +377,12 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 	padding: 10px;
 	background: #67abb8;
 }
+
+#mensaje:before{
+	display:block;
+  	margin-top:15px;
+}
+
 .flexC {
 	/* flexbox setup */
 	display: -webkit-flex;

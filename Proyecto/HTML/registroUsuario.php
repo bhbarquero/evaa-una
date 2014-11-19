@@ -18,7 +18,7 @@
 <!-- Contenedor Principal -->
 <div id="layout">
   <div class="msgContent">
-    <label id="mensaje"></label>
+    <span id="mensaje"></span>
   </div>
   
   <!-- Contenedor Secundario -->
@@ -44,7 +44,7 @@
           <option value="2">Estudiante</option>
         </select>
         <br/>
-        <input type="submit" id="btnRegistrar" class="evaa-button evaa-button-primary" value="Registrarse">
+        <button type="submit" id="btnRegistrar" class="evaa-button evaa-button-primary" > Registrarse</button>
       </form>
     </div>
   </div>

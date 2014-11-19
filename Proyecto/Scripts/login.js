@@ -32,7 +32,7 @@ $(document).ready(function(e){
 				}
 			},
 			error: function(data){
-				$.mensajeError("Error al validar el usario", 4);
+				$.mensajeError("Error al validar el usario. "+data.Mensaje, 4);
 				}
 			});
 		}
