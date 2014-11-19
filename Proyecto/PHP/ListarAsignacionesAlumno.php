@@ -21,7 +21,7 @@
 				   FROM tb_asignaciones
 				   join tb_grupo on tb_grupo.grupoId = tb_asignaciones.grupoId 
 				   join tb_curso on tb_grupo.CursoId = tb_curso.CursoId
-                   join tb_entregaasiganacion on tb_entregaasiganacion.AsignacionId = tb_asignaciones.AsignacionId and tb_entregaasiganacion.CorreoUsuario='". $_SESSION["user"]."'
+                   left join tb_entregaasiganacion on tb_entregaasiganacion.AsignacionId = tb_asignaciones.AsignacionId and tb_entregaasiganacion.CorreoUsuario='". $_SESSION["user"]."'
 					WHERE tb_asignaciones.GrupoId=".$Grupo;
 		
 	     
