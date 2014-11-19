@@ -4,7 +4,10 @@
 	//COMPROBAR SI HUBO UN ERROR EN LA CONEXION
 	if(mysqli_connect_errno())
 	{
-		echo "2,Error al conectar con la BD. ".mysqli_connect_error();
+		$retorno = array(
+			"TipoMensaje" => 2,
+			"Mensaje" => "Error al conectar con la BD. ".mysqli_connect_error());
+		echo json_encode($retorno);
 	}
 	else
 	{
@@ -28,11 +31,17 @@
 		
 		if($resultado=mysqli_query($conexion,$consulta))
 		{
-			echo "1,Éxito al guardar el usuario. Redirigiendo al login...";
+			$retorno = array(
+				"TipoMensaje" => 1,
+				"Mensaje" => "Éxito al guardar el usuario. Redirigiendo al login...");
+			echo json_encode($retorno);
 		}
 		else
 		{
-			echo "2,Error al guardar el usuario: ".mysqli_error();
+			$retorno = array(
+				"TipoMensaje" => 2,
+				"Mensaje" => "Error al guardar el usuario: ".mysqli_error($conexion));
+			echo json_encode($retorno);
 		}
 		
 	}

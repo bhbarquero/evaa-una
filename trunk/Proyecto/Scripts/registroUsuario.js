@@ -18,25 +18,23 @@ $(document).ready(function(e) {
 						data:parametros,
 						url: "../PHP/registrarUsuario.php",
 						type: "POST",
+						dataType:"json",
 						
 						success: function(response){
-							var r=response.split(",");
-							if(r[0]==1){
-								$.mensajeExito(r[1], 4);
+							$.mensaje(response.TipoMensaje,response.Mensaje,4);
+							if(response.TipoMensaje==1){
 								setTimeout(function(){
 								document.location='../HTML/login.php';
 								},2000);
 							}
-							else
-								$.mensajeError(r[1], 4);
 						},
 						error: function(response){
-							$.mensajeError(response, 4);
+							$.mensaje(2,response, 4);
 							}
 					});
 				}
 				else
-				$.mensajeError("Las contraseñas no coinciden", 4);
+				$.mensaje(2,"Las contraseñas no coinciden", 4);
 		}
 
 	});
@@ -44,20 +42,22 @@ $(document).ready(function(e) {
 });
 
 
-$.mensajeExito = function(mensaje, segundos){
-	$(".msgContent").toggleClass("activeExito");
-	  $("#mensaje").html(mensaje);
+$.mensaje= function(tipo,mensaje, segundos){
+	if(tipo==1){
+		$(".msgContent").toggleClass("activeExito");
+	  	$("#mensaje").html(mensaje);
 	  
-	  setTimeout(function(){
-		$(".msgContent").removeClass("activeExito");
-	  },segundos*1000);
-	};
+	  	setTimeout(function(){
+			$(".msgContent").toggleClass("activeExito");
+	  	},segundos*1000);
+	}
+	if(tipo==2){
+		$(".msgContent").toggleClass("activeError");
+	  	$("#mensaje").html(mensaje);
+	  
+	  	setTimeout(function(){
+			$(".msgContent").toggleClass("activeError");
+	  	},segundos*1000);
+	}
+}
 
-	$.mensajeError = function(mensaje, segundos){
-	  $(".msgContent").toggleClass("activeError");
-	  $("#mensaje").html(mensaje);
-	  
-	  setTimeout(function(){
-		$(".msgContent").removeClass("activeError");
-	  },segundos*1000);
-	};
