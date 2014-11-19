@@ -73,7 +73,7 @@ if( !isset($_SESSION['user']) ){
 </span>
         <div id="diAcciones" class="flexR">
           <button type="submit" id="btnEntregar" class="evaa-button evaa-button-primary" >Entregar </button>
-          <button type="submit" id="btnEditar" class="evaa-button evaa-button-primary" >Editar </button>
+          <!--<button type="submit" id="btnEditar" class="evaa-button evaa-button-primary" >Editar </button>-->
         </div>
         <input type="hidden" name="Id" id="Id" value=<?php echo $_GET['P'] ?>>
       </form>

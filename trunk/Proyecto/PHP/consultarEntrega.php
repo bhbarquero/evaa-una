@@ -14,13 +14,14 @@ if(isset($_POST['asignacionid']))
 	}
 	else
 	{
+		session_start();
 		$AsignacionId=$_POST['asignacionid'];		
 		
 		$consulta="SELECT tb_asignaciones.AsignacionId, tb_asignaciones.DescripcionA ,
 				tb_asignaciones.FechaInicio,tb_asignaciones.FechaFin,  tb_entregaasiganacion.Archivo 
-				  from tb_asignaciones, tb_entregaasiganacion
-				  where tb_entregaasiganacion.AsignacionId='".$AsignacionId."'
-				  AND tb_asignaciones.AsignacionId = tb_entregaasiganacion.AsignacionId";
+				  from tb_asignaciones
+				  left join tb_entregaasiganacion on tb_entregaasiganacion.AsignacionId=tb_asignaciones.AsignacionId and tb_entregaasiganacion.CorreoUsuario='".$_SESSION['user']."'
+                  where tb_asignaciones.AsignacionId=".$AsignacionId;
 		
 	     
 		$respuesta;	
