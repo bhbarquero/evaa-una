@@ -54,7 +54,7 @@ if( !isset($_SESSION['user']) ){
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
-    <div class="content"><br/>
+    <div class="content"><br/><br/>
 <form id="fromAgregar" class="flexR">
       <input type="hidden" id="GrupoId" value="<?php echo $_GET['grupoid'] ?>" >
       <div class="evaa-control-group">

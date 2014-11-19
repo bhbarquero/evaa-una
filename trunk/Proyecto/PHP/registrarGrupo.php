@@ -46,7 +46,7 @@
 			{
 				$retorno = array(
 					"TipoMensaje" => 1,
-					"Mensaje" => "Grupo gurdado con éxito");
+					"Mensaje" => "Grupo guardado con éxito");
 				echo json_encode($retorno);
 			}
 			else
@@ -63,7 +63,7 @@
 		{
 			$retorno = array(
 					"TipoMensaje" => 2,
-					"Mensaje" => "Error al gconsultar el profesor. ".mysqli_error($conexion));
+					"Mensaje" => "Error al consultar el profesor. ".mysqli_error($conexion));
 				echo json_encode($retorno);}
 		
 		

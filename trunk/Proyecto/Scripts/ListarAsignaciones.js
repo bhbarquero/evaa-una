@@ -10,7 +10,9 @@ $(document).ready(function(e) {
 			url:"../PHP/ListarAsignacionesProfesor.php",
 			type: "POST",
 			dataType:"json",
-
+			beforeSend: function(){
+				$('#divTablaResultados').html("<br><br><h2 class='content-subhead'>Cargando asignaciones...</h2>");
+			},
 			success: function(response){
 				if(response.TipoMensaje==1){
 					$('#divTablaResultados').html(response.Mensaje);

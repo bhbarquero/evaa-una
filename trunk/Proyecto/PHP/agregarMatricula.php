@@ -26,21 +26,21 @@
 				{
 					$retorno = array(
 					"TipoMensaje" => 1,
-					"Mensaje" =>"Agregado con éxito");
+					"Mensaje" =>"Estudiante gregado con éxito");
 					echo json_encode($retorno);
 				}
 				else
 				{
 					$retorno = array(
 						"TipoMensaje" => 2,
-						"Mensaje" => "Error al cargar los datos1. ".mysqli_error($conexion));
+						"Mensaje" => "Error agregar al estudiante. ".mysqli_error($conexion));
 					echo json_encode($retorno);
 				}
 		}
 		catch(Exception $e){
 			$retorno = array(
 				"TipoMensaje" => 2,
-				"Mensaje" => "Error al cargar los datos2. ".$e);
+				"Mensaje" => "Error agregar al estudiante. ".$e);
 			echo json_encode($retorno);
 		}
 

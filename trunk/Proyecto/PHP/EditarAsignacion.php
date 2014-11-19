@@ -15,11 +15,9 @@
 		$AsignacionId=$_POST['asignacionid'];
 		$DescripcionA=$_POST['descripciona'];
 		$Dir=$_POST['dir'];		
-		//$Archivo=$_POST['archivo'];
-		//$GrupoId=$_POST['grupoid'];
 		$FechaInicio=$_POST['fechainicio'];
 		$FechaFinal=$_POST['fechafin'];
-		//Archivo='".$Archivo."',
+
 		if($Dir!=""){
 			$consulta="UPDATE tb_asignaciones SET 
 			DescripcionA='".$DescripcionA."', 
@@ -42,7 +40,7 @@
 			
 				$retorno = array(
 						"TipoMensaje" => 1,
-						"Mensaje" => "Asignacion guardada con éxito");
+						"Mensaje" => "Asignacion actualizada con éxito");
 					echo json_encode($retorno);
 				
 			}
@@ -50,7 +48,7 @@
 			{
 				$retorno = array(
 					"TipoMensaje" => 2,
-					"Mensaje" => "Error al guardar la asignacion. ".mysqli_error($conexion));
+					"Mensaje" => "Error al actualizar la asignacion. ".mysqli_error($conexion));
 				echo json_encode($retorno);
 			}
 		

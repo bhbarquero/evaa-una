@@ -62,14 +62,14 @@
 			
 				$retorno = array(
 						"TipoMensaje" => 1,
-						"Mensaje" => "Asignacion guardada con éxito");
+						"Mensaje" => "Asignacion registrada con éxito");
 					echo json_encode($retorno);
 	}
 	else
 	{
 			$retorno = array(
 					"TipoMensaje" => 2,
-					"Mensaje" => "Error al guardar la asignacion. ".mysqli_error($conexion));
+					"Mensaje" => "Error al registrar la asignacion. ".mysqli_error($conexion));
 				echo json_encode($retorno);
 	}
 		

@@ -19,7 +19,7 @@
 		if ($result = mysql_query($consulta, $link)) {	
 			if (mysql_num_rows($result = mysql_query($consulta, $link))>0){ 
 				$tabla ="
-				<table id='divResultados' class='evaa-table evaa-table-bordered' border = '1'>
+				<table class='evaa-table evaa-table-bordered' border = '1'>
 				<thead>
 					<tr>						
 						<th>Curso</th>
@@ -33,7 +33,7 @@
 					$tabla= $tabla."
 					<td class='evaa-odd'>".$row[0]."</td>
 					<td class='evaa-odd'>".$row[1]."</td>
-					<td class='evaa-table-odd'><a href=".'../HTML/InfoCursoAlumno.php?grupId='.$row[3]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
+					<td class='evaa-table-odd'><a href=".'../HTML/ListarAsignacionesAlumno.php?grupId='.$row[3]."><img class='Buscar' src='../Imagenes/buscar.png' title='Consultar'> </a>
 						</td>   
 						
 					</tr>";

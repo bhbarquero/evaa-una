@@ -60,20 +60,25 @@ if( !isset($_SESSION['user']) ){
         </div>
         <div class="evaa-control-group">
           <label for="fechaInicio">Fecha de Inicio </label>
-          <input type="date" id="FechaInicio" value="" size="32" required>
+          <input type="date" id="FechaInicio" value="" size="32" placeholder="aaaa/mm/dd" required>
         </div>
         <div class="evaa-control-group">
           <label for="fechaFin">Fecha de Fin</label>
-          <input type="date" id="FechaFin" value="" size="32" required>
+          <input type="date" id="FechaFin" value="" size="32" placeholder="aaaa/mm/dd" required>
         </div>
-	<span id="link">
-          
+	<span >
+    	<br/>
+        </span>
+        <label for="fechaFin" >Adjuntar archivo:</label>
+        <input type="file" name="archivo" id="archivo" value="" size="32" class="evaa-button">
+        
+        <span >
+        <br/>
           <label id="link"> </label>
-</span>
-        <label for="fechaFin">Adjuntar archivo:</label>
-        <input type="file" name="archivo" id="archivo" value="" size="32">
+          <br/>
+		</span>
         <div id="diAcciones" class="flexR">
-          <button type="submit" id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Guardar </button>
+          <button type="submit" id="btnInsertarAsignacion" class="evaa-button evaa-button-primary" >Actualizar </button>
           <a id="btnCalificar" class="evaa-button evaa-button-primary" >Calificar</a>
         </div>
         <input type="hidden" name="Id" id="Id" value=<?php echo $_GET['P'] ?>>

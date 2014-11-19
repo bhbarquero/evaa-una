@@ -29,7 +29,7 @@ $(document).ready(function(e) {
 				},
 				error: function(response){
 								
-					$.mensajeError("Error al guardar el archivo. "+resopnse,4);
+					$.mensajeError("Error al cargar la asignación. "+resopnse,4);
 				}
 			});
 			
@@ -39,43 +39,47 @@ $(document).ready(function(e) {
 			
 				$.ajax({
 				data:formData,
-			cache: false,
-            contentType: false,
-            processData: false,
-			url:"../PHP/subirArchivo.php",
-			type: "POST",
-				
-	
-				success: function(response){
-					var parametros=
-				{
-					"asignacionid":$('#Id').val(),
-					"archivo":response
-				};
-				$.ajax({
-				data:parametros,
-				url:"../PHP/editarEntrega.php",
+				cache: false,
+            	contentType: false,
+            	processData: false,
+				url:"../PHP/subirArchivo.php",
 				type: "POST",
-				dataType:"json",
 				
 	
 				success: function(response){
-					if(response.TipoMensaje==1){
-					$.mensajeExito(response.Mensaje,4);
-					document.location.reload(true);
-				}
-				else
-					$.mensajeError(response.Mensaje,4);
+					
+					var parametros=
+					{
+						"asignacionid":$('#Id').val(),
+						"archivo":response
+					};
+					
+					/*----GUARDA LA ENTREGA-----*/
+					$.ajax({
+					data:parametros,
+					url:"../PHP/editarEntrega.php",
+					type: "POST",
+					dataType:"json",
+					
+		
+					success: function(response){
+						if(response.TipoMensaje==1){
+						$.mensajeExito(response.Mensaje,4);
+						document.location.reload(true);
+					}
+					else
+						$.mensajeError(response.Mensaje,4);
+					},
+					error: function(response){
+									
+						$.mensajeError("Error al actualizar la entrega. "+response.Mensaje,4);
+					}
+					});
+					/*---------------------------------------------------------*/
 				},
 				error: function(response){
-								
-					$.mensajeError("Error al actualizar la entrega. "+response.Mensaje,4);
-				}
-			});
-				},
-				error: function(response){
-								
-					$.mensajeError("Error al actualizar la entrega. "+response.Mensaje,4);
+									
+					$.mensajeError("Error al Ssubir el archivo. "+response.Mensaje,4);
 				}
 			});
 			

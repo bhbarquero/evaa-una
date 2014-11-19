@@ -1,16 +1,5 @@
 /* CSS Document */
 
-#divTablaResultados {
-	margin: 20px;
-	/*margin-top: 80px;*/
-	text-align: center;
-	
-}
-#divTablaResultados thead {
-	background: #67abb8;
-	color: #FFF;
-}
-
 @font-face {
 	font-family: titulo;
 	src: url(../Fuentes/LeagueGothic-Regular.otf);
@@ -471,4 +460,27 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 }
 .evaa-table-horizontal tbody > tr:last-child td {
 	border-bottom-width: 0;
+}
+
+#divTablaResultados {
+	width: 100%;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	max-height:350px;
+}
+
+
+table {
+	width:auto;
+	overflow-x: auto;
+	overflow-y: auto;
+	display: block;
+}
+
+#divTablaResultados thead {
+	background: #67abb8;
+	color: #FFF;
 }

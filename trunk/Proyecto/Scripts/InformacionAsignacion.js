@@ -15,14 +15,18 @@ $(document).ready(function(e) {
 				data:parametros,
 				url:"../PHP/ConsultarAsignacion.php",
 				type: "POST",
+				dataType:"json",
 	
 				success: function(response){
-					var res= response.split(",");
-					$('#Descripcion').val(res[1]);
-					$('#FechaInicio').val(res[4]);
-					$('#FechaFin').val(res[5]);
-					if(res[6]!="")
-					$('#link').html('<a href="'+res[6]+'" target="_blank">Ver archivo</a>')
+					if(response.TipoMensaje==1){
+						$('#Descripcion').val(response.Descripcion);
+						$('#FechaInicio').val(response.Inicio);
+						$('#FechaFin').val(response.Final);
+						if(response.Archivo!="")
+						$('#link').html('<a href="'+response.Archivo+'" target="_blank">Ver archivo</a>')
+					}
+					else
+						$.mensajeError(response.Mensaje,4);
 				},
 				error: function(response){
 								
@@ -55,6 +59,8 @@ $(document).ready(function(e) {
 			type: "POST",
 
 			success: function(response){
+				
+				/*----------GUARDA LA ASIGNACION----------------*/
 				var parametros=
 				{
 					"dir":response,
@@ -78,22 +84,28 @@ $(document).ready(function(e) {
 							$.mensajeExito(response.Mensaje,4);
 							if(dir="../PHP/EditarAsignacion.php")
 							{
-								document.location.reload(true);
+								setTimeout(function(){
+									document.location.reload(true);}
+									,1500);
 							}
 							else
-							 document.location='../HTML/ListarAsignacionesProfesor';
+								setTimeout(function(){
+									document.location='../HTML/ListarAsignacionesProfesor';
+									},1500);
+							 
 						}
 						else
 							$.mensajeError(response.Mensaje,4);
 				},
-				error: function(response){		
-					$.mensajeError("Error al guardar. "+response.Mensaje,4);
+				error: function(response){
+					$.mensajeError("Error al guardar la asignación. "+response.Mensaje,4);
 					}
 				});
+				/*------------------------------------------------------------*/
 			},
 			error: function(response){
 							
-				alert(response);
+				$.mensajeError("Error al guardar el archivo. "+response,4);
 				}
 		});
 			

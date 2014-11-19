@@ -20,7 +20,7 @@
 		
 			if (mysql_num_rows($result = mysql_query($consulta, $link))>0){ 
 				$tabla ="
-				<table id='divResultados' class='evaa-table evaa-table-bordered' border = '1'>
+				<table class='evaa-table evaa-table-bordered' border = '1'>
 				<thead>
 					<tr>						
 						<th>Curso</th>

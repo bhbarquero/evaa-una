@@ -30,7 +30,7 @@ if( !isset($_SESSION['user']) ){
   <div id="menu">
     <div class="pure-menu pure-menu-open"> <a class="pure-menu-heading" href="#"><?php echo  $_SESSION['user']?> </a>
       <ul>
-        <li id ="aCursos" class="menu-item-divided pure-menu-selected"><a href="#">Mis Cursos</a></li>
+        <li id ="aCursos"><a href="#">Mis Cursos</a></li>
         <li id="aPerfil" ><a href="#">Mi Perfil</a></li>
         <li> <a href="#" id="aCerrar">Cerrar Sesión</a> </li>
       </ul>
@@ -42,13 +42,17 @@ if( !isset($_SESSION['user']) ){
     <!-- Encabezado -->
     <header>
       <h1 id="titulo">EVAA</h1>
-      <h2 id="Curso" class="content-subhead"></strong></h2>
+      <h2 class="content-subhead">Asignaciones</strong></h2>
+      <label class="content-subhead" id="Curso"></label>
+      &nbsp;
+      <label id ="Periodo" class="content-subhead"></label>
+      <label id ="Profesor" class="content-subhead"></label>
+      <br/>
     </header>
     
     <!-- Contenedor Terciario (aquí va el contenido propio de cada página) -->
     <div class="content">
       <div class="evaa-form">
-        <h2 class="subtitulo">Asignaciones</h2>
         <div id="divTablaResultados" class="dTabla"> 
           <!-- Lista la tabla con los cursos del Profesor --> 
         </div>

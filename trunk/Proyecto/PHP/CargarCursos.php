@@ -17,15 +17,17 @@
 			
 	if($resultado=mysqli_query($conexion,$consulta))
 		{
-			
+			$combo="";
 			while ($resPro = mysqli_fetch_assoc($resultado)) {
-				$combo=$combo."		
-				<option value=".$resPro['CursoId'].">".$resPro['Descripcion']." </option>";			  
+				$combo = $combo."<option value=".$resPro['CursoId'].">".$resPro['Descripcion']." </option>";			  
 			}
 			
 			if(mysqli_num_rows($resultado)>0)
 				{
-					echo $combo;
+					$retorno = array(
+						"TipoMensaje" => 1,
+						"Mensaje" => $combo);
+					echo json_encode($retorno);
 				}
 			else
 				{

@@ -18,11 +18,14 @@ $(document).ready(function(e) {
 			url:"../PHP/listarEntrega.php",
 			type: "POST",
 
+			beforeSend: function(){
+				$('#divTablaResultados').html("<br><br><h2 class='content-subhead'>Cargando entregas...</h2>");
+			},
 			success: function(response){
 				$('#divTablaResultados').html(response);
 			},
 			error: function(response){		
-				$.mensajeError("Error desconocido",4);
+				$.mensajeError("Error desconocido "+ response,4);
 				}
 		});
 	
@@ -42,11 +45,10 @@ $(document).ready(function(e) {
 
 			success: function(response){
 				if(response.TipoMensaje==1){
-				$.mensajeExito(response.Mensaje,4);
-				setTimeout(function(){document.location.reload(true);},4000);
+				document.location.reload(true);
 				}
 				else{
-				$.mensajeError("Error desconocido" +response.Mensaje,4);}
+				$.mensajeError("Error al calificar la asignacion. " +response.Mensaje,4);}
 			},
 			error: function(response){		
 				$.mensajeError("Error desconocido"+response.Mensaje,4);
